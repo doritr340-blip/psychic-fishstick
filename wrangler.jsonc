@@ -1,0 +1,11 @@
+// Lets Cloudflare deploy from the repository root too; the app itself lives in luz-yomi/.
+// Keep in sync with luz-yomi/wrangler.jsonc.
+{
+  "name": "psychic-fishstick",
+  "main": "luz-yomi/src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": "./luz-yomi/public", "binding": "ASSETS" },
+  "durable_objects": { "bindings": [{ "name": "DEVICE", "class_name": "Device" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Device"] }],
+  "observability": { "enabled": true }
+}
