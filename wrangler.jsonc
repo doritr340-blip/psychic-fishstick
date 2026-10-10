@@ -1,11 +1,19 @@
-// Lets Cloudflare deploy from the repository root too; the app itself lives in luz-yomi/.
-// Keep in sync with luz-yomi/wrangler.jsonc.
+// The Worker Cloudflare deploys from this repository: worker.js routes /m/* to the
+// Messenger alerts and everything else to the לו״ז יומי app in luz-yomi/.
 {
   "name": "psychic-fishstick",
-  "main": "luz-yomi/src/worker.js",
+  "main": "worker.js",
   "compatibility_date": "2025-09-01",
   "assets": { "directory": "./luz-yomi/public", "binding": "ASSETS" },
-  "durable_objects": { "bindings": [{ "name": "DEVICE", "class_name": "Device" }] },
-  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Device"] }],
+  "durable_objects": {
+    "bindings": [
+      { "name": "DEVICE", "class_name": "Device" },
+      { "name": "ALERTS", "class_name": "AlertsHub" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["Device"] },
+    { "tag": "v2", "new_sqlite_classes": ["AlertsHub"] }
+  ],
   "observability": { "enabled": true }
 }
