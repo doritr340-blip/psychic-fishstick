@@ -547,6 +547,124 @@ html.has-save .fab{bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 
 .sndbar{position:fixed;z-index:19;inset-inline-start:12px;bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 10px);background:var(--sheet);color:var(--fg);border:1px solid var(--line);border-radius:99px;box-shadow:0 6px 20px var(--shadow);display:flex;align-items:center;gap:2px;padding-inline:14px 2px;min-height:46px;font-weight:500;font-size:.95rem;max-width:calc(100% - 24px)}
 .sndbar.up{bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 84px)}
 
+/* ---------- my day (home) ---------- */
+.hero-acts{display:flex;gap:2px;flex:none}
+.focus{background:var(--card);border-radius:22px;padding:16px;box-shadow:0 1px 2px var(--sh-s),0 6px 18px var(--sh-s);display:flex;flex-direction:column;gap:10px}
+.focus.now{background:var(--c-blue)}
+.focus.brk{background:var(--c-green)}
+.f-label{font-size:.88rem;font-weight:600;color:var(--fg-2)}
+.f-title{font-size:1.55rem;font-weight:700;line-height:1.25;overflow-wrap:anywhere;text-wrap:balance}
+.f-meta{display:flex;flex-wrap:wrap;gap:2px 12px;color:var(--fg-2);font-size:1rem}
+.f-meta b{color:var(--fg);font-weight:600}
+.f-acts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.f-acts .btn{min-height:56px;padding:0 8px;font-size:1.02rem}
+.f-acts .btn:first-child{grid-column:1 / -1;min-height:60px;font-size:1.15rem}
+.rest-h{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.rest-h .grp{margin:0}
+.rest-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.rest-list li{display:flex;gap:12px;align-items:baseline;padding:10px 2px;border-bottom:1px solid var(--line)}
+.rest-list .tnum{color:var(--fg-2);min-width:3.1rem;flex:none}
+.rest-list li.brk{background:var(--c-green);border-radius:10px;padding-inline:8px;border-bottom-color:transparent;margin-top:2px}
+.brk-l{color:var(--ok);font-weight:600;font-size:.9rem}
+.home-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:22rem){.home-row{grid-template-columns:1fr}}
+html.fs-xl .home-row{grid-template-columns:1fr}
+.big-btn{display:flex;align-items:center;gap:10px;width:100%;min-height:60px;padding:8px 12px;border:0;border-radius:18px;background:var(--card);color:var(--fg);font-weight:600;font-size:1.02rem;line-height:1.3;text-align:start;box-shadow:0 1px 2px var(--sh-s),0 4px 14px var(--sh-s)}
+.big-btn .ti{width:40px;height:40px;border-radius:13px}
+.big-btn .ti svg{width:22px;height:22px}
+.big-btn.mint{--tib:var(--tm-bg);--tic:var(--tm);background:var(--calm)}
+.big-btn.amber{--tib:var(--ta-bg);--tic:var(--ta)}
+.big-btn[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--ta)}
+.low-bar{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;background:var(--c-yellow);border-radius:16px;padding:12px 14px}
+.low-bar>div{flex:1 1 100%;min-width:0;display:flex;flex-direction:column;gap:2px}
+.low-bar p{line-height:1.5}
+.todo.brk .todo-main{background:var(--c-green)}
+.moved{color:var(--blue-ink);font-weight:500}
+/* ---------- panels ---------- */
+.sheet.short{height:auto;max-height:92%}
+.panel-h{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-block:8px;padding-inline:20px 10px;border-bottom:1px solid var(--line)}
+.panel-h .h3{margin:0;font-size:1.25rem;outline:none}
+.panel-h .icon-btn{margin:0}
+.big-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.big-row{width:100%;display:grid;grid-template-columns:2.6rem minmax(0,1fr);gap:12px;align-items:center;min-height:64px;padding:10px 14px;border:1.5px solid var(--line);border-radius:16px;background:var(--bg);color:var(--fg);text-align:start}
+.big-row:hover{background:var(--hover)}
+.big-row .tr-ic{font-size:1.7rem}
+.big-row.info{background:var(--c-blue);border-color:transparent}
+.big-row.info:hover{background:var(--c-blue)}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.opts.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.opt{min-height:64px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);font-weight:500;font-size:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:6px 4px;line-height:1.25;text-align:center}
+.opt span{font-size:1.45rem;line-height:1}
+.opt small{font-size:.82rem;font-weight:400;color:var(--fg-2)}
+.opt[aria-pressed="true"]{border-color:var(--blue);background:var(--c-blue);font-weight:600;box-shadow:inset 0 0 0 1px var(--blue)}
+.pain{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.pain button{min-height:48px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);font-weight:600;font-size:1.05rem;padding:0 2px}
+.pain button.skip{font-weight:500;font-size:.92rem}
+.pain button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.pn-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:6px}
+.saved{display:inline-flex;align-items:center;gap:6px;color:var(--ok);font-weight:600}
+.saved svg{width:16px;height:16px}
+.mv-pre{border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.mv-pre.warn{border-color:var(--partial);background:var(--c-yellow)}
+.mv-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.mv-row{border:1.5px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.mv-row.warn{border-color:var(--partial)}
+.mv-t{display:flex;justify-content:space-between;gap:4px 10px;flex-wrap:wrap;font-weight:600}
+.mv-w{color:var(--danger);font-size:.92rem;font-weight:500}
+.mv-row .seg{display:grid;grid-template-columns:1fr 1fr}
+.mv-row .seg button{padding:0 8px}
+/* ---------- practice flow ---------- */
+.prep{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.prep li{display:flex;gap:10px;align-items:flex-start;background:var(--card);border-radius:14px;padding:12px 14px;line-height:1.5;text-align:start}
+.prep li span:first-child{font-size:1.3rem;line-height:1.3;flex:none}
+.px-tm{display:flex;flex-direction:column;align-items:center;gap:10px}
+.px-tm .ring{width:9rem;height:9rem}
+.rt-row.two-eq{grid-template-columns:1fr 1fr}
+.say{align-self:center}
+.rest-big{font-size:clamp(3rem,16vw,4.5rem);font-weight:700;text-align:center;color:var(--ok);line-height:1;margin-top:auto;font-variant-numeric:tabular-nums}
+.sum-box{display:flex;flex-direction:column;gap:8px;text-align:start}
+.offer{background:var(--card);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:8px}
+/* ---------- autosave ---------- */
+.savechip{position:fixed;z-index:24;inset-inline:0;margin-inline:auto;width:max-content;max-width:calc(100% - 150px);bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 14px);background:var(--fg);color:var(--bg);border-radius:99px;padding-inline:14px 8px;min-height:44px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem;box-shadow:0 6px 18px var(--shadow)}
+.savechip svg{width:16px;height:16px;flex:none}
+.savechip .toast-act{min-height:40px;padding:0 8px}
+/* ---------- goals: meaning and progress ---------- */
+.goal.half .box{background:var(--partial);border-color:var(--partial);color:var(--fg);font-size:.8rem;font-weight:700}
+.goal-next{font-size:.92rem;color:var(--fg-2);overflow-wrap:anywhere}
+.g-half{min-height:44px;padding:0 10px;font-size:.9rem;flex:none}
+.g-half[aria-pressed="true"]{background:var(--partial);color:var(--fg)}
+.glog{list-style:none;margin:0;padding:0}
+.glog li{display:flex;align-items:center;gap:8px;padding:4px 2px;border-bottom:1px solid var(--line)}
+.glog li span:first-child{flex:1;min-width:0;overflow-wrap:anywhere}
+.chk-list{list-style:none;margin:0;padding:0}
+.chk-list li{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2px 10px;padding:8px 2px;border-bottom:1px solid var(--line);font-size:.95rem}
+/* ---------- accessibility: larger targets, calmer motion ---------- */
+.btn{min-height:48px}
+.btn.sq{width:48px}
+.x{width:48px;height:48px}
+.cbx{width:48px;height:48px}
+.seg button{min-height:48px}
+.chip{min-height:44px}
+.link{min-height:44px}
+.icon-btn{width:48px;height:48px}
+.g-plus{width:48px;height:48px}
+.todo-main,.goal-main{min-height:48px}
+.px-b{min-height:48px}
+.pill-btn{min-height:44px}
+.prop-inline{min-height:52px}
+.hw-mini{min-height:44px}
+.toast-act{min-height:40px;padding:0 4px}
+.switch{width:54px;height:32px}
+.switch::after{width:26px;height:26px}
+.switch[aria-checked="true"]::after{inset-inline-start:25px}
+.alert-emoji{animation:none}
+html.rm *,html.rm *::before,html.rm *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html.rm .orb.in,html.rm .orb.out{transform:scale(.8)!important}
+html.rm .tile:active{transform:none}
+/* messages sit above the bottom bar, clear of the buttons at the top; over full screens they go back to the top */
+.toast{top:auto;bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 88px)}
+html.locked .toast{top:calc(env(safe-area-inset-top,0px) + 12px);bottom:auto}
+
 @media (prefers-reduced-motion:reduce){
   .alert,.alert-emoji{animation:none}
   .orb{transition:none!important}
@@ -703,6 +821,20 @@ const WK_IDS = WORKOUTS.map(w => w.id);
 const MOODS = [[1, '😞', 'קשה מאוד'], [2, '😕', 'קשה'], [3, '😐', 'ככה ככה'], [4, '🙂', 'טוב'], [5, '😊', 'טוב מאוד']];
 const MOOD_EMOJI = Object.fromEntries(MOODS.map(([v, e]) => [v, e]));
 const MOOD_LABEL = Object.fromEntries(MOODS.map(([v, , l]) => [v, l]));
+const ENERGY = [['low', '🪫', 'נמוכה'], ['mid', '🔋', 'בינונית'], ['high', '⚡', 'גבוהה']];
+const FEEL = [['hard', '😕', 'קשה לי'], ['so', '😐', 'ככה־ככה'], ['ok', '🙂', 'בסדר']];
+const ENERGY_L = Object.fromEntries(ENERGY.map(x => [x[0], x[2]])), FEEL_L = Object.fromEntries(FEEL.map(x => [x[0], x[2]]));
+const FIX_TAGS = ['טיפול', 'בדיקה', 'תרופות', 'ארוחה', 'ביקור'], ESS_TAGS = ['טיפול', 'בדיקה', 'תרופות', 'ארוחה'];
+const fixDefault = tag => FIX_TAGS.includes(tag) ? 'fixed' : 'flex';
+const essDefault = (tag, mode) => mode === 'every' || ESS_TAGS.includes(tag);
+const PREP_LINES = [
+  ['💧', 'שותים קצת לפני, אלא אם הצוות קבע הגבלת נוזלים.'],
+  ['🪑', 'תנוחה נוחה ויציבה, בכיסא או במיטה.'],
+  ['✋', 'לא מכריחים תנועה. אם תרגיל כואב באופן חריג, מדלגים עליו.'],
+  ['⚠️', 'כאב ראש פתאומי וחזק, הסמקה או הזעה בפנים ובצוואר: עוצרים וקוראים מיד לצוות.']
+];
+const HOW_WAS = [['easy', '🙂', 'קל'], ['fit', '👌', 'מתאים'], ['hard', '😮‍💨', 'קשה']];
+const RESULT = [['full', 'בוצע מלא'], ['part', 'בוצע חלקית'], ['stop', 'נעצר']];
 const FEELINGS = ['עצב', 'כעס', 'פחד', 'דאגה', 'תסכול', 'בדידות', 'חוסר אונים', 'אשמה', 'בושה', 'בלבול', 'עייפות', 'כאב', 'געגוע', 'עומס', 'שקט', 'הקלה', 'תקווה', 'הכרת תודה', 'גאווה', 'שמחה', 'אהבה', 'סקרנות', 'ביטחון'];
 const JPROMPTS = [
   'מה עובר עליי עכשיו, במילים פשוטות?',
@@ -1064,11 +1196,15 @@ const IC = {
   download: sv('<path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19.5h14"/>'),
   upload: sv('<path d="M12 15V4M7.5 8.5L12 4l4.5 4.5M5 19.5h14"/>'),
   link: sv('<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'),
-  volume: sv('<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>')
+  volume: sv('<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>'),
+  type: sv('<path d="M3 18.5L8 5.5l5 13M5 14h6"/><circle cx="17.5" cy="15.5" r="3"/><path d="M20.5 12.5v6"/>'),
+  pause: sv('<path d="M9 5.5v13M15 5.5v13"/>', 2.4),
+  replay: sv('<path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 4.5v4h4"/>'),
+  battery: sv('<rect x="2.5" y="7.5" width="16.5" height="9" rx="2.2"/><path d="M21.5 10.5v3M6 10.5v3"/>')
 };
 
 /* ---------- model ---------- */
-const DEFAULT_STATE = { v: 3, updatedAt: 0, title: TITLE, name: '', waterGoal: 0, breathMin: 1, showWater: true, showBreath: true, cheers: { on: true, time: '08:30', lines: [], by: [] }, items: [], goals: [], approved: [], program: { title: '', ex: [] }, library: [], contentAt: 0 };
+const DEFAULT_STATE = { v: 3, updatedAt: 0, title: TITLE, name: '', waterGoal: 0, breathMin: 1, showWater: true, showBreath: true, cheers: { on: true, time: '08:30', lines: [], by: [] }, items: [], goals: [], approved: [], program: { title: '', ex: [], prep: '' }, library: [], contentAt: 0 };
 function normStep(st) {
   if (!st || typeof st !== 'object') return null;
   const t = String(st.t || '').replace(/\s+/g, ' ').trim().slice(0, 120);
@@ -1096,6 +1232,8 @@ function normItem(x) {
     until: /^\d{4}-\d\d-\d\d$/.test(x.until || '') ? x.until : '',
     src: String(x.src || '').slice(0, 80)
   };
+  it.fix = x.fix === 'fixed' || x.fix === 'flex' ? x.fix : fixDefault(it.tag);
+  it.ess = typeof x.ess === 'boolean' ? x.ess : essDefault(it.tag, it.mode);
   return it.title.trim() ? it : null;
 }
 function normGoal(x) {
@@ -1104,7 +1242,10 @@ function normGoal(x) {
     id: String(x.id || uid()), title: String(x.title || '').replace(/\s+/g, ' ').trim().slice(0, 140),
     period: PERIOD_ADJ[x.period] ? x.period : 'day',
     target: Math.min(99, Math.max(1, parseInt(x.target, 10) || 1)),
-    unit: String(x.unit || '').trim().slice(0, 30), note: String(x.note || '').slice(0, 4000)
+    unit: String(x.unit || '').trim().slice(0, 30), note: String(x.note || '').slice(0, 4000),
+    why: String(x.why || '').slice(0, 1000), next: String(x.next || '').replace(/\s+/g, ' ').trim().slice(0, 200),
+    review: /^\d{4}-\d\d-\d\d$/.test(x.review || '') ? x.review : '',
+    log: Array.isArray(x.log) ? x.log.filter(e => e && String(e.t || '').trim()).slice(0, 100).map(e => ({ id: String(e.id || uid()), d: /^\d{4}-\d\d-\d\d$/.test(e.d || '') ? e.d : ymd(new Date()), t: String(e.t).replace(/\s+/g, ' ').trim().slice(0, 300) })) : []
   };
   return g.title ? g : null;
 }
@@ -1138,6 +1279,7 @@ function normalize(s) {
   if (Array.isArray(s.approved)) o.approved = s.approved.filter(x => WK_IDS.includes(x));
   if (s.program && typeof s.program === 'object') {
     o.program.title = String(s.program.title || '').slice(0, 120);
+    o.program.prep = String(s.program.prep || '').slice(0, 1000);
     if (Array.isArray(s.program.ex)) o.program.ex = s.program.ex.filter(x => x && typeof x === 'object' && String(x.name || '').trim()).slice(0, 40)
       .map(x => ({ id: String(x.id || uid()), name: String(x.name).replace(/\s+/g, ' ').trim().slice(0, 140), dose: String(x.dose || '').trim().slice(0, 80), how: String(x.how || '').trim().slice(0, 600) }));
   }
@@ -1171,7 +1313,7 @@ if (!draft) {
 }
 if (draft) ls.set('draft', { base: state.updatedAt, data: draft });
 
-const prefs = Object.assign({ sound: true, wake: false, fs: '', hc: false, autoNow: false, brMin: 0, sndMin: 30, vol: 60, tts: false, tone: true }, ls.get('prefs', {}));
+const prefs = Object.assign({ sound: true, wake: false, fs: '', hc: false, rm: false, autoNow: false, brMin: 0, sndMin: 30, vol: 60, tts: false, tone: true }, ls.get('prefs', {}));
 const savePrefs = () => ls.set('prefs', prefs);
 
 /* ---------- ui state ---------- */
@@ -1183,7 +1325,7 @@ let tab = ls.get('tab', 'today') === 'journal' ? 'calm' : TABS.includes(ls.get('
 let qa = null, justDone = '';
 let planDay = '', ed = null, copyText = null, discardArmed = false, saving = false, howOpen = false;
 let current = null; const queue = [];
-let nowOpen = false, rt = null;
+let nowOpen = false, rt = null, nowFocus = '';
 let br = null, ac = null, audioReady = false, wakeSentinel = null, wakeFailed = false, toastTimer = 0, lastStamp = '';
 
 /* ---------- scheduling ---------- */
@@ -1219,11 +1361,19 @@ function nextOfTag(tag, d) {
   return best;
 }
 const hasTag = tag => state.items.some(it => it.tag === tag);
+/** The items of one day as they will really happen: without the ones put off for today, and at today's new time when moved. */
+function dayItems(s, d) {
+  const k = ymd(d), mv = ls.get('move:' + k, {}) || {}, sk = ls.get('skip:' + k, []) || [];
+  return s.items.filter(it => activeOn(it, d) && !sk.includes(it.id)).map(it => it.mode === 'time' && isT(mv[it.id]) && mv[it.id] !== it.time ? Object.assign({}, it, { time: mv[it.id], movedFrom: it.time }) : it);
+}
+function overlapsAt(s, d, id, start, dur) {
+  const end = start + (dur || 15);
+  return dayItems(s, d).filter(x => x.id !== id && x.mode === 'time').filter(x => { const a = toMin(x.time), b = a + (x.duration || 15); return a < end && start < b; });
+}
 function dueEvents(d) {
   const out = [];
   const dk = ymd(d), doneL = ls.get('done:' + dk, []), off = ls.get('nagoff:' + dk, []);
-  for (const it of state.items) {
-    if (!activeOn(it, d)) continue;
+  for (const it of dayItems(state, d)) {
     if (it.nag && doneL.includes(it.id)) continue;
     for (const m of slotsOf(it)) out.push({ key: `i:${it.id}@${m}`, at: it.mode === 'time' ? m - it.lead : m, kind: 'item', item: it, slot: m });
     if (it.mode === 'time' && it.nag && !off.includes(it.id)) {
@@ -1262,15 +1412,36 @@ function periodMeta(p, d) {
   return `${fmtMonth.format(d)} · ${leftText(e.getDate() - d.getDate() + 1)}`;
 }
 function goalRow(g, d) {
-  const c = gCount(g, d), done = c >= g.target, t = esc(g.title);
-  if (g.target <= 1) return `<li class="goal simple${done ? ' done' : ''}"><button class="cbx" role="checkbox" aria-checked="${done}" data-act="g-tick" data-id="${esc(g.id)}" aria-label="בוצע: ${t}"><span class="box">${IC.check}</span></button><button class="goal-main" data-act="g-open" data-id="${esc(g.id)}"><span class="goal-title">${t}</span></button></li>`;
-  const pct = Math.min(100, Math.round(c / g.target * 100));
-  return `<li class="goal count${done ? ' done' : ''}"><button class="g-plus" data-act="g-inc" data-id="${esc(g.id)}" aria-label="הוספה: ${t}">${done ? IC.check : IC.plus}</button><button class="goal-main" data-act="g-open" data-id="${esc(g.id)}"><span class="goal-title">${t}</span><span class="goal-prog"><span class="tnum">${c} מתוך ${g.target}</span>${g.unit ? ' ' + esc(g.unit) : ''}</span><span class="meter"><span style="width:${pct}%"></span></span></button><button class="btn quiet sq" data-act="g-dec" data-id="${esc(g.id)}" aria-label="הורדה: ${t}">−</button></li>`;
+  const c = gCount(g, d), done = c >= g.target, t = esc(g.title), today = ymd(d);
+  const extra = `${g.next ? `<span class="goal-next">הצעד הבא: ${esc(g.next)}</span>` : ''}${g.review && g.review <= today ? '<span class="pill t-yellow">הגיע הזמן לבחון מחדש</span>' : ''}`;
+  if (g.target <= 1) {
+    const half = !done && c > 0;
+    return `<li class="goal simple${done ? ' done' : ''}${half ? ' half' : ''}"><button class="cbx" role="checkbox" aria-checked="${done ? 'true' : half ? 'mixed' : 'false'}" data-act="g-tick" data-id="${esc(g.id)}" aria-label="בוצע: ${t}"><span class="box">${half ? '½' : IC.check}</span></button><button class="goal-main" data-act="g-open" data-id="${esc(g.id)}"><span class="goal-title">${t}</span>${half ? '<span class="goal-prog">בוצע חלקית</span>' : ''}${extra}</button><button class="btn quiet g-half" data-act="g-half" data-id="${esc(g.id)}" aria-pressed="${half}" aria-label="בוצע חלקית: ${t}">חלקית</button></li>`;
+  }
+  const pct = Math.min(100, Math.round(c / g.target * 100)), part = c > 0 && !done;
+  return `<li class="goal count${done ? ' done' : ''}"><button class="g-plus" data-act="g-inc" data-id="${esc(g.id)}" aria-label="הוספה: ${t}">${done ? IC.check : IC.plus}</button><button class="goal-main" data-act="g-open" data-id="${esc(g.id)}"><span class="goal-title">${t}</span><span class="goal-prog"><span class="tnum">${c} מתוך ${g.target}</span>${g.unit ? ' ' + esc(g.unit) : ''}${part ? ' · בוצע חלקית' : ''}</span><span class="meter"><span style="width:${pct}%"></span></span>${extra}</button><button class="btn quiet sq" data-act="g-dec" data-id="${esc(g.id)}" aria-label="הורדה: ${t}">−</button></li>`;
 }
 
 /* ---------- draft & save ---------- */
 function ensureDraft() { if (!draft) draft = clone(state); return draft; }
-let autoT = 0;
+let autoT = 0, savedT = 0;
+const undoStack = [];
+function showSaved(canUndo, msg) {
+  const c = $('#savechip'), t = $('#toast'); if (!c) return;
+  if (t && !t.hidden) { // a message is already showing: add the undo to it instead of a second bubble
+    if (canUndo && undoStack.length && !t.querySelector('.toast-act')) { t.insertAdjacentHTML('beforeend', '<button class="toast-act" data-act="undo-save">ביטול</button>'); clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 5000); }
+    return;
+  }
+  c.innerHTML = `${IC.check}<span>${esc(msg || 'נשמר')}</span>${canUndo && undoStack.length ? '<button class="toast-act" data-act="undo-save">ביטול</button>' : ''}`;
+  c.hidden = false; clearTimeout(savedT); savedT = setTimeout(() => { c.hidden = true; }, canUndo ? 6000 : 2500);
+}
+function undoSave() {
+  if (!undoStack.length) return;
+  clearTimeout(autoT); draft = null; dirty = false; ls.del('draft');
+  state = undoStack.pop(); ls.set('localState', state);
+  if (ed) { ed = null; renderEditor(); }
+  render(); showSaved(false, 'השינוי האחרון בוטל');
+}
 function touch() { dirty = true; discardArmed = false; ls.set('draft', { base: state.updatedAt, data: draft }); renderSaveBar(); renderSndBar(); if (IS_APP) { clearTimeout(autoT); autoT = setTimeout(() => save(true), 500); } }
 function setPath(o, path, v) { const p = path.split('.'); let t = o; for (let i = 0; i < p.length - 1; i++) t = t[p[i]]; t[p[p.length - 1]] = v; }
 function getPath(o, path) { return path.split('.').reduce((t, k) => t && t[k], o); }
@@ -1318,8 +1489,10 @@ async function save(silent) {
       }
     }
   }
+  const prevState = state;
   ls.set('localState', next); state = next; savedLocally = true;
   draft = null; dirty = false; ls.del('draft'); saving = false;
+  if (IS_APP) { undoStack.push(prevState); if (undoStack.length > 15) undoStack.shift(); showSaved(true); }
   if (silent) { renderSaveBar(); if (!ed && !isTyping()) renderView(); } else { render(); toast('נשמר במכשיר הזה'); }
 }
 
@@ -1418,15 +1591,15 @@ function miniRing(d, t) {
 }
 function tilesHtml(now) {
   const s = state, today = ymd(now), done = ls.get('done:' + today, []);
-  const left = s.items.filter(it => it.mode === 'time' && activeOn(it, now) && !done.includes(it.id)).length;
+  const left = dayItems(s, now).filter(it => it.mode === 'time' && !done.includes(it.id)).length;
   const ex = s.program.ex, pm = ex.length ? pxToday(ex, pxMarks(now)) : null;
   const dg = s.goals.filter(g => g.period === 'day'), dgDone = dg.filter(g => gCount(g, now) >= g.target).length;
   const cups = ls.get('water:' + today, 0);
   const qOpen = qsLoad().filter(x => !x.done).length, nWins = winsLoad().length;
   const T = [
     ['go', 'plan', IC.calcheck, 'הלו״ז', 'violet', left ? String(left) : '', left ? `עוד ${left} להיום` : ''],
-    ['go', 'workouts', IC.dumbbell, 'אימונים', 'sky', pm ? `${pm.marked}/${ex.length}` : '', pm ? `${pm.marked} מתוך ${ex.length} תרגילים סומנו היום` : ''],
-    ['go', 'goals', IC.target, 'מטרות', 'violet', dg.length ? `${dgDone}/${dg.length}` : '', dg.length ? `${dgDone} מתוך ${dg.length} מטרות היום` : ''],
+    ['go', 'workouts', IC.dumbbell, 'אימונים', 'sky', pm && pm.marked ? `${pm.marked}/${ex.length}` : '', pm && pm.marked ? `${pm.marked} מתוך ${ex.length} תרגילים סומנו היום` : ''],
+    ['go', 'goals', IC.target, 'מטרות', 'violet', dgDone ? String(dgDone) : '', dgDone ? `${dgDone} מטרות בוצעו היום` : ''],
     ['go', 'qs', IC.question, 'שאלות לצוות', 'violet', qOpen ? String(qOpen) : '', qOpen ? `${qOpen} שאלות פתוחות` : ''],
     ['go', 'wins', IC.star, 'ההישגים שלי', 'amber', nWins ? String(nWins) : '', nWins ? `${nWins} הישגים` : ''],
     ex.length ? ['px-sum', '', IC.chart, 'ההתקדמות שלי', 'sky', '', ''] : null,
@@ -1445,30 +1618,72 @@ function tilesHtml(now) {
   ].filter(Boolean);
   return `<nav class="tiles" aria-label="כל מה שיש באפליקציה">${T.map(([a, v, ic, l, c, b, al]) => `<button class="tile ${c}" data-act="${a}"${v ? ` data-v="${v}"` : ''}${al ? ` aria-label="${esc(l + ', ' + al)}"` : ''}>${b ? `<span class="tb tnum" aria-hidden="true">${esc(b)}</span>` : ''}<span class="ti">${ic}</span><span>${l}</span></button>`).join('')}</nav>`;
 }
+/* ---------- my day: status check, what's now, what's next ---------- */
+function checksLoad() { const a = ls.get('checks', []); return Array.isArray(a) ? a.filter(x => x && x.at) : []; }
+function lastCheck(k) { const c = checksLoad()[0]; return c && ymd(new Date(c.at)) === k ? c : null; }
+function lowState(k) {
+  const v = ls.get('low:' + k, null);
+  if (v === true || v === false) return { on: v, auto: false };
+  const c = lastCheck(k); return { on: !!(c && c.energy === 'low'), auto: true };
+}
+const isBreak = it => it.tag === 'מנוחה';
+const keepOnLow = it => it.ess || isBreak(it);
+const startedMap = k => ls.get('start:' + k, {}) || {};
+const checkText = c => [c.energy ? 'אנרגיה ' + ENERGY_L[c.energy] : '', c.mood ? FEEL_L[c.mood] : '', c.pain != null ? 'כאב ' + c.pain : ''].filter(Boolean).join(' · ');
+function focusOf(timed, done, nm, started) {
+  const open = timed.filter(it => !done.includes(it.id));
+  const cur = open.find(it => started[it.id]) || open.find(it => toMin(it.time) <= nm && nm < toMin(it.time) + (it.duration || 15));
+  if (cur) return { it: cur, cur: true, inProg: !!started[cur.id] };
+  const nx = open.find(it => toMin(it.time) > nm);
+  return nx ? { it: nx, cur: false, inProg: false } : null;
+}
+function focusCard(s, now, low) {
+  const nm = nowMinOf(now), today = ymd(now), done = ls.get('done:' + today, []), started = startedMap(today);
+  const all = sortItems(dayItems(s, now).filter(it => it.mode === 'time'));
+  const timed = low ? all.filter(keepOnLow) : all;
+  const full = '<button class="link" data-act="plan-today" style="align-self:flex-start">כל הלו״ז של היום</button>';
+  if (!s.items.length) return `<section class="focus"><p class="f-label">הלו״ז עדיין ריק</p><h2 class="f-title">מוסיפים את הפעילות הראשונה</h2><button class="btn blue block" data-act="qa-open">${IC.plus}הוספה ללו״ז</button></section>`;
+  if (!all.length) return `<section class="focus"><p class="f-label">היום</p><h2 class="f-title">אין היום פעילויות בשעה קבועה</h2>${full}</section>`;
+  const f = focusOf(timed, done, nm, started);
+  const flexLater = low ? all.filter(x => !keepOnLow(x) && x.fix === 'flex' && !done.includes(x.id) && toMin(x.time) > nm) : [];
+  const lowMove = flexLater.length ? `<button class="btn" data-act="low-move">${IC.clock}להזיז ${flexLater.length === 1 ? 'פעילות גמישה אחת' : flexLater.length + ' פעילויות גמישות'}</button>` : '';
+  if (!f) {
+    const allDone = all.every(it => done.includes(it.id)), more = low && all.some(it => !done.includes(it.id) && toMin(it.time) > nm);
+    return `<section class="focus"><p class="f-label">הלו״ז של היום</p><h2 class="f-title">${allDone ? 'סימנת הכל להיום. כל הכבוד!' : more ? 'מה שחיוני להיום כבר מאחוריך. זמן לנוח.' : 'היום הסתיים. זמן לנוח.'}</h2>${lowMove}${full}</section>`;
+  }
+  const it = f.it, st = toMin(it.time), brk = isBreak(it);
+  const sAt = started[it.id] ? fromMin(nowMinOf(new Date(started[it.id]))) : '';
+  const label = f.inProg ? `בתהליך · התחלת ב-${sAt}` : f.cur ? (brk ? 'עכשיו · הפסקה' : 'עכשיו') : `הבא בתור · ${fmtIn(st - nm)}`;
+  const metaBits = [`<b class="tnum">${it.time}</b>${it.movedFrom ? ` <span class="moved">(הוזז מ-${it.movedFrom})</span>` : ''}`, it.duration ? durText(it.duration) : '', it.place ? esc(it.place) : ''].filter(Boolean);
+  const primary = f.inProg ? `<button class="btn blue" data-act="f-done" data-id="${esc(it.id)}">${IC.check}סיימתי</button>`
+    : brk ? `<button class="btn blue" data-act="f-rest" data-id="${esc(it.id)}">${IC.leaf}לנוח</button>`
+    : `<button class="btn blue" data-act="f-start" data-id="${esc(it.id)}">${IC.play}מתחילים</button>`;
+  const rest = timed.filter(x => x.id !== it.id && !done.includes(x.id) && toMin(x.time) > nm).slice(0, low ? 4 : 3);
+  return `<section class="focus${f.cur ? (brk ? ' brk' : ' now') : ''}" aria-labelledby="f-title"><p class="f-label">${label}</p><h2 class="f-title" id="f-title">${esc(it.title)}</h2><p class="f-meta">${metaBits.map(x => `<span>${x}</span>`).join('')}</p>
+    <div class="f-acts">${primary}<button class="btn" data-act="f-move" data-id="${esc(it.id)}">${IC.clock}דחייה</button><button class="btn" data-act="f-help" data-id="${esc(it.id)}">${IC.hand}צריך עזרה</button></div>
+    ${rest.length ? `<div><div class="rest-h"><p class="grp">${low ? 'המשך היום, רק מה שחיוני' : 'המשך היום'}</p><button class="link" data-act="plan-today">כל הלו״ז</button></div><ul class="rest-list">${rest.map(x => `<li${low && isBreak(x) ? ' class="brk"' : ''}><span class="tnum">${x.time}</span><span>${esc(x.title)}${low && isBreak(x) ? ' <span class="brk-l">· הפסקה</span>' : ''}</span></li>`).join('')}</ul></div>` : ''}
+    ${lowMove}${rest.length ? '' : full}</section>`;
+}
 function viewToday() {
-  const now = new Date(), nm = nowMinOf(now), today = ymd(now), s = state;
-  const timed = sortItems(s.items.filter(it => it.mode === 'time' && activeOn(it, now)));
-  const done = ls.get('done:' + today, []);
-  const nDone = timed.filter(it => done.includes(it.id)).length;
-  let next = null;
-  for (const it of timed) { if (done.includes(it.id)) continue; if (toMin(it.time) + (it.duration || 15) > nm) { next = it; break; } }
-  const h = now.getHours();
+  const now = new Date(), today = ymd(now), s = state, h = now.getHours();
   const greet = h >= 5 && h < 12 ? 'בוקר טוב' : h >= 12 && h < 17 ? 'צהריים טובים' : h >= 17 && h < 22 ? 'ערב טוב' : 'לילה טוב';
-  let row;
-  if (!s.items.length) row = `<button class="hero-row" data-act="qa-open"><span class="hr-ic">${IC.plus}</span><span class="hr-t"><span class="hr-l">הלו״ז עדיין ריק</span><span class="hr-m">מוסיפים את הפעילות הראשונה</span></span></button>`;
-  else if (!timed.length) row = `<button class="hero-row" data-act="go" data-v="plan"><span class="hr-ic">${IC.calcheck}</span><span class="hr-t"><span class="hr-l">היום</span><span class="hr-m">אין פעילויות בשעה קבועה</span></span></button>`;
-  else if (next) { const st = toMin(next.time); row = `<button class="hero-row" data-act="go" data-v="plan">${miniRing(nDone, timed.length)}<span class="hr-t"><span class="hr-l">הבא בתור · ${st > nm ? fmtIn(st - nm) : 'עכשיו'}</span><span class="hr-m"><b class="tnum">${next.time}</b>${esc(next.title)}</span></span></button>`; }
-  else row = `<button class="hero-row" data-act="go" data-v="plan">${nDone === timed.length ? miniRing(nDone, timed.length) : `<span class="hr-ic">${IC.moon}</span>`}<span class="hr-t"><span class="hr-l">הלו״ז של היום</span><span class="hr-m">${nDone === timed.length ? 'סימנת הכל. כל הכבוד!' : 'היום הסתיים. זמן לנוח.'}</span></span></button>`;
-  let o = `<header class="hero"><div class="hero-top"><span class="hero-date">${esc(fmtLong.format(now))}</span><button class="icon-btn" data-act="go" data-v="settings" aria-label="הגדרות">${IC.sliders}</button></div><h1 class="hello">${greet}${s.name ? ', ' + esc(s.name) : ''}</h1>${row}</header>`;
+  const chk = lastCheck(today), low = lowState(today);
+  const row = chk ? `<button class="hero-row" data-act="chk-open"><span class="hr-ic">${IC.smile}</span><span class="hr-t"><span class="hr-l">הבדיקה של היום · ${fromMin(nowMinOf(new Date(chk.at)))} · אפשר לעדכן</span><span class="hr-m">${esc(checkText(chk) || 'נשמר')}</span></span></button>`
+    : `<button class="hero-row" data-act="chk-open"><span class="hr-ic">${IC.smile}</span><span class="hr-t"><span class="hr-l">בדיקה קצרה, לא חובה</span><span class="hr-m">איך אתה מרגיש היום?</span></span></button>`;
+  let o = `<header class="hero"><div class="hero-top"><span class="hero-date">${esc(fmtLong.format(now))}</span><span class="hero-acts"><button class="icon-btn" data-act="pn-a11y" aria-label="גודל טקסט ותצוגה">${IC.type}</button><button class="icon-btn" data-act="go" data-v="settings" aria-label="הגדרות">${IC.sliders}</button></span></div><h1 class="hello">${greet}${s.name ? ', ' + esc(s.name) : ''}</h1>${row}</header>`;
+  if (low.on) o += `<div class="low-bar" role="status"><div><p><b>יום עם פחות כוחות.</b> ${low.auto ? 'האנרגיה נמוכה היום, ולכן מוצג' : 'מוצג'} רק מה שחיוני, וההפסקות מודגשות.</p><p class="sub sm">התזכורות נשארות כרגיל, אלא אם דוחים פעילות. אפשר לחזור לתצוגה רגילה בכל רגע.</p></div></div>`;
+  o += focusCard(s, now, low.on);
+  o += `<div class="home-row"><button class="big-btn mint" data-act="pn-moment"><span class="ti">${IC.leaf}</span><span>אני צריך רגע</span></button><button class="big-btn amber" data-act="${low.on ? 'low-off' : 'low-on'}" aria-pressed="${low.on}"><span class="ti">${IC.battery}</span><span>${low.on ? 'חזרה לתצוגה רגילה' : 'יום עם פחות כוחות'}</span></button></div>`;
   if (s.items.length && pushNudge()) o += `<button class="callout yellow as-btn" data-act="push-go"><span class="ci" aria-hidden="true">🔔</span><span class="cb"><span>להפעיל תזכורות גם כשהטלפון נעול</span></span></button>`;
   if (prefs.sound && !audioReady && s.items.length) o += `<button class="callout yellow as-btn" data-act="unlock"><span class="ci" aria-hidden="true">🔔</span><span class="cb"><span>נגיעה כאן מפעילה את צליל התזכורות</span></span></button>`;
-  const chp = cheerPick(s, now), todayJ = jLoad().filter(e => ymd(new Date(e.at)) === today), low = todayJ.some(e => e.mood === 1);
-  if (low) o += `<div class="callout yellow"><span class="ci" aria-hidden="true">🤍</span><div class="cb"><p class="c-title" style="font-size:1.05rem">היום קשה. לא צריך לעבור את זה לבד.</p><p class="sub sm">אפשר לפתוח את התוכנית שלי, לנשום רגע, או לדבר עם מישהו קרוב.</p><div class="links"><button class="link" data-act="calm-plan">התוכנית שלי</button><button class="link" data-act="calm-open">כלים להרגעה</button></div></div></div>`;
+  const chp = cheerPick(s, now), todayJ = jLoad().filter(e => ymd(new Date(e.at)) === today), lowMood = todayJ.some(e => e.mood === 1) || !!(chk && chk.mood === 'hard');
+  if (lowMood) o += `<div class="callout yellow"><span class="ci" aria-hidden="true">🤍</span><div class="cb"><p class="c-title" style="font-size:1.05rem">היום קשה. לא צריך לעבור את זה לבד.</p><p class="sub sm">אפשר לפתוח את התוכנית שלי, לנשום רגע, או לדבר עם מישהו קרוב.</p><div class="links"><button class="link" data-act="calm-plan">התוכנית שלי</button><button class="link" data-act="pn-moment">אני צריך רגע</button></div></div></div>`;
   if (chp) o += `<div class="cheer"><span class="cheer-q" aria-hidden="true">”</span><p class="c-label">החיזוק של היום</p><p class="c-cheer">${esc(chp.t)}</p></div>`;
   const eveDue = h >= 18 && !ls.get('eve:' + today, false);
   if (eveDue) o += `<button class="callout as-btn eve-card" data-act="eve-open"><span class="ci" aria-hidden="true">🌙</span><span class="cb"><span class="c-title" style="font-size:1.05rem">סגירת יום</span><span class="sub sm">שלוש שאלות קצרות לפני הלילה, ומבט על מחר</span></span></button>`;
+  if (low.on) return o + `<details class="toggle" data-wk="__tiles"${wkOpen.has('__tiles') ? ' open' : ''}><summary>כל מה שיש באפליקציה</summary><div class="toggle-body" style="padding-inline-start:0">${tilesHtml(now)}</div></details>`;
   o += tilesHtml(now);
-  if (!eveDue && !low && !todayJ.length) o += `<button class="callout as-btn" data-act="j-new"><span class="ci" aria-hidden="true">📔</span><span class="cb"><span class="c-title" style="font-size:1.05rem">איך עובר עליך היום?</span><span class="sub sm">כמה מילים ביומן, בלי לחשוב על ניסוח</span></span></button>`;
+  if (!eveDue && !lowMood && !todayJ.length) o += `<button class="callout as-btn" data-act="j-new"><span class="ci" aria-hidden="true">📔</span><span class="cb"><span class="c-title" style="font-size:1.05rem">איך עובר עליך היום?</span><span class="sub sm">כמה מילים ביומן, בלי לחשוב על ניסוח</span></span></button>`;
   o += pxTodayCard(now) + goodCard();
   return o;
 }
@@ -1476,36 +1691,48 @@ function viewToday() {
 const ymdDate = k => { const [y, m, d] = k.split('-').map(Number); return new Date(y, m - 1, d); };
 function dayList(s, d, key, isToday, k) {
   const nm = nowMinOf(new Date());
-  const timed = sortItems(s.items.filter(it => it.mode === 'time' && activeOn(it, d)));
-  const loops = sortItems(s.items.filter(it => it.mode === 'every' && activeOn(it, d)));
+  const di = dayItems(s, d), low = isToday && lowState(key).on;
+  const allTimed = sortItems(di.filter(it => it.mode === 'time'));
+  const timed = low ? allTimed.filter(keepOnLow) : allTimed, later = low ? allTimed.filter(it => !keepOnLow(it)) : [];
+  const loops = sortItems(di.filter(it => it.mode === 'every' && (!low || it.ess)));
   const done = isToday ? ls.get('done:' + key, []) : [];
+  const skipped = isToday ? (ls.get('skip:' + key, []) || []).map(id => s.items.find(x => x.id === id)).filter(Boolean) : [];
   let next = null;
   if (isToday) for (const it of timed) { if (done.includes(it.id)) continue; if (toMin(it.time) + (it.duration || 15) > nm) { next = it; break; } }
   let o = '';
-  if (isToday && timed.length) { const n = timed.filter(it => done.includes(it.id)).length; o += `<div class="dayprog"><span>${n === timed.length ? 'סימנת הכל להיום. כל הכבוד!' : `בוצעו ${n} מתוך ${timed.length}`}</span><span class="meter" aria-hidden="true"><span style="width:${Math.round(n / timed.length * 100)}%"></span></span></div>`; }
-  if (!timed.length && !loops.length) o += `<div class="empty-day">${isToday ? 'אין כלום בלו״ז של היום.' : 'אין כלום ביום הזה.'}</div>`;
-  if (timed.length) o += `<ul class="todos card">${timed.map(it => {
+  if (low) o += `<div class="low-bar"><div><p><b>יום עם פחות כוחות.</b> מוצג רק מה שחיוני, וההפסקות מודגשות.</p></div><button class="btn" data-act="low-off">תצוגה רגילה</button></div>`;
+  if (isToday && timed.length && !low) { const n = timed.filter(it => done.includes(it.id)).length; o += `<div class="dayprog"><span>${n === timed.length ? 'סימנת הכל להיום. כל הכבוד!' : `בוצעו ${n} מתוך ${timed.length}`}</span><span class="meter" aria-hidden="true"><span style="width:${Math.round(n / timed.length * 100)}%"></span></span></div>`; }
+  if (!timed.length && !loops.length) o += `<div class="empty-day">${low ? 'אין היום פעילויות שסומנו כחיוניות.' : isToday ? 'אין כלום בלו״ז של היום.' : 'אין כלום ביום הזה.'}</div>`;
+  const row = it => {
+    const mv = it.movedFrom ? `<span class="sub sm moved">הוזז מ-${it.movedFrom}</span>` : '';
     if (!isToday) return `<li class="todo future"><button class="todo-main" data-act="open" data-id="${esc(it.id)}"><span class="todo-time tnum">${it.time}</span><span class="todo-title">${esc(it.title)}</span>${pill(it.tag)}${it.steps.length ? `<span class="sub sm">${it.steps.length} צעדים</span>` : ''}</button>${rtBtn(it)}</li>`;
     const isDone = done.includes(it.id), past = toMin(it.time) + (it.duration || 15) <= nm;
-    const cls = ['todo', isDone ? 'done' : '', past && !isDone ? 'past' : '', next && next.id === it.id ? 'now' : '', justDone === it.id ? 'pop' : ''].filter(Boolean).join(' ');
+    const cls = ['todo', isDone ? 'done' : '', past && !isDone ? 'past' : '', next && next.id === it.id ? 'now' : '', justDone === it.id ? 'pop' : '', low && isBreak(it) ? 'brk' : ''].filter(Boolean).join(' ');
     const hw = it.tag === 'טיפול' && past ? `<button class="btn quiet hw-mini" data-act="hw-new" data-id="${esc(it.id)}" aria-label="להוסיף תרגול מ${esc(it.title)}">${IC.plus}תרגול</button>` : '';
-    return `<li class="${cls}"><button class="cbx" role="checkbox" aria-checked="${isDone}" data-act="done" data-id="${esc(it.id)}" aria-label="בוצע: ${esc(it.title)}"><span class="box">${IC.check}</span></button><button class="todo-main" data-act="open" data-id="${esc(it.id)}"><span class="todo-time tnum">${it.time}</span><span class="todo-title">${esc(it.title)}</span>${pill(it.tag)}${it.steps.length ? `<span class="sub sm">${it.steps.length} צעדים</span>` : ''}${it.src ? `<span class="sub sm todo-src">מהטיפול: ${esc(it.src)}${it.nag && !isDone ? ' · מזכיר עד שמסמנים' : ''}</span>` : ''}</button>${hw}${rtBtn(it)}</li>`;
-  }).join('')}</ul>`;
+    return `<li class="${cls}"><button class="cbx" role="checkbox" aria-checked="${isDone}" data-act="done" data-id="${esc(it.id)}" aria-label="בוצע: ${esc(it.title)}"><span class="box">${IC.check}</span></button><button class="todo-main" data-act="open" data-id="${esc(it.id)}"><span class="todo-time tnum">${it.time}</span><span class="todo-title">${esc(it.title)}</span>${pill(it.tag)}${mv}${it.steps.length ? `<span class="sub sm">${it.steps.length} צעדים</span>` : ''}${it.src ? `<span class="sub sm todo-src">מהטיפול: ${esc(it.src)}${it.nag && !isDone ? ' · מזכיר עד שמסמנים' : ''}</span>` : ''}</button>${hw}${rtBtn(it)}</li>`;
+  };
+  if (timed.length) o += `<ul class="todos card">${timed.map(row).join('')}</ul>`;
+  if (later.length) {
+    const flex = later.filter(it => it.fix === 'flex' && !done.includes(it.id) && toMin(it.time) > nm);
+    o += `<details class="toggle" data-wk="__later"${wkOpen.has('__later') ? ' open' : ''}><summary>שאר הפעילויות של היום (${later.length})</summary><div class="toggle-body" style="padding-inline-start:0"><ul class="todos card">${later.map(row).join('')}</ul>${flex.length ? `<button class="btn" data-act="low-move" style="align-self:flex-start">${IC.clock}להזיז פעילויות גמישות</button>` : ''}</div></details>`;
+  }
   if (loops.length) o += `<h3 class="h3">לאורך היום</h3><ul class="loops card">${loops.map(it => {
     const nx = isToday ? slotsOf(it).find(m => m > nm) : null;
     return `<li class="todo"><button class="loop" data-act="open" data-id="${esc(it.id)}"><span class="loop-title">${esc(it.title)}</span>${pill(it.tag)}<span class="sub sm">כל ${everyText(it.every)}, בין ${it.from} ל-${it.to}${nx != null ? ` · הבאה ב-${fromMin(nx)}` : ''}${it.steps.length ? ` · ${it.steps.length} צעדים` : ''}</span></button>${rtBtn(it)}</li>`;
   }).join('')}</ul>`;
+  if (skipped.length) o += `<p class="sub sm">לא היום: ${skipped.map(x => `${esc(x.title)} <button class="link" data-act="unskip" data-id="${esc(x.id)}">להחזיר להיום</button>`).join(' · ')}</p>`;
   const lbl = isToday ? 'היום' : k === 1 ? 'מחר' : 'יום ' + DAY_LONG[d.getDay()];
   o += `<button class="add-task" data-act="qa-open" data-v="${key}"><span class="at-ic">${IC.plus}</span>הוספה ל${lbl}</button>`;
   return o;
 }
+
 function viewPlan() {
   const s = draft || state, now = new Date(), t0 = dayOnly(now), ts = ymd(now);
   if (planDay !== 'all' && !(typeof planDay === 'string' && /^\d{4}-\d\d-\d\d$/.test(planDay) && planDay >= ts && daysBetween(ts, planDay) < 7)) planDay = ts;
   let o = `<div class="page-icon" aria-hidden="true">📋</div><div class="title-row"><h1 class="page-title">הלו״ז</h1><button class="btn quiet" data-act="imp-open">${IC.upload}ייבוא</button></div>
     <p class="sub">כל פריט קופץ כתזכורת בזמן שלו. מוסיפים בכפתור +, ונוגעים בפריט כדי לפתוח ולערוך.</p>`;
   o += `<div class="week" role="tablist" aria-label="בחירת יום">${[0, 1, 2, 3, 4, 5, 6].map(k => {
-    const d = addDays(t0, k), key = ymd(d), n = s.items.filter(it => activeOn(it, d)).length, nm = k === 0 ? 'היום' : k === 1 ? 'מחר' : DAY_SHORT[d.getDay()];
+    const d = addDays(t0, k), key = ymd(d), n = dayItems(s, d).length, nm = k === 0 ? 'היום' : k === 1 ? 'מחר' : DAY_SHORT[d.getDay()];
     return `<button class="wd" role="tab" aria-selected="${planDay === key}" data-act="day" data-v="${key}" aria-label="${k < 2 ? nm : 'יום ' + DAY_LONG[d.getDay()]}, ${d.getDate()}, ${n ? n + ' פריטים' : 'ריק'}"><span class="wd-l">${nm}</span><span class="wd-n tnum">${d.getDate()}</span><span class="wd-dots">${'<i></i>'.repeat(Math.min(3, n))}</span></button>`;
   }).join('')}<button class="wd" role="tab" aria-selected="${planDay === 'all'}" data-act="day" data-v="all" aria-label="כל הפריטים"><span class="wd-l">הכל</span><span class="wd-n">${IC.list}</span><span class="wd-dots"></span></button></div>`;
   if (planDay === 'all') {
@@ -1523,7 +1750,7 @@ function viewPlan() {
     o += dayList(s, d, planDay, isToday, k);
   }
   if (s.items.length || s.goals.length) o += `<button class="btn quiet" data-act="copy" style="align-self:flex-start">${IC.copy}העתקת הלו״ז כטקסט</button>${copyBlock()}`;
-  o += `<details class="toggle"${howOpen ? ' open' : ''}><summary>איך מקבלים את התזכורות</summary><div class="toggle-body"><p>התזכורות קופצות על המסך עם צליל כשהעמוד פתוח. כשהטלפון נעול או שהעמוד סגור הן לא מגיעות, ולכן הכי טוב להשאיר אותו פתוח על טלפון או טאבלט שנמצא קרוב.</p>${wakeBlock()}</div></details>`;
+  o += `<details class="toggle"${howOpen ? ' open' : ''}><summary>איך מקבלים את התזכורות</summary><div class="toggle-body"><p>כשהאפליקציה פתוחה, התזכורות קופצות על המסך עם צליל. כדי לקבל אותן גם כשהטלפון נעול, מפעילים התראות בהגדרות.</p>${wakeBlock()}</div></details>`;
   return o;
 }
 
@@ -1720,6 +1947,10 @@ function moodStrip(list) {
   const lbl = days.map((d, k) => `<span class="${k === 13 ? 'today' : ''}">${DAY_SHORT[d.getDay()]}</span>`).join('');
   return `<div class="mood-box"><p class="c-label">מצב הרוח בשבועיים האחרונים</p><div class="mood-strip" role="img" aria-label="גרף מצב רוח לשבועיים האחרונים">${bars}</div><div class="mood-days" aria-hidden="true">${lbl}</div></div>`;
 }
+function checksHtml() {
+  const L = checksLoad().slice(0, 7); if (!L.length) return '';
+  return `<details class="toggle" data-wk="__chk"${wkOpen.has('__chk') ? ' open' : ''}><summary>בדיקות המצב האחרונות</summary><div class="toggle-body"><ul class="chk-list">${L.map(c => { const d = new Date(c.at); return `<li><span>${esc(dayLabel(d))} · <span class="tnum">${fromMin(nowMinOf(d))}</span></span><span class="sub">${esc(checkText(c) || 'בלי תשובות')}</span></li>`; }).join('')}</ul><p class="sub sm">נשמר רק בטלפון הזה.</p></div></details>`;
+}
 function journalText() {
   const L = ['יומן · ' + fmtLong.format(new Date()), ''];
   for (const e of jLoad()) {
@@ -1736,7 +1967,7 @@ function journalHtml() {
   const list = jLoad();
   let o = `<p class="sub">מקום לכתוב מה עובר עליך, בלי לחשוב על ניסוח. היומן פרטי ונשמר רק בטלפון הזה.</p>
     <button class="btn blue block" data-act="j-new">${IC.plus}כתיבה חדשה</button>`;
-  o += moodStrip(list);
+  o += moodStrip(list) + checksHtml();
   if (!list.length) {
     o += `<div class="callout"><span class="ci" aria-hidden="true">📔</span><div class="cb"><p>עוד אין כתיבות. אפשר להתחיל רק מלבחור איך מרגישים עכשיו, ולהוסיף מילים כשמתחשק.</p></div></div>`;
   } else {
@@ -1944,7 +2175,7 @@ function startGround() {
 }
 function grGo(i) { if (!cp || cp.kind !== 'gr') return; clearTimeout(cp.timer); cp.i = Math.max(0, Math.min(6, i)); cp.marks = 0; renderCalm(); }
 function stopCalm() {
-  if (cp) { clearTimeout(cp.timer); cp = null; cancelSpeech(); }
+  if (cp) { clearTimeout(cp.timer); clearInterval(cp.iv); cp = null; cancelSpeech(); }
   const L = $('#layer-calm'); if (L) L.innerHTML = '';
   syncLock(); applyWake();
 }
@@ -1990,6 +2221,7 @@ function renderCalm() {
     }
   }
   L.innerHTML = `<div class="routine" role="dialog" aria-modal="true" aria-labelledby="cp-h"><div class="rt-in">${o}</div></div>`;
+  if (cp.kind === 'px') pxTick();
 }
 function calmGo(k) {
   const [t, id] = String(k).split(':');
@@ -2143,7 +2375,7 @@ function winsAddInput() {
 /* ---------- evening wrap-up ---------- */
 function eveSummary() {
   const now = new Date(), today = ymd(now), s = state, parts = [];
-  const timed = s.items.filter(it => it.mode === 'time' && activeOn(it, now)), done = ls.get('done:' + today, []);
+  const timed = dayItems(s, now).filter(it => it.mode === 'time'), done = ls.get('done:' + today, []);
   if (timed.length) parts.push(`${timed.filter(it => done.includes(it.id)).length} מתוך ${timed.length} בלו״ז`);
   const ex = s.program.ex;
   if (ex.length) { const t = pxToday(ex, pxMarks(now)); if (t.f || t.p) parts.push(`תרגילים: ${t.f} מלאים${t.p ? `, ${t.p} חלקיים` : ''}`); }
@@ -2180,6 +2412,7 @@ async function restoreFile(file) {
     if (!o || o.app !== 'luz-yomi' || !o.data || typeof o.data !== 'object') throw 0;
     let n = 0;
     for (const [k, v] of Object.entries(o.data)) if (/^lz:/.test(k) && k !== 'lz:draft' && typeof v === 'string') { try { localStorage.setItem(k, v); n++; } catch (e) {} }
+    if (n && IS_APP) { toast('השחזור הושלם. האפליקציה נפתחת מחדש…'); setTimeout(() => { try { location.reload(); } catch (x) {} }, 1400); return; }
     renderView();
     toast(n ? 'השחזור הושלם. כדאי לסגור ולפתוח את העמוד מחדש.' : 'לא נמצא מה לשחזר בקובץ');
   } catch (e) { toast('הקובץ הזה לא נראה כמו גיבוי של האפליקציה'); }
@@ -2226,6 +2459,7 @@ function pxExtras(w, prev) {
   if (w.mood) x.push(`מצב הרוח ביומן: ${MOOD_LABEL[Math.round(w.mood)]}${prev && prev.mood ? ` (בשבוע שלפני: ${MOOD_LABEL[Math.round(prev.mood)]})` : ''}`);
   if (w.good) x.push(`דברים טובים שנעשו: ${w.good}`);
   if (w.wins) x.push(`הישגים חדשים: ${w.wins}`);
+  const fw = feelWeek(w.start); if (fw.easy + fw.fit + fw.hard) x.push('איך היה אחרי תרגול: ' + HOW_WAS.filter(([k]) => fw[k]).map(([k, , l]) => `${l} ${fw[k]}`).join(', '));
   return x;
 }
 function pxSummaryHtml(w, prev, title) {
@@ -2236,7 +2470,7 @@ function pxSummaryHtml(w, prev, title) {
     ${w.tries ? `<p class="px-legend sub sm"><span class="lg f"></span>מלא<span class="lg p"></span>חלקי</p>` + ex.map(x => { const q = w.per[x.id] || { f: 0, p: 0, n: 0 }; return `<div class="px-ex"><div class="row"><span>${esc(x.name)}</span><span class="sub tnum">${q.f} מלא · ${q.p} חלקי</span></div><span class="meter stack" aria-hidden="true"><span class="f" style="width:${Math.round(q.f / 7 * 100)}%"></span><span class="p" style="width:${Math.round(q.p / 7 * 100)}%"></span></span></div>`; }).join('') : ''}</div>`;
 }
 const pxToday = (ex, m) => ({ f: ex.filter(x => m[x.id] === 'f').length, p: ex.filter(x => m[x.id] === 'p').length, marked: ex.filter(x => m[x.id]).length });
-const pxTodayText = (t, total) => `היום: ${t.f} מלאים${t.p ? `, ${t.p} חלקיים` : ''} מתוך ${total}`;
+const pxTodayText = (t, total) => `היום: ${t.f === 1 ? 'מלא אחד' : t.f + ' מלאים'}${t.p ? `, ${t.p === 1 ? 'חלקי אחד' : t.p + ' חלקיים'}` : ''} מתוך ${total}`;
 function pxTodayCard(now) {
   const ex = progEx(); if (!ex.length) return '';
   const t = pxToday(ex, pxMarks(now));
@@ -2336,7 +2570,7 @@ function normParsed(r) {
 }
 function openProgram(list, title, note) {
   const pr = (draft || state).program;
-  ed = { kind: 'prog', stage: 'review', isNew: !pr.ex.length, title: title != null ? title : pr.title, list: list || clone(pr.ex), note: note || '', err: '', armDel: false };
+  ed = { kind: 'prog', stage: 'review', isNew: !pr.ex.length, title: title != null ? title : pr.title, list: list || clone(pr.ex), note: note || '', prep: pr.prep || '', err: '', armDel: false };
   if (!ed.list.length) ed.list.push({ name: '', dose: '', how: '' });
   renderEditor();
 }
@@ -2371,37 +2605,101 @@ async function handleFile(f) {
 function programFields() {
   if (ed.stage === 'busy') return `<div class="busy"><div class="spin" aria-hidden="true"></div><p class="c-title" style="font-size:1.1rem">קוראים את הדף ומפרקים לתרגילים…</p><p class="sub">זה לוקח כמה שניות.</p></div>`;
   return `<textarea id="ed-title" class="title-in" rows="1" data-ed="title" placeholder="שם התוכנית (לא חובה)" aria-label="שם התוכנית">${esc(ed.title)}</textarea>
+    <textarea class="body-in eve-in" data-ed="prep" rows="2" placeholder="הנחיות הכנה שקיבלת מהצוות (לא חובה). הן יופיעו לפני כל תרגול." aria-label="הנחיות הכנה מהצוות">${esc(ed.prep || '')}</textarea>
     ${ed.note ? `<div class="callout"><span class="ci" aria-hidden="true">📄</span><div class="cb"><p>${esc(ed.note)}</p></div></div>` : ''}
     <ol class="steps">${ed.list.map((x, i) => `<li class="step"><span class="step-n tnum">${i + 1}</span><input class="inp step-in" id="pxn-${i}" data-pxn="${i}" value="${esc(x.name)}" placeholder="שם התרגיל" aria-label="תרגיל ${i + 1}" autocomplete="off"><button type="button" class="x" data-act="pxl-up" data-i="${i}"${i ? ` aria-label="להזיז את תרגיל ${i + 1} למעלה"` : ' disabled aria-hidden="true" tabindex="-1"'}>${IC.up}</button><button type="button" class="x" data-act="pxl-del" data-i="${i}" aria-label="מחיקת תרגיל ${i + 1}">${IC.x}</button><input class="inp step-d" data-pxd="${i}" value="${esc(x.dose)}" placeholder="כמה: חזרות, סטים או זמן" aria-label="כמות לתרגיל ${i + 1}" autocomplete="off"><div class="step-opts"><input class="inp" style="width:100%" data-pxh="${i}" value="${esc(x.how)}" placeholder="איך עושים (לא חובה)" aria-label="הסבר לתרגיל ${i + 1}" autocomplete="off"></div></li>`).join('')}</ol>
     <button type="button" class="db-new" data-act="pxl-add">${IC.plus}תרגיל חדש</button>`;
+}
+/* practice flow: prep, one exercise per screen, a short summary */
+function doseSecs(s) {
+  const m = String(s || '').match(/(\d+(?:[.,]\d+)?)\s*(שניות|שנייה|שניה|שנ׳|שנ'|דקות|דקה|דק׳|דק'|sec|min)/i);
+  if (!m) return 0;
+  const n = parseFloat(m[1].replace(',', '.')), v = /דק|min/i.test(m[2]) ? Math.round(n * 60) : Math.round(n);
+  return v >= 5 && v <= 3600 ? v : 0;
+}
+function logLoad() { const a = ls.get('pxlog', []); return Array.isArray(a) ? a.filter(x => x && x.id) : []; }
+function logAdd(e) { const L = logLoad(), x = Object.assign({ id: uid(), at: Date.now() }, e); L.unshift(x); ls.set('pxlog', L.slice(0, 300)); return x.id; }
+function logSet(id, f, v) { const L = logLoad(), x = L.find(y => y.id === id); if (!x) return; x[f] = f === 'feel' && x[f] === v ? '' : v; ls.set('pxlog', L); }
+function feelWeek(start) { const a = start.getTime(), b = addDays(start, 7).getTime(), c = { easy: 0, fit: 0, hard: 0 }; logLoad().forEach(x => { if (x.at >= a && x.at < b && c[x.feel] != null) c[x.feel]++; }); return c; }
+const calmOffer = () => `<div class="offer"><p class="c-label">רוצה לסיים ברגע של רוגע? לא חובה.</p><ul class="big-list">${bigRow('sum-calm', 'b:long', '🌬️', 'נשיפה ארוכה', 'דקה אחת')}${bigRow('sum-calm', 'i:rest', '🌤️', 'מנוחה קצרה', 'דמיון מודרך')}${bigRow('sum-calm', 's:rain', '🌧️', 'צליל גשם ברקע', '')}</ul></div>`;
+const prepList = () => `<ul class="prep">${PREP_LINES.map(([e, t]) => `<li><span aria-hidden="true">${e}</span><span>${esc(t)}</span></li>`).join('')}</ul>`;
+function sayAll(lines) { if (!heVoice) return; cancelSpeech(); speak(lines.filter(Boolean).join('. '), () => {}); }
+function sumOpts(lg, feelAct, resAct) {
+  return `<div class="sum-box"><p class="lbl" style="margin-top:0">איך היה?</p><div class="opts" role="group" aria-label="איך היה">${HOW_WAS.map(([v, e, l]) => optBtn(feelAct, v, lg.feel, e, l)).join('')}</div>
+    <p class="lbl">כמה נעשה?</p><div class="opts" role="group" aria-label="כמה נעשה">${RESULT.map(([v, l]) => optBtn(resAct, v, lg.result, '', l)).join('')}</div>
+    <span class="saved" role="status">${IC.check}נשמר</span></div>`;
 }
 function startPx() {
   const ex = progEx(); if (!ex.length) return;
   stopBreath(); stopRoutine(true); stopCalm(); unlockAudio();
   const m = pxMarks(new Date()), first = ex.findIndex(x => !m[x.id]);
-  cp = { kind: 'px', i: first < 0 ? 0 : first, warn: false, timer: 0, done: false };
+  cp = { kind: 'px', stage: 'prep', i: first < 0 ? 0 : first, warn: false, timer: 0, iv: 0, tm: null, restAt: 0, said: -1, stopped: false, log: '' };
   syncLock(); renderCalm(); applyWake();
 }
+function pxEnsureIv() { if (cp && !cp.iv) cp.iv = setInterval(pxTick, 250); }
+function pxStopTimer() { const tm = cp && cp.tm; if (tm && tm.run) { tm.left = Math.max(0, (tm.endAt - Date.now()) / 1000); tm.run = false; } }
+function pxShow(i) {
+  if (!cp || cp.kind !== 'px') return;
+  const ex = progEx(); cp.i = Math.max(0, Math.min(ex.length - 1, i)); cp.stage = 'ex'; cp.warn = false; cancelSpeech();
+  const x = ex[cp.i], secs = x ? doseSecs(x.dose) : 0;
+  cp.tm = secs ? { total: secs, left: secs, run: false, endAt: 0, chimed: false } : null;
+  renderCalm();
+  if (prefs.tts && heVoice && x && cp.said !== cp.i) pxSay();
+}
+function pxSay() { const x = cp && cp.kind === 'px' && progEx()[cp.i]; if (!x || !heVoice) return; cp.said = cp.i; sayAll([x.name, x.dose, x.how]); renderCalm(); }
+function pxTick() {
+  if (!cp || cp.kind !== 'px') return;
+  if (cp.stage === 'rest') { const e = $('#px-rest'); if (e) { const s = Math.floor((Date.now() - cp.restAt) / 1000); e.textContent = `${Math.floor(s / 60)}:${pad(s % 60)}`; } return; }
+  const tm = cp.tm; if (!tm || cp.stage !== 'ex') return;
+  if (tm.run) { tm.left = Math.max(0, (tm.endAt - Date.now()) / 1000); if (tm.left <= 0) { tm.run = false; if (!tm.chimed) { tm.chimed = true; chime(); buzz(); } renderCalm(); return; } }
+  const sec = Math.ceil(tm.left), te = $('#px-time'), r = $('#px-ring');
+  if (te) te.textContent = `${Math.floor(sec / 60)}:${pad(sec % 60)}`;
+  if (r) { const c = r.querySelector('.val'); if (c) c.setAttribute('stroke-dashoffset', (RC * (tm.left / tm.total)).toFixed(1)); r.classList.toggle('over', tm.left <= 0); }
+}
+function pxSummary(stopped) {
+  if (!cp || cp.kind !== 'px') return;
+  pxStopTimer(); cancelSpeech();
+  const ex = progEx(), t = pxToday(ex, pxMarks(new Date())), res = stopped ? 'stop' : t.f === ex.length ? 'full' : 'part';
+  cp.stage = 'sum'; cp.stopped = !!stopped; cp.warn = false;
+  if (!cp.log) cp.log = logAdd({ kind: 'px', title: (draft || state).program.title || 'התרגילים שלי', result: res, feel: '', f: t.f, p: t.p, total: ex.length });
+  else logSet(cp.log, 'result', res);
+  renderCalm();
+}
 function pxPlayHtml() {
-  const ex = progEx(), n = ex.length, m = pxMarks(new Date());
-  const top = `<div class="rt-top"><span class="rt-count">🏋️ ${cp.done ? 'התרגילים שלי' : `תרגיל ${cp.i + 1} מתוך ${n}`}</span><button class="btn quiet" data-act="cp-stop">סגירה</button></div>`;
-  if (cp.done) {
-    const t = pxToday(ex, m);
-    return `${top}<div class="rt-done"><div class="big" aria-hidden="true">💪</div><h2 id="cp-h" class="rt-step" style="margin:0">סיימת לעבור על התרגילים</h2><p class="sub">${pxTodayText(t, ex.length)}. כל ניסיון נחשב.</p></div>
-      <div class="rt-acts"><button class="btn blue block" data-act="cp-stop">סגירה</button><button class="btn block" data-act="px-sum">לדוח השבועי</button></div>`;
+  const ex = progEx(), n = ex.length, m = pxMarks(new Date()), pr = (draft || state).program;
+  if (cp.stage === 'prep') return `<div class="rt-top"><span class="rt-count">🏋️ ${esc(pr.title || 'התרגילים שלי')}</span><button class="btn quiet" data-act="cp-stop">סגירה</button></div>
+    <h2 id="cp-h" class="rt-step" style="margin-top:0">לפני שמתחילים</h2>
+    ${pr.prep ? `<div class="state-card"><p class="c-label">ההנחיות שקיבלת</p><p style="white-space:pre-line">${esc(pr.prep)}</p></div>` : ''}
+    ${prepList()}
+    <p class="sub" style="text-align:center">${n === 1 ? 'תרגיל אחד' : n + ' תרגילים'}, אחד בכל מסך. אפשר לעצור בכל שלב.</p>
+    <div class="rt-acts"><button class="btn blue block" data-act="pxp-go" style="min-height:64px;font-size:1.2rem">${IC.play}מתחילים</button>${heVoice ? `<button class="btn block" data-act="pxp-sayprep">${IC.volume}להקריא את ההכנה</button>` : ''}</div>`;
+  if (cp.stage === 'sum') {
+    const t = pxToday(ex, m), lg = logLoad().find(x => x.id === cp.log) || {}, left = ex.some(x => !m[x.id]), stop = lg.result === 'stop';
+    return `<div class="rt-top"><span class="rt-count">🏋️ סיכום קצר</span><button class="btn quiet" data-act="cp-stop">סגירה</button></div>
+      <div class="rt-done" style="margin-top:0"><div class="big" aria-hidden="true">${stop ? '🌿' : '💪'}</div><h2 id="cp-h" class="rt-step" style="margin:0">${stop ? 'עצרנו כאן' : 'סיימת לעבור על התרגילים'}</h2><p class="sub">${pxTodayText(t, n)}. כל ניסיון נחשב.${cp.stopped && left ? ' אפשר להמשיך בהמשך.' : ''}</p></div>
+      ${sumOpts(lg, 'pxs-feel', 'pxs-res')}
+      ${calmOffer()}
+      <div class="rt-acts">${cp.stopped && left ? '<button class="btn blue block" data-act="pxs-cont">להמשיך מאיפה שעצרנו</button>' : ''}<button class="btn${cp.stopped && left ? '' : ' blue'} block" data-act="cp-stop">סגירה</button><button class="btn quiet block" data-act="px-sum">לדוח השבועי</button></div>`;
   }
+  const top = `<div class="rt-top"><span class="rt-count">🏋️ ${cp.stage === 'rest' ? 'הפסקה' : `תרגיל ${cp.i + 1} מתוך ${n}`}</span><button class="btn quiet" data-act="pxp-end">עצירה</button></div>`;
   if (cp.warn) return `${top}<div class="rt-warn" role="alert"><h2 id="cp-h" class="h2" style="margin:0">עוצרים רגע</h2>
       <p><b>כאב ראש פתאומי וחזק, הסמקה או הזעה בפנים ובצוואר, גודש באף או צמרמורת:</b> מתיישבים, משחררים בגדים צמודים, וקוראים מיד לאחות.</p>
       <p><b>סחרחורת, תחושת עילפון או בחילה:</b> נשכבים עם רגליים מורמות עד שזה עובר.</p>
       <p><b>כאב חריג בתנועה:</b> מדלגים על התרגיל.</p></div>
-      <div class="rt-acts"><button class="btn blue block" data-act="cp-stop">לעצור לעכשיו</button><button class="btn block" data-act="pxp-unwarn">חזרה לתרגילים</button></div>`;
-  const x = ex[cp.i];
+      <div class="rt-acts"><button class="btn blue block" data-act="pxp-end">לעצור לעכשיו</button><button class="btn block" data-act="pxp-unwarn">חזרה לתרגילים</button></div>`;
+  if (cp.stage === 'rest') return `${top}<div class="rest-big" id="px-rest" aria-hidden="true">0:00</div><h2 id="cp-h" class="rt-step" style="margin-top:0">הפסקה</h2><p class="rt-desc">נושמים לאט. ממשיכים כשמוכנים.</p>
+    <div class="rt-acts"><button class="btn blue block" data-act="pxp-resume" style="min-height:64px;font-size:1.2rem">${IC.play}ממשיכים</button></div>`;
+  const x = ex[cp.i], tm = cp.tm;
+  const tmHtml = tm ? `<div class="px-tm">${ring(1 - tm.left / tm.total, `<b class="tnum" id="px-time">${Math.floor(Math.ceil(tm.left) / 60)}:${pad(Math.ceil(tm.left) % 60)}</b><span>${tm.run ? 'נשאר' : tm.left <= 0 ? 'הזמן עבר' : tm.left < tm.total ? 'בהשהיה' : 'טיימר'}</span>`, tm.left <= 0 ? 'over' : '', 'px-ring')}
+      <div class="rt-row two-eq" style="width:100%"><button class="btn" data-act="pxp-t">${tm.run ? IC.pause + 'השהיה' : IC.play + (tm.left > 0 && tm.left < tm.total ? 'המשך' : 'התחלה')}</button><button class="btn" data-act="pxp-treset">${IC.replay}שוב מההתחלה</button></div></div>` : '';
   return `${top}<div class="rt-segs" aria-hidden="true">${ex.map((y, k) => `<span class="${m[y.id] ? 'on' : k === cp.i ? 'cur' : ''}"></span>`).join('')}</div>
     <h2 id="cp-h" class="rt-step${x.name.length > 38 ? ' long' : ''}" aria-live="polite">${esc(x.name)}</h2>
     ${x.dose ? `<p class="px-dose">${esc(x.dose)}</p>` : ''}${x.how ? `<p class="rt-desc">${esc(x.how)}</p>` : ''}
+    ${heVoice ? `<button class="btn quiet say" data-act="pxp-say">${IC.volume}${cp.said === cp.i ? 'להקריא שוב' : 'להקריא'}</button>` : ''}
+    ${tmHtml}
     <div class="rt-acts">
-      <div class="rt-row three"><button class="btn blue" data-act="pxp-mark" data-v="f" style="min-height:64px;font-size:1.15rem">מלא</button><button class="btn" data-act="pxp-mark" data-v="p" style="min-height:64px;font-size:1.15rem;background:var(--partial)">חלקי</button><button class="btn" data-act="pxp-mark" data-v="n" style="min-height:64px;font-size:1.15rem">לא היום</button></div>
-      <div class="rt-row"><button class="btn" data-act="pxp-prev"${cp.i ? '' : ' disabled'}>הקודם</button><button class="btn" data-act="pxp-skip">דילוג</button></div>
+      <div class="rt-row three"><button class="btn blue" data-act="pxp-mark" data-v="f" style="min-height:64px;font-size:1.1rem">מלא</button><button class="btn" data-act="pxp-mark" data-v="p" style="min-height:64px;font-size:1.1rem;background:var(--partial)">חלקית</button><button class="btn" data-act="pxp-mark" data-v="n" style="min-height:64px;font-size:1.1rem">לא היום</button></div>
+      <div class="rt-row three"><button class="btn" data-act="pxp-prev"${cp.i ? '' : ' disabled'}>הקודם</button><button class="btn" data-act="pxp-rest">${IC.pause}הפסקה</button><button class="btn" data-act="pxp-skip">דילוג</button></div>
       <button class="link warn-link" data-act="pxp-warn">לא מרגישים טוב?</button>
     </div>`;
 }
@@ -2435,14 +2733,14 @@ function journalFields() {
 function viewGoals() {
   const s = draft || state, now = new Date();
   let o = `<div class="page-icon" aria-hidden="true">🎯</div><div class="title-row"><h1 class="page-title">מטרות</h1><button class="btn blue" data-act="g-new" data-v="day">${IC.plus}חדש</button></div>
-    <p class="sub">מטרות שמתחדשות בכל יום, בכל שבוע או בכל חודש. אפשר מטרה פשוטה לסימון, או מטרה עם יעד, למשל 3 פעמים בשבוע.</p>`;
+    <p class="sub">מטרות שמגדירים לבד או עם הצוות, כמו להשתתף בפעילות חשובה או לעשות משהו עם פחות עזרה. לכל מטרה אפשר להוסיף למה היא חשובה, מה הצעד הבא ותיעוד של ההתקדמות.</p>`;
   for (const [p] of PERIODS) {
     const gs = s.goals.filter(g => g.period === p);
     o += `<div class="sec-h"><h2 class="h2">${PERIOD_H[p]}</h2><span class="sec-meta">${esc(periodMeta(p, now))}</span></div><div class="goals-box">`;
     o += gs.length ? `<ul class="goals">${gs.map(g => goalRow(g, now)).join('')}</ul>` : `<p class="empty" style="border:0">עוד אין ${PERIOD_H[p]}.</p>`;
     o += `<button class="db-new" data-act="g-new" data-v="${p}">${IC.plus}מטרה ${PERIOD_ADJ[p]} חדשה</button></div>`;
   }
-  o += `<p class="sub sm">הסימונים נשמרים במכשיר שבו מסמנים, ומתאפסים בתחילת כל יום, שבוע (ביום ראשון) או חודש.</p>`;
+  o += `<p class="sub sm">גם ביצוע חלקי נחשב. אין כאן ציון כולל ואין רצף שמתאפס: יום מנוחה הוא חלק מהדרך.</p><p class="sub sm">הסימונים נשמרים במכשיר שבו מסמנים, ומתחילים מחדש בכל יום, שבוע (ביום ראשון) או חודש.</p>`;
   return o;
 }
 
@@ -2491,6 +2789,7 @@ function viewSettings() {
     <div class="props">
       <div class="prop"><span class="prop-l">${IC.text}גודל טקסט</span><div class="prop-v">${seg('pref-fs', [['', 'רגיל'], ['l', 'גדול'], ['xl', 'גדול מאוד']], prefs.fs)}</div></div>
       <div class="prop-inline"><span>ניגודיות גבוהה</span>${switchBtn('data-act="pref-hc"', prefs.hc, 'ניגודיות גבוהה')}</div>
+      <div class="prop-inline"><span>פחות תנועה במסך</span>${switchBtn('data-act="pref-rm"', prefs.rm, 'פחות תנועה במסך')}</div>
       <div class="prop-inline"><span>צליל בתזכורות</span>${switchBtn('data-act="pref-sound"', prefs.sound, 'צליל בתזכורות')}</div>
       <div class="prop-inline"><span>לשאול על תרגול בסוף כל טיפול</span>${switchBtn('data-act="pref-after"', prefs.afterAsk !== false, 'לשאול על תרגול בסוף כל טיפול')}</div>
       <div class="prop-inline"><span>צליל קטן כשמסמנים שבוצע</span>${switchBtn('data-act="pref-tone"', prefs.tone, 'צליל קטן כשמסמנים שבוצע')}</div>
@@ -2501,6 +2800,7 @@ function viewSettings() {
     <button class="btn quiet" data-act="test-sound" style="align-self:flex-start">${IC.volume}השמעת צליל לדוגמה</button>
     <h2 class="h2">גיבוי</h2>
     <p class="sub sm">היומן, התוכנית שלי, השאלות, ההישגים, הרשימות והסימונים נשמרים רק בטלפון הזה. קובץ גיבוי שומר עליהם, ואפשר לשחזר ממנו גם בטלפון אחר.</p>
+    <p class="sub sm">${ls.get('lastBackup', '') ? 'גיבוי אחרון: ' + esc(winDate(ls.get('lastBackup', ''))) + '.' : 'עוד לא נשמר קובץ גיבוי.'}</p>
     <div class="row-btns" style="padding-top:0"><button class="btn" data-act="bk-save">${IC.download}הורדת קובץ גיבוי</button><button class="btn quiet" data-act="bk-load">${IC.upload}שחזור מקובץ</button></div>
     <input type="file" id="bk-file" accept=".json,application/json" hidden>
     <h2 class="h2">איפה הכל נשמר</h2>
@@ -2517,6 +2817,7 @@ function openEditor(id) {
     : { kind: 'item', id: null, isNew: true, title: '', tag: 'אחר', mode: 'time', time: defaultTime(), every: 90, from: '08:00', to: '20:00', repeat: 'daily', days: [0, 1, 2, 3, 4], date: ymd(new Date()), duration: 0, place: '', lead: 10, note: '', steps: [], nag: 0, until: '', src: '', err: '', armDel: false };
   if (!Array.isArray(ed.steps)) ed.steps = [];
   if (ed.nag == null) ed.nag = 0; if (ed.until == null) ed.until = ''; if (ed.src == null) ed.src = '';
+  if (!ed.isNew) { ed.fixSet = true; ed.essSet = true; }
   renderEditor();
   const t = $('#ed-title'); if (t && ed.isNew) t.focus({ preventScroll: true });
 }
@@ -2530,7 +2831,7 @@ function openGoal(id, period) {
   const s = draft || state, g = id ? s.goals.find(x => x.id === id) : null;
   if (id && !g) return;
   ed = g ? Object.assign(clone(g), { kind: 'goal', isNew: false, err: '', armDel: false })
-    : { kind: 'goal', id: null, isNew: true, title: '', period: PERIOD_ADJ[period] ? period : 'day', target: 1, unit: '', note: '', err: '', armDel: false };
+    : { kind: 'goal', id: null, isNew: true, title: '', period: PERIOD_ADJ[period] ? period : 'day', target: 1, unit: '', note: '', why: '', next: '', review: '', log: [], err: '', armDel: false };
   renderEditor();
   const t = $('#ed-title'); if (t && ed.isNew) t.focus({ preventScroll: true });
 }
@@ -2557,6 +2858,8 @@ function itemFields() {
         </div></div>
         ${ed.repeat !== 'date' ? untilProp() : ''}
         ${ed.mode === 'time' ? `<div class="prop"><span class="prop-l">${IC.bell}אם לא סימנתי</span><div class="prop-v">${seg('ed-nag', [[0, 'בלי'], [60, 'כל שעה'], [120, 'כל שעתיים'], [180, 'כל 3 שעות']], ed.nag)}<p class="sub sm" style="margin-top:4px">${ed.nag ? 'התזכורת חוזרת עד שמסמנים שבוצע, ולא אחרי 21:00.' : 'אפשר לבקש שהתזכורת תחזור עד שמסמנים שבוצע.'}</p></div></div>` : ''}
+        ${ed.mode === 'time' ? `<div class="prop"><span class="prop-l">${IC.clock}אפשר להזיז?</span><div class="prop-v">${seg('ed-fix', [['fixed', 'קבועה'], ['flex', 'ניתנת להזזה']], ed.fix || fixDefault(ed.tag))}<p class="sub sm" style="margin-top:4px">${(ed.fix || fixDefault(ed.tag)) === 'fixed' ? 'שעה קבועה, כמו טיפול או ארוחה. "דחייה" רק מזכירה שוב, בלי להזיז.' : 'אפשר להזיז לשעה אחרת באותו יום, כשצריך.'}</p></div></div>` : ''}
+        <div class="prop-inline"><span>חיונית גם ביום עם פחות כוחות</span>${switchBtn('data-act="ed-ess"', ed.ess != null ? ed.ess : essDefault(ed.tag, ed.mode), 'חיונית גם ביום עם פחות כוחות')}</div>
         <div class="prop"><label class="prop-l" for="ed-place">${IC.pin}מקום</label><div class="prop-v"><input id="ed-place" class="inp" data-ed="place" value="${esc(ed.place)}" placeholder="איפה זה קורה" autocomplete="off"></div></div>
       </div>
       <div class="divider"></div>
@@ -2578,7 +2881,18 @@ function goalFields() {
         ${ed.target > 1 ? `<div class="prop"><label class="prop-l" for="ed-unit">${IC.text}יחידה</label><div class="prop-v"><input id="ed-unit" class="inp" data-ed="unit" value="${esc(ed.unit)}" placeholder="למשל: פעמים, כוסות, דקות" autocomplete="off"></div></div>` : ''}
       </div>
       <div class="divider"></div>
-      <textarea class="body-in" data-ed="note" rows="4" placeholder="פרטים: למה המטרה חשובה, איך עושים אותה, כל מה שיעזור" aria-label="פרטים">${esc(ed.note)}</textarea>`;
+      <p class="lbl" style="margin-top:0"><label for="ed-why">למה היא חשובה לי</label></p>
+      <textarea id="ed-why" class="body-in eve-in" data-ed="why" rows="2" placeholder="מה ישתנה כשאגיע אליה">${esc(ed.why || '')}</textarea>
+      <div class="props">
+        <div class="prop"><label class="prop-l" for="ed-next">${IC.flag}הצעד הבא</label><div class="prop-v"><input id="ed-next" class="inp" data-ed="next" value="${esc(ed.next || '')}" placeholder="צעד קטן אחד" autocomplete="off"></div></div>
+        <div class="prop"><label class="prop-l" for="ed-review">${IC.cal}לבחון מחדש</label><div class="prop-v"><input type="date" id="ed-review" class="inp" data-ed="review" value="${ed.review || ''}">${(() => { const t0 = dayOnly(new Date()); return seg('ged-review', [[ymd(addDays(t0, 7)), 'בעוד שבוע'], [ymd(addDays(t0, 14)), 'בעוד שבועיים'], [ymd(addDays(t0, 30)), 'בעוד חודש']], ed.review || ''); })()}</div></div>
+      </div>
+      <p class="lbl">תיעוד התקדמות</p>
+      <p class="sub sm">משפט קצר על מה שהתקדם, והתאריך נשמר לבד. גם צעד קטן נחשב.</p>
+      <div class="add-row"><input id="glog-in" class="inp" placeholder="למשל: עשיתי את זה עם פחות עזרה" aria-label="התקדמות חדשה" autocomplete="off" style="flex:1 1 12rem"><button type="button" class="btn" data-act="glog-add">${IC.plus}הוספה</button></div>
+      ${ed.log && ed.log.length ? `<ul class="glog">${ed.log.map((e, i) => `<li><span>${esc(e.t)}</span><span class="sub sm">${esc(winDate(e.d))}</span><button type="button" class="x" data-act="glog-del" data-i="${i}" aria-label="מחיקה: ${esc(e.t)}">${IC.x}</button></li>`).join('')}</ul>` : ''}
+      <div class="divider"></div>
+      <textarea class="body-in" data-ed="note" rows="3" placeholder="פרטים: איך עושים את זה, כל מה שיעזור" aria-label="פרטים">${esc(ed.note)}</textarea>`;
 }
 function renderEditor(keep) {
   const L = $('#layer-editor');
@@ -2640,7 +2954,7 @@ function commitEditor() {
     const prev = (draft || state).program.ex;
     const list = ed.list.map(x => ({ id: x.id || uid(), name: String(x.name || '').replace(/\s+/g, ' ').trim(), dose: String(x.dose || '').trim(), how: String(x.how || '').trim() })).filter(x => x.name);
     if (!list.length) { ed.err = 'צריך לפחות תרגיל אחד עם שם'; renderEditor(true); return; }
-    ensureDraft(); draft.program = { title: title.slice(0, 120), ex: list.slice(0, 40) };
+    ensureDraft(); draft.program = { title: title.slice(0, 120), ex: list.slice(0, 40), prep: String(ed.prep || '').trim().slice(0, 1000) };
     const wasEmpty = !prev.length; ed = null; touch(); renderEditor(); renderView();
     toast(wasEmpty ? 'התרגילים נוספו. לא לשכוח ללחוץ "שמירה".' : 'התרגילים עודכנו. לא לשכוח ללחוץ "שמירה".');
     return;
@@ -3046,7 +3360,7 @@ function stopBreath() {
 
 
 /* ---------- now screen & routines ---------- */
-function syncLock() { document.documentElement.classList.toggle('locked', !!(ed || br || rt || cp || nowOpen || qa)); }
+function syncLock() { document.documentElement.classList.toggle('locked', !!(ed || br || rt || cp || nowOpen || qa || pn)); }
 const RC = 2 * Math.PI * 52;
 const ring = (p, center, cls = '', id = '') => `<div class="ring ${cls}"${id ? ` id="${id}"` : ''}><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="trk" cx="60" cy="60" r="52" fill="none" stroke-width="10"/><circle class="val" cx="60" cy="60" r="52" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="${RC.toFixed(1)}" stroke-dashoffset="${(RC * (1 - Math.max(0, Math.min(1, p)))).toFixed(1)}"/></svg><div class="ring-c">${center}</div></div>`;
 function applyDisplay() {
@@ -3054,21 +3368,23 @@ function applyDisplay() {
   h.classList.toggle('hc', !!prefs.hc);
   h.classList.toggle('fs-l', prefs.fs === 'l');
   h.classList.toggle('fs-xl', prefs.fs === 'xl');
+  h.classList.toggle('rm', !!prefs.rm);
 }
-function openNow() { nowOpen = true; syncLock(); renderNow(); applyWake(); }
-function closeNow() { nowOpen = false; $('#layer-now').innerHTML = ''; syncLock(); applyWake(); if (tab === 'today') renderView(); }
+function openNow(id) { nowFocus = typeof id === 'string' ? id : ''; nowOpen = true; syncLock(); renderNow(); applyWake(); }
+function closeNow() { nowOpen = false; nowFocus = ''; $('#layer-now').innerHTML = ''; syncLock(); applyWake(); if (tab === 'today') renderView(); }
 function renderNow() {
   const L = $('#layer-now');
   if (!nowOpen) { L.innerHTML = ''; return; }
-  const now = new Date(), nm = nowMinOf(now), s = state, done = ls.get('done:' + ymd(now), []);
-  const timed = sortItems(s.items.filter(it => it.mode === 'time' && activeOn(it, now)));
-  const cur = timed.find(it => !done.includes(it.id) && toMin(it.time) <= nm && nm < toMin(it.time) + (it.duration || 15));
-  const upcoming = timed.filter(it => !done.includes(it.id) && toMin(it.time) > nm);
+  const now = new Date(), nm = nowMinOf(now), s = state, today = ymd(now), done = ls.get('done:' + today, []), started = startedMap(today);
+  const timed = sortItems(dayItems(s, now).filter(it => it.mode === 'time'));
+  let cur = nowFocus ? timed.find(it => it.id === nowFocus && !done.includes(it.id)) : null;
+  if (!cur) { nowFocus = ''; cur = timed.find(it => !done.includes(it.id) && started[it.id]) || timed.find(it => !done.includes(it.id) && toMin(it.time) <= nm && nm < toMin(it.time) + (it.duration || 15)); }
+  const upcoming = timed.filter(it => !done.includes(it.id) && toMin(it.time) > nm && (!cur || it.id !== cur.id));
   const next = upcoming[0];
   let card;
   if (cur) {
-    const st = toMin(cur.time), dur = cur.duration || 15, left = Math.max(0, st + dur - nm), m = meta(cur);
-    card = `<div class="now-card">${ring((nm - st) / dur, `<b class="tnum">${left}</b><span>דק׳ נשארו</span>`)}<div class="now-main"><p class="c-label">עכשיו · ${cur.time}</p><p class="now-title">${esc(cur.title)}</p>${m ? `<p class="sub">${esc(m)}</p>` : ''}<div class="links">${cur.steps.length ? `<button class="btn blue" data-act="rt-start" data-id="${esc(cur.id)}">${IC.play}להתחיל את השגרה</button>` : ''}<button class="btn" data-act="now-done" data-id="${esc(cur.id)}">${IC.check}סיימתי</button></div></div></div>`;
+    const st = started[cur.id] ? nowMinOf(new Date(started[cur.id])) : toMin(cur.time), dur = cur.duration || 15, left = Math.max(0, st + dur - nm), m = meta(cur);
+    card = `<div class="now-card">${ring((nm - st) / dur, `<b class="tnum">${left}</b><span>דק׳ נשארו</span>`)}<div class="now-main"><p class="c-label">${started[cur.id] ? `התחלת ב-${fromMin(st)}` : `עכשיו · ${cur.time}`}</p><p class="now-title">${esc(cur.title)}</p>${m ? `<p class="sub">${esc(m)}</p>` : ''}<div class="links">${cur.steps.length ? `<button class="btn blue" data-act="rt-start" data-id="${esc(cur.id)}">${IC.play}להתחיל את השגרה</button>` : ''}<button class="btn${cur.steps.length ? '' : ' blue'}" data-act="now-done" data-id="${esc(cur.id)}">${IC.check}סיימתי</button></div></div></div>`;
   } else if (next) {
     const wait = toMin(next.time) - nm, m = meta(next);
     card = `<div class="now-card free">${ring(wait <= 60 ? 1 - wait / 60 : 0, wait <= 60 ? `<b class="tnum">${wait}</b><span>דק׳ להתחלה</span>` : `<b class="tnum">${next.time}</b><span>שעת התחלה</span>`)}<div class="now-main"><p class="c-label">הבא בתור · ${fmtIn(wait)}</p><p class="now-title">${esc(next.title)}</p>${m ? `<p class="sub">${esc(m)}</p>` : ''}${next.steps.length ? `<p class="sub sm">${next.steps.length} צעדים</p>` : ''}</div></div>`;
@@ -3076,14 +3392,14 @@ function renderNow() {
     card = `<div class="now-card free"><div class="now-main"><p class="c-label">הלו״ז של היום</p><p class="now-title">${timed.length ? 'הלו״ז של היום הסתיים' : 'אין היום פעילויות בשעה קבועה'}</p><p class="sub">זמן לנוח.</p></div></div>`;
   }
   const later = (cur ? upcoming : upcoming.slice(1)).slice(0, 3);
-  const ch = cheerFor(s, now), cups = ls.get('water:' + ymd(now), 0);
+  const ch = cheerFor(s, now), cups = ls.get('water:' + today, 0);
   L.innerHTML = `<div class="nowscr" role="dialog" aria-modal="true" aria-label="מסך עכשיו"><div class="now-in">
     <div class="now-top"><span class="sub">${esc(fmtLong.format(now))}</span><button class="btn quiet" data-act="now-close">${IC.x}סגירה</button></div>
     <div class="now-clock">${fromMin(nm)}</div>
     ${ch ? `<p class="now-cheer">${esc(ch)}</p>` : ''}
     ${card}
     ${later.length ? `<div><p class="grp">אחר כך</p><ul class="now-later">${later.map(it => `<li><span class="tnum sub">${it.time}</span><span>${esc(it.title)}</span></li>`).join('')}</ul></div>` : ''}
-    ${s.showWater || s.showBreath ? `<div class="now-acts${s.showWater && s.showBreath ? '' : ' one'}">${s.showWater ? `<button class="btn" data-act="now-cup">💧 שתיתי כוס <span class="tnum">(${cups})</span></button>` : ''}${s.showBreath ? `<button class="btn" data-act="breathe">🌬️ נשימה</button>` : ''}</div>` : ''}
+    <div class="now-acts${s.showWater ? '' : ' one'}">${s.showWater ? `<button class="btn" data-act="now-cup">💧 שתיתי כוס <span class="tnum">(${cups})</span></button>` : ''}<button class="btn" data-act="pn-moment">🍃 אני צריך רגע</button></div>
   </div></div>`;
 }
 function startRoutine(id) {
@@ -3093,11 +3409,15 @@ function startRoutine(id) {
 function startRoutineWith(it) {
   if (!it || !it.steps || !it.steps.length) return;
   stopBreath(); stopRoutine(true); stopCalm(); unlockAudio();
-  rt = { id: it.id, title: it.title, steps: clone(it.steps), i: 0, rep: 1, warn: false, t0: Date.now(), paused: 0, pauseStart: 0, chimed: false, done: false, iv: 0 };
+  const exLike = String(it.id).startsWith('wk:') || ['טיפול', 'תרגול', 'נשימה'].includes(it.tag);
+  rt = { id: it.id, title: it.title, steps: clone(it.steps), i: 0, rep: 1, warn: false, t0: Date.now(), paused: 0, pauseStart: 0, chimed: false, done: false, iv: 0, stage: exLike ? 'prep' : 'run', ex: exLike, note: String(it.note || ''), pos: it.pos || '', said: '', stopped: false, log: '' };
   syncLock(); renderRoutine(); rt.iv = setInterval(stepRoutine, 250); applyWake();
+  rtAutoSay();
 }
 const rtElapsed = () => ((rt.pauseStart || Date.now()) - rt.t0 - rt.paused) / 1000;
-function goStep(i, rep = 1) { Object.assign(rt, { i, rep, t0: Date.now(), paused: 0, pauseStart: 0, chimed: false }); renderRoutine(); }
+function goStep(i, rep = 1) { Object.assign(rt, { i, rep, t0: Date.now(), paused: 0, pauseStart: 0, chimed: false }); renderRoutine(); rtAutoSay(); }
+function rtSay() { if (!rt || !heVoice) return; const st = rt.steps[rt.i]; if (!st) return; rt.said = rt.i + ':' + rt.rep; sayAll([st.t, st.d]); }
+function rtAutoSay() { if (rt && prefs.tts && heVoice && rt.stage === 'run' && rt.said !== rt.i + ':' + rt.rep) { rtSay(); renderRoutine(); } }
 function rtNext() {
   if (!rt) return;
   const st = rt.steps[rt.i], reps = st.s ? st.r : 1;
@@ -3106,12 +3426,19 @@ function rtNext() {
   else finishRoutine();
 }
 function finishRoutine() {
-  rt.done = true; clearInterval(rt.iv); rt.iv = 0;
+  rt.done = true; rt.stage = 'sum'; rt.stopped = false; clearInterval(rt.iv); rt.iv = 0; cancelSpeech();
   const k = 'done:' + ymd(new Date()), d = ls.get(k, []); if (!d.includes(rt.id)) { d.push(rt.id); ls.set(k, d); }
+  if (rt.ex) { if (rt.log) logSet(rt.log, 'result', 'full'); else rt.log = logAdd({ kind: 'rt', title: rt.title, result: 'full', feel: '' }); }
   renderRoutine(); chime();
 }
+function rtSummary() {
+  if (!rt) return;
+  rt.done = true; rt.stage = 'sum'; rt.stopped = true; clearInterval(rt.iv); rt.iv = 0; cancelSpeech();
+  if (rt.ex && !rt.log) rt.log = logAdd({ kind: 'rt', title: rt.title, result: 'stop', feel: '' });
+  renderRoutine();
+}
 function stopRoutine(silent) {
-  if (rt) { clearInterval(rt.iv); rt = null; }
+  if (rt) { clearInterval(rt.iv); rt = null; cancelSpeech(); }
   $('#layer-routine').innerHTML = '';
   if (silent) return;
   syncLock(); applyWake();
@@ -3122,44 +3449,47 @@ function renderRoutine() {
   const L = $('#layer-routine');
   if (!rt) { L.innerHTML = ''; return; }
   const n = rt.steps.length;
-  if (rt.done) {
-    L.innerHTML = `<div class="routine" role="dialog" aria-modal="true" aria-labelledby="rt-h"><div class="rt-in">
-      <div class="rt-top"><span class="rt-count">${esc(rt.title)}</span></div>
-      <div class="rt-done"><div class="big" aria-hidden="true">🎉</div><h2 id="rt-h" class="rt-step" style="margin:0">השגרה הושלמה</h2><p class="sub">כל ${n} הצעדים בוצעו. הפעילות סומנה כבוצעה בלו״ז של היום.</p></div>
-      <div class="rt-acts"><button class="btn blue block" data-act="rt-stop">סגירה</button></div></div></div>`;
-    const b = L.querySelector('[data-act="rt-stop"]'); if (b) b.focus({ preventScroll: true });
-    return;
+  const wrap = (h, sel) => { L.innerHTML = `<div class="routine" role="dialog" aria-modal="true" aria-labelledby="rt-h"><div class="rt-in">${h}</div></div>`; const b = sel && L.querySelector(sel); if (b) b.focus({ preventScroll: true }); };
+  if (rt.stage === 'prep') {
+    const tips = [rt.pos ? 'תנוחה: ' + rt.pos : '', rt.note.split('\n')[0]].filter(Boolean);
+    return wrap(`<div class="rt-top"><span class="rt-count">${esc(rt.title)}</span><button class="btn quiet" data-act="rt-stop">סגירה</button></div>
+      <h2 id="rt-h" class="rt-step" style="margin-top:0">לפני שמתחילים</h2>
+      ${tips.length ? `<div class="state-card"><p class="c-label">כדאי לדעת</p>${tips.map(t => `<p>${esc(t)}</p>`).join('')}</div>` : ''}
+      ${prepList()}
+      <p class="sub" style="text-align:center">${n === 1 ? 'צעד אחד' : n + ' צעדים'}, אחד בכל מסך. אפשר לעצור בכל שלב.</p>
+      <div class="rt-acts"><button class="btn blue block" data-act="rt-go" style="min-height:64px;font-size:1.2rem">${IC.play}מתחילים</button>${heVoice ? `<button class="btn block" data-act="rt-sayprep">${IC.volume}להקריא את ההכנה</button>` : ''}</div>`, '[data-act="rt-go"]');
   }
-  if (rt.warn) {
-    L.innerHTML = `<div class="routine" role="dialog" aria-modal="true" aria-labelledby="rt-h"><div class="rt-in">
-      <div class="rt-top"><span class="rt-count">${esc(rt.title)}</span></div>
+  if (rt.stage === 'sum') {
+    const inPlan = state.items.some(x => x.id === rt.id), lg = logLoad().find(x => x.id === rt.log) || {};
+    return wrap(`<div class="rt-top"><span class="rt-count">${esc(rt.title)}</span><button class="btn quiet" data-act="rt-stop">סגירה</button></div>
+      <div class="rt-done"${rt.ex ? ' style="margin-top:0"' : ''}><div class="big" aria-hidden="true">${rt.stopped ? '🌿' : '🎉'}</div><h2 id="rt-h" class="rt-step" style="margin:0" tabindex="-1">${rt.stopped ? 'עצרנו כאן' : 'השגרה הושלמה'}</h2><p class="sub">${rt.stopped ? `הגעת עד צעד ${rt.i + 1} מתוך ${n}. אפשר להמשיך בהמשך.` : (n === 1 ? 'הצעד בוצע.' : `כל ${n} הצעדים בוצעו.`) + (inPlan ? ' הפעילות סומנה כבוצעה בלו״ז של היום.' : '')}</p></div>
+      ${rt.ex ? sumOpts(lg, 'rts-feel', 'rts-res') + calmOffer() : ''}
+      <div class="rt-acts"><button class="btn blue block" data-act="rt-stop">סגירה</button></div>`, rt.ex ? '#rt-h' : '[data-act="rt-stop"]');
+  }
+  if (rt.warn) return wrap(`<div class="rt-top"><span class="rt-count">${esc(rt.title)}</span></div>
       <div class="rt-warn" role="alert"><h2 id="rt-h" class="h2" style="margin:0">עוצרים רגע</h2>
         <p><b>כאב ראש פתאומי וחזק, הסמקה או הזעה בפנים ובצוואר, גודש באף או צמרמורת</b> יכולים להעיד על דיסרפלקסיה אוטונומית. מתיישבים, משחררים בגדים צמודים, בודקים את שלפוחית השתן, מורידים לחץ מהגוף וקוראים מיד לצוות.</p>
         <p><b>סחרחורת, תחושת עילפון או בחילה:</b> נשכבים עם רגליים מורמות עד שזה עובר.</p>
         <p><b>כאב חריג בתנועה:</b> מדלגים על התרגיל ומספרים לצוות.</p></div>
-      <div class="rt-acts"><button class="btn blue block" data-act="rt-stop">לעצור את האימון</button><button class="btn block" data-act="rt-unwarn">חזרה לאימון</button></div></div></div>`;
-    const b = L.querySelector('[data-act="rt-stop"]'); if (b) b.focus({ preventScroll: true });
-    return;
-  }
+      <div class="rt-acts"><button class="btn blue block" data-act="rt-end">לעצור את האימון</button><button class="btn block" data-act="rt-unwarn">חזרה לאימון</button></div>`, '[data-act="rt-end"]');
   const st = rt.steps[rt.i], timed = st.s > 0, reps = timed ? st.r : 1;
   const nextLbl = rt.rep < reps ? 'בוצע, לחזרה הבאה' : rt.i < n - 1 ? 'בוצע, לצעד הבא' : 'בוצע, סיום';
-  L.innerHTML = `<div class="routine" role="dialog" aria-modal="true" aria-labelledby="rt-h"><div class="rt-in">
-    <div class="rt-top"><span class="rt-count">${esc(rt.title)} · צעד ${rt.i + 1} מתוך ${n}</span><button class="btn quiet" data-act="rt-stop">עצירה</button></div>
+  wrap(`<div class="rt-top"><span class="rt-count">${esc(rt.title)} · צעד ${rt.i + 1} מתוך ${n}</span><button class="btn quiet" data-act="rt-end">עצירה</button></div>
     <div class="rt-segs" aria-hidden="true">${rt.steps.map((_, k) => `<span class="${k < rt.i ? 'on' : k === rt.i ? 'cur' : ''}"></span>`).join('')}</div>
     <h2 id="rt-h" class="rt-step${st.t.length > 38 ? ' long' : ''}" aria-live="polite">${esc(st.t)}</h2>
     ${st.d ? `<p class="rt-desc">${esc(st.d)}</p>` : ''}
+    ${heVoice ? `<button class="btn quiet say" data-act="rt-say">${IC.volume}${rt.said === rt.i + ':' + rt.rep ? 'להקריא שוב' : 'להקריא'}</button>` : ''}
     ${reps > 1 ? `<p class="rt-rep">חזרה ${rt.rep} מתוך ${reps}</p>` : ''}
     ${timed ? ring(0, `<b class="tnum" id="rt-time"></b><span id="rt-lbl"></span>`, 'rt-ring', 'rt-ring') : ''}
     <div class="rt-acts">
       <button class="btn blue block" data-act="rt-next">${IC.check}${nextLbl}</button>
-      <div class="rt-row${timed ? '' : ' one'}"><button class="btn" data-act="rt-prev"${rt.i ? '' : ' disabled'}>הצעד הקודם</button>${timed ? `<button class="btn" data-act="rt-pause">${rt.pauseStart ? 'המשך' : 'השהיה'}</button>` : ''}</div>
+      <div class="rt-row${timed ? '' : ' one'}"><button class="btn" data-act="rt-prev"${rt.i ? '' : ' disabled'}>הצעד הקודם</button>${timed ? `<button class="btn" data-act="rt-pause">${rt.pauseStart ? IC.play + 'המשך' : IC.pause + 'השהיה'}</button>` : ''}</div>
       <button class="link warn-link" data-act="rt-warn">לא מרגישים טוב?</button>
-    </div></div></div>`;
+    </div>`, '[data-act="rt-next"]');
   stepRoutine();
-  const b = L.querySelector('[data-act="rt-next"]'); if (b) b.focus({ preventScroll: true });
 }
 function stepRoutine() {
-  if (!rt || rt.done || rt.warn) return;
+  if (!rt || rt.done || rt.warn || rt.stage !== 'run') return;
   const st = rt.steps[rt.i]; if (!(st.s > 0)) return;
   const total = st.s, left = Math.max(0, total - rtElapsed());
   const sec = Math.ceil(left), r = $('#rt-ring');
@@ -3171,6 +3501,174 @@ function stepRoutine() {
     r.classList.toggle('over', left <= 0);
   }
   if (left <= 0 && !rt.chimed) { rt.chimed = true; chime(); buzz(); }
+}
+
+/* ---------- panels: status check, a moment for me, help, postponing, display ---------- */
+let pn = null, lastMove = null;
+const optBtn = (act, v, cur, e, l) => `<button type="button" class="opt" data-act="${act}" data-v="${v}" aria-pressed="${cur === v}">${e ? `<span aria-hidden="true">${e}</span>` : ''}${l}</button>`;
+const bigRow = (act, v, ic, t, sub) => `<li><button class="big-row" data-act="${act}"${v ? ` data-v="${esc(v)}"` : ''}><span class="tr-ic" aria-hidden="true">${ic}</span><span class="tr-main"><span class="tr-t">${t}</span>${sub ? `<span class="tr-s">${sub}</span>` : ''}</span></button></li>`;
+function openPanel(kind, o) { pn = Object.assign({ kind }, o || {}); renderPanel(); }
+function closePanel() {
+  if (pn && pn.kind === 'check' && pn.eid) { const L = checksLoad(), c = L.find(x => x.id === pn.eid); if (c && !c.energy && !c.mood && c.pain == null && !c.ps) ls.set('checks', L.filter(x => x !== c)); }
+  pn = null; renderPanel();
+  if (tab === 'today' && !isTyping()) renderView();
+}
+function renderPanel(keep) {
+  const L = $('#layer-panel'); if (!L) return;
+  syncLock();
+  if (!pn) { L.innerHTML = ''; return; }
+  let restore = null, sc = 0;
+  if (keep) {
+    const a = document.activeElement;
+    if (a && L.contains(a)) restore = a.id ? '#' + a.id : a.dataset.act ? `[data-act="${a.dataset.act}"]` + (a.dataset.v != null ? `[data-v="${a.dataset.v}"]` : '') + (a.dataset.id != null ? `[data-id="${a.dataset.id}"]` : '') : null;
+    const b = L.querySelector('.sheet-body'); if (b) sc = b.scrollTop;
+  }
+  const [title, body] = panelHtml();
+  L.innerHTML = `<div class="scrim" data-act="pn-scrim"><div class="sheet short" role="dialog" aria-modal="true" aria-labelledby="pn-h"><div class="panel-h"><h2 class="h3" id="pn-h" tabindex="-1">${title}</h2><button class="icon-btn" data-act="pn-close" aria-label="סגירה">${IC.x}</button></div><div class="sheet-body">${body}</div></div></div>`;
+  const b = L.querySelector('.sheet-body');
+  if (keep) { if (b) b.scrollTop = sc; const el = restore && L.querySelector(restore); if (el) el.focus({ preventScroll: true }); }
+  else { const h = $('#pn-h'); if (h) h.focus({ preventScroll: true }); }
+}
+function openCheck() {
+  const lc = checksLoad()[0], now = Date.now();
+  openPanel('check', { eid: lc && ymd(new Date(lc.at)) === ymd(new Date()) && now - lc.at < 2 * 3600e3 ? lc.id : '' });
+}
+function chkSet(field, v) {
+  const L = checksLoad(); let c = pn.eid ? L.find(x => x.id === pn.eid) : null;
+  if (!c) { c = { id: uid(), at: Date.now(), energy: '', mood: '', pain: null }; L.unshift(c); pn.eid = c.id; }
+  if (field === 'pain') { if (v === 'skip') { c.pain = null; c.ps = c.ps ? 0 : 1; } else { const n = +v; c.pain = c.pain === n ? null : n; c.ps = 0; } }
+  else c[field] = c[field] === v ? '' : v;
+  ls.set('checks', L.slice(0, 400));
+  renderPanel(true); if (tab === 'today' && !isTyping()) renderView();
+}
+function startItem(id) {
+  const now = new Date(), k = ymd(now), it = dayItems(state, now).find(x => x.id === id); if (!it) return;
+  const m = startedMap(k); if (!m[id]) { m[id] = Date.now(); ls.set('start:' + k, m); }
+  if (it.steps && it.steps.length) { renderView(); startRoutineWith(it); return; }
+  openNow(id); renderView();
+}
+function suggestShift(all, it) {
+  const t0 = toMin(it.time), dur = it.duration || 15, hit = nt => all.some(x => x.id !== it.id && toMin(x.time) < nt + dur && nt < toMin(x.time) + (x.duration || 15));
+  for (const off of [60, 120]) { const nt = t0 + off; if (nt + dur > 21 * 60 + 30) break; if (!hit(nt)) return off; }
+  return t0 + 60 + dur <= 21 * 60 + 30 ? 60 : 'skip';
+}
+function applyMove() {
+  if (!pn || pn.kind !== 'move') return;
+  const it = state.items.find(x => x.id === pn.id); if (!it) { closePanel(); return; }
+  const k = ymd(new Date()), mv0 = ls.get('move:' + k, {}) || {}, sk0 = ls.get('skip:' + k, []) || [];
+  let msg;
+  if (pn.pick === 'skip') { const sk = sk0.slice(); if (!sk.includes(it.id)) sk.push(it.id); ls.set('skip:' + k, sk); msg = `נשמר. ${it.title} לא היום`; }
+  else if (pn.nt != null && pn.nt < 23 * 60) { const mv = Object.assign({}, mv0), t = fromMin(pn.nt); if (t === it.time) delete mv[it.id]; else mv[it.id] = t; ls.set('move:' + k, mv); msg = `נשמר. ${it.title} עבר ל-${t}`; }
+  else return;
+  lastMove = { k, mv: clone(mv0), sk: clone(sk0) };
+  pn = null; renderPanel(); renderView(); if (nowOpen) renderNow();
+  toast(msg, { act: 'undo-move' });
+}
+function applyLowMove() {
+  if (!pn || pn.kind !== 'lowmove' || !pn.plan) return;
+  const now = new Date(), k = ymd(now), mv0 = ls.get('move:' + k, {}) || {}, sk0 = ls.get('skip:' + k, []) || [];
+  const mv = Object.assign({}, mv0), sk = sk0.slice(), cur = dayItems(state, now); let n = 0;
+  for (const [id, p] of Object.entries(pn.plan)) {
+    const it = cur.find(x => x.id === id); if (!it || !p) continue;
+    if (p === 'skip') { if (!sk.includes(id)) sk.push(id); n++; continue; }
+    const t = toMin(it.time) + p; if (t >= 23 * 60) continue;
+    const orig = state.items.find(x => x.id === id);
+    if (orig && fromMin(t) === orig.time) delete mv[id]; else mv[id] = fromMin(t);
+    n++;
+  }
+  lastMove = { k, mv: clone(mv0), sk: clone(sk0) };
+  ls.set('move:' + k, mv); ls.set('skip:' + k, sk);
+  pn = null; renderPanel(); renderView(); if (nowOpen) renderNow();
+  toast(n ? 'נשמר. הלו״ז של היום עודכן' : 'לא היה מה לשנות', n ? { act: 'undo-move' } : null);
+}
+function panelHtml() {
+  const k = pn.kind;
+  if (k === 'check') {
+    const c = pn.eid ? checksLoad().find(x => x.id === pn.eid) || {} : {};
+    return ['איך אתה מרגיש היום?', `<p class="sub">כ-20 שניות, ולא חובה. אפשר לענות רק על חלק.</p>
+      <p class="lbl">אנרגיה</p><div class="opts" role="group" aria-label="אנרגיה">${ENERGY.map(([v, e, l]) => optBtn('chk-e', v, c.energy, e, l)).join('')}</div>
+      <p class="lbl">מצב רגשי</p><div class="opts" role="group" aria-label="מצב רגשי">${FEEL.map(([v, e, l]) => optBtn('chk-m', v, c.mood, e, l)).join('')}</div>
+      <p class="lbl">כאב או אי־נוחות</p><p class="sub sm">0 זה בלי כאב בכלל, 10 זה הכי חזק שיש.</p>
+      <div class="pain" role="group" aria-label="כאב או אי־נוחות, מ-0 עד 10">${Array.from({ length: 11 }, (_, n) => `<button type="button" data-act="chk-p" data-v="${n}" aria-pressed="${c.pain === n}">${n}</button>`).join('')}<button type="button" class="skip" data-act="chk-p" data-v="skip" aria-pressed="${!!c.ps}">דילוג</button></div>
+      ${c.energy === 'low' ? '<p class="sub sm">ביום כזה העמוד הראשי מציג פחות, ומבליט את ההפסקות.</p>' : ''}
+      <div class="pn-foot">${c.at ? `<span class="saved" role="status">${IC.check}נשמר</span>` : '<span></span>'}<button class="btn blue" data-act="pn-close">סיום</button></div>`];
+  }
+  if (k === 'moment') {
+    const rest = IMAGERY.find(x => x.id === 'rest');
+    return ['רגע לעצמי', `<p class="sub">בוחרים דבר אחד. אפשר לעצור בכל רגע.</p><ul class="big-list">
+      ${bigRow('m-go', 'b:long', '🌬️', 'נשיפה ארוכה', 'דקה אחת, בקצב איטי')}
+      ${bigRow('m-go', 'g', '🖐️', 'חמשת החושים', 'חוזרים לכאן ועכשיו')}
+      ${bigRow('m-go', 'i:rest', '🌤️', 'מנוחה קצרה', `דמיון מודרך · כ-${imgMin(rest)} דק׳`)}
+      ${bigRow('m-go', 's:rain', '🌧️', 'צליל גשם ברקע', 'מתנגן עד שעוצרים, או עד סוף הטיימר')}
+      ${bigRow('m-go', 'plan', '🧭', 'התוכנית שלי', 'מה עושים כשקשה, צעד אחרי צעד')}
+    </ul><button class="link" data-act="m-go" data-v="tools" style="align-self:flex-start">כל הכלים להרגעה</button>`];
+  }
+  if (k === 'help') {
+    const it = pn.id ? state.items.find(x => x.id === pn.id) : null, body = !!(it && ['טיפול', 'תרגול'].includes(it.tag));
+    return ['צריך עזרה?', `<ul class="big-list">
+      <li><div class="big-row info"><span class="tr-ic" aria-hidden="true">🔔</span><span class="tr-main"><span class="tr-t">עזרה עכשיו, מאחות או ממטפל</span><span class="tr-s">הדרך הכי מהירה: לחצן הקריאה ליד המיטה.</span></span></div></li>
+      ${bigRow('m-go', 'moment', '🍃', 'אני צריך רגע', 'נשימה, חמשת החושים או צליל רקע')}
+      ${bigRow('m-go', 'plan', '🧭', 'התוכנית שלי', 'מה עושים כשקשה, ולמי אפשר לפנות')}
+      ${bigRow('m-go', 'qs', '💬', 'לרשום שאלה לצוות', 'כדי לא לשכוח לשאול בפגישה הבאה')}
+    </ul>${body ? '<p class="warn-mini">כאב ראש פתאומי וחזק, הזעה או הסמקה בפנים ובצוואר, או קושי לנשום: עוצרים וקוראים מיד לצוות.</p>' : ''}`];
+  }
+  if (k === 'move') {
+    pn.nt = null;
+    const it = state.items.find(x => x.id === pn.id);
+    if (!it) return ['דחייה', '<p class="sub">הפעילות לא נמצאה.</p>'];
+    const now = new Date(), cur = dayItems(state, now).find(x => x.id === it.id) || it, t0 = toMin(cur.time);
+    if (it.fix === 'fixed' && !pn.force) return [`דחייה · ${esc(it.title)}`, `<p>זו פעילות קבועה, ולכן השעה שלה לא זזה. אפשר לקבל תזכורת נוספת:</p>
+      <div class="opts">${[5, 10, 15].map(n => `<button type="button" class="opt" data-act="mv-snooze" data-v="${n}">בעוד ${n} דק׳</button>`).join('')}</div>
+      <button class="link" data-act="mv-force" style="align-self:flex-start">בכל זאת לשנות את השעה להיום</button>`];
+    let pre = '';
+    if (pn.pick === 'skip') pre = `<div class="mv-pre"><p><b>${esc(it.title)}</b> לא יופיע היום, ולא יגיעו עליו תזכורות היום.${it.repeat !== 'date' ? ' מחר הוא חוזר כרגיל.' : ''}</p></div>`;
+    else if (pn.pick != null) {
+      const nt = pn.pick === 'at' ? (isT(pn.at) ? toMin(pn.at) : null) : t0 + pn.pick;
+      if (nt != null && nt >= 23 * 60) pre = `<div class="mv-pre warn"><p>זה כבר מאוחר מדי להיום. אפשר לבחור שעה מוקדמת יותר, או "לא היום".</p></div>`;
+      else if (nt != null) {
+        const ov = overlapsAt(state, now, it.id, nt, it.duration); pn.nt = nt;
+        pre = `<div class="mv-pre${ov.length ? ' warn' : ''}"><p>השעה החדשה להיום: <b class="tnum">${fromMin(nt)}</b>${it.duration ? ` עד <b class="tnum">${fromMin(nt + it.duration)}</b>` : ''}</p>${ov.length ? ov.map(x => `<p class="mv-w">חופף ל${esc(x.title)} (${x.time}${x.duration ? '–' + fromMin(toMin(x.time) + x.duration) : ''})</p>`).join('') : '<p class="sub sm">אין חפיפה עם פעילות אחרת.</p>'}${it.repeat !== 'date' ? '<p class="sub sm">רק להיום. מחר הפעילות חוזרת לשעה הרגילה.</p>' : ''}</div>`;
+      }
+    }
+    const canOk = pn.pick === 'skip' || pn.nt != null;
+    return [`דחייה · ${esc(it.title)}`, `<p class="sub">עכשיו ב-<b class="tnum">${cur.time}</b>. לאן להזיז?</p>
+      <div class="opts two">${[[15, 'רבע שעה אחר כך'], [30, 'חצי שעה אחר כך'], [60, 'שעה אחר כך'], [120, 'שעתיים אחר כך']].map(([n, l]) => `<button type="button" class="opt" data-act="mv-pick" data-v="${n}" aria-pressed="${pn.pick === n}">${l}<small class="tnum">${t0 + n < 1440 ? fromMin(t0 + n) : ''}</small></button>`).join('')}</div>
+      <div class="prop"><label class="prop-l" for="mv-at">${IC.clock}שעה אחרת</label><div class="prop-v"><input type="time" id="mv-at" class="inp" data-mvt="1" value="${pn.pick === 'at' && isT(pn.at) ? pn.at : ''}"></div></div>
+      <button type="button" class="btn${pn.pick === 'skip' ? ' blue' : ''}" data-act="mv-pick" data-v="skip" aria-pressed="${pn.pick === 'skip'}" style="align-self:flex-start">לא היום</button>
+      ${pre}
+      <div class="pn-foot"><button class="btn quiet" data-act="pn-close">ביטול</button><button class="btn blue" data-act="mv-ok"${canOk ? '' : ' disabled'}>אישור</button></div>`];
+  }
+  if (k === 'lowmove') {
+    const now = new Date(), nm = nowMinOf(now), done = ls.get('done:' + ymd(now), []);
+    const all = sortItems(dayItems(state, now).filter(it => it.mode === 'time'));
+    const cand = all.filter(it => !keepOnLow(it) && it.fix === 'flex' && !done.includes(it.id) && toMin(it.time) > nm);
+    const fixedLater = all.filter(it => !keepOnLow(it) && it.fix !== 'flex' && !done.includes(it.id) && toMin(it.time) > nm);
+    const fixedNote = fixedLater.length ? `<p class="sub sm">קבועות, ולכן לא זזות: ${fixedLater.map(x => esc(x.title)).join(', ')}.</p>` : '';
+    if (!cand.length) return ['להזיז פעילויות גמישות', `<p>אין כרגע פעילויות גמישות שאפשר להזיז היום.</p>${fixedNote}<div class="pn-foot"><span></span><button class="btn blue" data-act="pn-close">סגירה</button></div>`];
+    if (!pn.plan) { pn.plan = {}; cand.forEach(it => { pn.plan[it.id] = suggestShift(all, it); }); }
+    const ntOf = x => { const p = pn.plan[x.id]; return p === 'skip' ? null : toMin(x.time) + (+p || 0); };
+    const planned = all.filter(x => pn.plan[x.id] !== 'skip').map(x => pn.plan[x.id] ? Object.assign({}, x, { time: fromMin(ntOf(x)) }) : x);
+    let bad = false, any = false;
+    const rows = cand.map(it => {
+      const p = pn.plan[it.id], t = ntOf(it), dur = it.duration || 15;
+      if (p) any = true;
+      const ov = t == null || !p ? [] : planned.filter(x => x.id !== it.id && toMin(x.time) < t + dur && t < toMin(x.time) + (x.duration || 15));
+      const late = t != null && t >= 23 * 60; if (late) bad = true;
+      return `<li class="mv-row${ov.length || late ? ' warn' : ''}"><div class="mv-t"><span>${esc(it.title)}</span><span class="tnum">${p === 'skip' ? `${it.time} ← לא היום` : p ? `${it.time} ← ${fromMin(t)}` : `${it.time} · נשאר`}</span></div>
+        <div class="seg" role="group" aria-label="${esc(it.title)}">${[[0, 'להשאיר'], [60, 'שעה אחר כך'], [120, 'שעתיים אחר כך'], ['skip', 'לא היום']].map(([v, l]) => `<button type="button" data-act="lm-pick" data-id="${esc(it.id)}" data-v="${v}" aria-pressed="${String(p) === String(v)}">${l}</button>`).join('')}</div>
+        ${ov.map(x => `<p class="mv-w">חופף ל${esc(x.title)} (${x.time})</p>`).join('')}${late ? '<p class="mv-w">זה כבר מאוחר מדי להיום</p>' : ''}</li>`;
+    }).join('');
+    return ['להזיז פעילויות גמישות', `<p class="sub">הצעה לשעות חדשות, כדי שיישאר יותר זמן למנוחה. אפשר לשנות כל שורה לפני האישור.</p>
+      <ul class="mv-list">${rows}</ul>${fixedNote}
+      <p class="sub sm">השינויים רק להיום. מחר הכל חוזר לשעות הרגילות.</p>
+      <div class="pn-foot"><button class="btn quiet" data-act="pn-close">ביטול</button><button class="btn blue" data-act="lm-ok"${any && !bad ? '' : ' disabled'}>לאשר את השינויים</button></div>`];
+  }
+  return ['תצוגה ונוחות', `<div class="props">
+      <div class="prop"><span class="prop-l">${IC.text}גודל טקסט</span><div class="prop-v">${seg('pref-fs', [['', 'רגיל'], ['l', 'גדול'], ['xl', 'גדול מאוד']], prefs.fs)}</div></div>
+      <div class="prop-inline"><span>ניגודיות גבוהה</span>${switchBtn('data-act="pref-hc"', prefs.hc, 'ניגודיות גבוהה במסך')}</div>
+      <div class="prop-inline"><span>פחות תנועה במסך</span>${switchBtn('data-act="pref-rm"', prefs.rm, 'פחות תנועה במסך')}</div>
+      ${heVoice ? `<div class="prop-inline"><span>להקריא את הוראות התרגול</span>${switchBtn('data-act="tts"', prefs.tts, 'להקריא את הוראות התרגול')}</div>` : '<p class="sub sm">הקראה בקול תופיע כאן כשהטלפון מציע קול בעברית.</p>'}
+    </div><p class="sub sm">ההגדרות חלות רק על הטלפון הזה, ונשמרות לבד.</p>`];
 }
 
 /* ---------- render ---------- */
@@ -3195,7 +3693,7 @@ function renderSaveBar() {
 function render() { renderView(); renderNav(); renderSaveBar(); renderSndBar(); renderFab(); }
 function toast(msg, undo) {
   if (IS_APP) msg = String(msg).replace(/\s*לא לשכוח (?:לשמור|ללחוץ "שמירה")\.?/g, '');
-  const t = $('#toast');
+  const t = $('#toast'), sc = $('#savechip'); if (sc) sc.hidden = true;
   if (undo) t.innerHTML = `<span>${esc(msg)}</span><button class="toast-act" data-act="${undo.act}"${undo.id ? ` data-id="${esc(undo.id)}"` : ''}>${undo.label || 'ביטול'}</button>`;
   else t.textContent = msg;
   t.hidden = false;
@@ -3253,7 +3751,7 @@ function onClick(e) {
       const k = 'done:' + today, d = ls.get(k, []), i = d.indexOf(id);
       if (i >= 0) { d.splice(i, 1); ls.set(k, d); renderView(); break; }
       d.push(id); ls.set(k, d); justDone = id; doneTone(); renderView(); justDone = '';
-      const tl = (draft || state).items.filter(it => it.mode === 'time' && activeOn(it, new Date()));
+      const tl = dayItems(draft || state, new Date()).filter(it => it.mode === 'time');
       toast(tl.length && tl.every(it => d.includes(it.id)) ? 'סימנת הכל להיום. כל הכבוד!' : 'סומן שבוצע', { act: 'undo-done', id });
       break;
     }
@@ -3278,7 +3776,7 @@ function onClick(e) {
     case 'qs-copy': { const Q = qsLoad().filter(x => !x.done); copyOut(['שאלות לצוות:'].concat(Q.map((q, i) => `${i + 1}. ${q.t}`)).join('\n'), 'השאלות הועתקו'); break; }
     case 'qs-del': case 'win-del': { const key = a === 'qs-del' ? 'qs' : 'wins', L = key === 'qs' ? qsLoad() : winsLoad(), i = L.findIndex(x => x.id === id); if (i < 0) break; lastDel = { key, item: L[i], i }; L.splice(i, 1); ls.set(key, L); renderView(); toast(key === 'qs' ? 'השאלה נמחקה' : 'ההישג נמחק', { act: 'undo-del' }); break; }
     case 'undo-del': { if (!lastDel) break; const L = lastDel.key === 'qs' ? qsLoad() : winsLoad(); L.splice(Math.min(lastDel.i, L.length), 0, lastDel.item); ls.set(lastDel.key, L); lastDel = null; hideToast(); renderView(); break; }
-    case 'bk-save': (async () => { const txt = backupData(); const dl = await getDownloads(); if (dl) { try { await dl.save({ filename: `luz-backup-${ymd(new Date())}.json`, data: txt }); toast('קובץ הגיבוי נשמר'); return; } catch (e) { if (e && e.code === 'declined') return; } } copyOut(txt, 'הגיבוי הועתק. אפשר להדביק אותו בפתקים ולשמור.'); })(); break;
+    case 'bk-save': (async () => { const txt = backupData(); const dl = await getDownloads(); if (dl) { try { await dl.save({ filename: `luz-backup-${ymd(new Date())}.json`, data: txt }); ls.set('lastBackup', ymd(new Date())); if (tab === 'settings') renderView(); toast('קובץ הגיבוי נשמר'); return; } catch (e) { if (e && e.code === 'declined') return; } } copyOut(txt, 'הגיבוי הועתק. אפשר להדביק אותו בפתקים ולשמור.'); })(); break;
     case 'bk-load': { const f = $('#bk-file'); if (f) f.click(); break; }
     case 'qa-close': closeQa(); break;
     case 'qa-scrim': if (e.target === b) closeQa(); break;
@@ -3307,12 +3805,13 @@ function onClick(e) {
     case 'ed-tpl': {
       const t = TEMPLATES[+v]; if (!t) break;
       Object.assign(ed, { title: t.title, tag: t.tag, mode: t.mode || 'time', err: '' });
+      if (!ed.fixSet) ed.fix = fixDefault(t.tag); if (!ed.essSet) ed.ess = essDefault(t.tag, t.mode || 'time');
       if (t.every) ed.every = t.every; if (t.from) ed.from = t.from; if (t.to) ed.to = t.to;
       if (t.duration) ed.duration = t.duration; if (t.note && !ed.note) ed.note = t.note;
       renderEditor(true); break;
     }
-    case 'ed-tag': ed.tag = v; renderEditor(true); break;
-    case 'ed-mode': ed.mode = v; ed.err = ''; renderEditor(true); break;
+    case 'ed-tag': ed.tag = v; if (!ed.fixSet) ed.fix = fixDefault(v); if (!ed.essSet) ed.ess = essDefault(v, ed.mode); renderEditor(true); break;
+    case 'ed-mode': ed.mode = v; ed.err = ''; if (!ed.essSet) ed.ess = essDefault(ed.tag, v); renderEditor(true); break;
     case 'ed-lead': ed.lead = +v; renderEditor(true); break;
     case 'ed-repeat': ed.repeat = v; ed.err = ''; if (v === 'days' && !ed.days.length) ed.days = [0, 1, 2, 3, 4]; if (v === 'date' && !ed.date) ed.date = today; renderEditor(true); break;
     case 'ed-day': { const n = +v, i = ed.days.indexOf(n); if (i >= 0) ed.days.splice(i, 1); else ed.days.push(n); ed.days.sort((x, y) => x - y); renderEditor(true); break; }
@@ -3323,7 +3822,7 @@ function onClick(e) {
       if (!ed.armDel) { ed.armDel = true; renderEditor(true); break; }
       if (ed.kind === 'journal') { jSave(jLoad().filter(x => x.id !== ed.id)); ed = null; renderEditor(); renderView(); toast('הכתיבה נמחקה'); break; }
       if (ed.kind === 'lib') { ensureDraft(); draft.library = draft.library.filter(x => x.id !== ed.id); ed = null; touch(); renderEditor(); renderView(); toast('הקישור נמחק. לא לשכוח לשמור.'); break; }
-      if (ed.kind === 'prog') { ensureDraft(); draft.program = { title: '', ex: [] }; ed = null; touch(); renderEditor(); renderView(); toast('התרגילים נמחקו. לא לשכוח ללחוץ "שמירה".'); break; }
+      if (ed.kind === 'prog') { ensureDraft(); draft.program = { title: '', ex: [], prep: '' }; ed = null; touch(); renderEditor(); renderView(); toast('התרגילים נמחקו. לא לשכוח ללחוץ "שמירה".'); break; }
       ensureDraft();
       if (ed.kind === 'goal') draft.goals = draft.goals.filter(x => x.id !== ed.id);
       else draft.items = draft.items.filter(x => x.id !== ed.id);
@@ -3348,10 +3847,62 @@ function onClick(e) {
     case 'pxl-add': ed.list.push({ name: '', dose: '', how: '' }); renderEditor(true); { const n = $('#pxn-' + (ed.list.length - 1)); if (n) n.focus({ preventScroll: false }); } break;
     case 'pxl-del': ed.list.splice(+b.dataset.i, 1); if (!ed.list.length) ed.list.push({ name: '', dose: '', how: '' }); renderEditor(true); break;
     case 'pxl-up': { const i = +b.dataset.i; if (i > 0) { const x = ed.list[i]; ed.list[i] = ed.list[i - 1]; ed.list[i - 1] = x; } renderEditor(true); break; }
-    case 'pxp-mark': { if (!cp || cp.kind !== 'px') break; const ex = progEx(), x = ex[cp.i]; if (!x) break; const k = pxKey(new Date()), m = pxMarks(new Date()); if (!PX_LABEL[v]) break; m[x.id] = v; ls.set(k, m); const nx = ex.findIndex((y, j) => j > cp.i && !(y.id in m)); if (nx >= 0) cp.i = nx; else { const any = ex.findIndex(y => !(y.id in m)); if (any >= 0) cp.i = any; else cp.done = true; } renderCalm(); if (tab === 'today' || tab === 'workouts') renderView(); break; }
-    case 'pxp-skip': if (cp && cp.kind === 'px') { if (cp.i < progEx().length - 1) cp.i++; else cp.done = true; renderCalm(); } break;
-    case 'pxp-prev': if (cp && cp.kind === 'px' && cp.i > 0) { cp.i--; cp.done = false; renderCalm(); } break;
-    case 'pxp-warn': if (cp && cp.kind === 'px') { cp.warn = true; renderCalm(); } break;
+    case 'pxp-mark': { if (!cp || cp.kind !== 'px') break; const ex = progEx(), x = ex[cp.i]; if (!x || !PX_LABEL[v]) break; const k = pxKey(new Date()), m = pxMarks(new Date()); m[x.id] = v; ls.set(k, m); pxStopTimer(); if (v === 'p') toast('בוצע חלקית'); const nx = ex.findIndex((y, j) => j > cp.i && !(y.id in m)), any = nx >= 0 ? nx : ex.findIndex(y => !(y.id in m)); if (any >= 0) pxShow(any); else pxSummary(false); if (tab === 'today' || tab === 'workouts') renderView(); break; }
+    case 'pxp-skip': if (cp && cp.kind === 'px') { pxStopTimer(); if (cp.i < progEx().length - 1) pxShow(cp.i + 1); else pxSummary(false); } break;
+    case 'pxp-prev': if (cp && cp.kind === 'px' && cp.i > 0) { pxStopTimer(); pxShow(cp.i - 1); } break;
+    case 'pxp-warn': if (cp && cp.kind === 'px') { pxStopTimer(); cp.warn = true; renderCalm(); } break;
+    case 'pxp-go': if (cp && cp.kind === 'px') pxShow(cp.i); break;
+    case 'pxp-say': pxSay(); break;
+    case 'pxp-sayprep': { const pr = (draft || state).program; sayAll((pr.prep ? [pr.prep] : []).concat(PREP_LINES.map(x => x[1]))); break; }
+    case 'pxp-t': { const tm = cp && cp.tm; if (!tm) break; if (tm.run) { tm.left = Math.max(0, (tm.endAt - Date.now()) / 1000); tm.run = false; } else { if (tm.left <= 0) { tm.left = tm.total; tm.chimed = false; } tm.endAt = Date.now() + tm.left * 1000; tm.run = true; pxEnsureIv(); } renderCalm(); break; }
+    case 'pxp-treset': if (cp && cp.tm) { Object.assign(cp.tm, { left: cp.tm.total, run: false, chimed: false }); renderCalm(); } break;
+    case 'pxp-rest': if (cp && cp.kind === 'px') { pxStopTimer(); cp.stage = 'rest'; cp.restAt = Date.now(); cancelSpeech(); pxEnsureIv(); renderCalm(); } break;
+    case 'pxp-resume': if (cp && cp.kind === 'px') { cp.stage = 'ex'; renderCalm(); } break;
+    case 'pxp-end': if (cp && cp.kind === 'px') pxSummary(true); break;
+    case 'pxs-feel': if (cp && cp.log) { logSet(cp.log, 'feel', v); renderCalm(); } break;
+    case 'pxs-res': if (cp && cp.log) { logSet(cp.log, 'result', v); renderCalm(); } break;
+    case 'pxs-cont': if (cp && cp.kind === 'px') { const m = pxMarks(new Date()), i = progEx().findIndex(x => !m[x.id]); cp.stopped = false; pxShow(i < 0 ? 0 : i); } break;
+    case 'rt-go': if (rt) { rt.stage = 'run'; goStep(0); } break;
+    case 'rt-say': rtSay(); renderRoutine(); break;
+    case 'rt-sayprep': sayAll(PREP_LINES.map(x => x[1])); break;
+    case 'rt-end': { if (!rt) break; if (!rt.ex) { const mid = rt.i > 0; stopRoutine(); if (mid) toast('אפשר להמשיך בהמשך'); break; } if (rt.i === 0 && rt.rep === 1 && rtElapsed() < 5) { stopRoutine(); break; } rtSummary(); break; }
+    case 'rts-feel': if (rt && rt.log) { logSet(rt.log, 'feel', v); renderRoutine(); } break;
+    case 'rts-res': if (rt && rt.log) { logSet(rt.log, 'result', v); renderRoutine(); } break;
+    case 'sum-calm': { if (cp) stopCalm(); if (rt) stopRoutine(); if (v === 'b:long') startBreath(1, 'long'); else calmGo(v); break; }
+    case 'chk-open': openCheck(); break;
+    case 'chk-e': if (pn && pn.kind === 'check') chkSet('energy', v); break;
+    case 'chk-m': if (pn && pn.kind === 'check') chkSet('mood', v); break;
+    case 'chk-p': if (pn && pn.kind === 'check') chkSet('pain', v); break;
+    case 'pn-close': closePanel(); break;
+    case 'pn-scrim': if (e.target === b) closePanel(); break;
+    case 'pn-moment': openPanel('moment'); break;
+    case 'pn-a11y': openPanel('a11y'); break;
+    case 'f-help': openPanel('help', { id }); break;
+    case 'f-move': openPanel('move', { id, pick: null, at: '', force: false }); break;
+    case 'f-start': startItem(id); break;
+    case 'f-rest': { const m = startedMap(today); if (!m[id]) { m[id] = Date.now(); ls.set('start:' + today, m); } renderView(); openPanel('moment'); break; }
+    case 'f-done': { const k = 'done:' + today, d = ls.get(k, []); if (!d.includes(id)) { d.push(id); ls.set(k, d); } doneTone(); renderView(); toast('נשמר. סומן שבוצע', { act: 'undo-done', id }); break; }
+    case 'mv-pick': if (pn && pn.kind === 'move') { pn.pick = v === 'skip' ? 'skip' : +v; renderPanel(true); } break;
+    case 'mv-force': if (pn && pn.kind === 'move') { pn.force = true; renderPanel(); } break;
+    case 'mv-snooze': { const it = pn && state.items.find(x => x.id === pn.id); if (it) { const cur = dayItems(state, new Date()).find(x => x.id === it.id) || it, m = toMin(cur.time); snooze({ key: `i:${it.id}@${m}`, at: m, kind: 'item', item: cur, slot: m }, +v || 5); } closePanel(); toast(`נזכיר שוב בעוד ${+v || 5} דקות`); break; }
+    case 'mv-ok': applyMove(); break;
+    case 'undo-move': if (lastMove) { ls.set('move:' + lastMove.k, lastMove.mv); ls.set('skip:' + lastMove.k, lastMove.sk); lastMove = null; hideToast(); renderView(); if (nowOpen) renderNow(); } break;
+    case 'unskip': { const k = 'skip:' + today; ls.set(k, (ls.get(k, []) || []).filter(x => x !== id)); renderView(); toast('הוחזר ללו״ז של היום'); break; }
+    case 'low-on': ls.set('low:' + today, true); renderView(); try { window.scrollTo(0, 0); } catch (x) {} break;
+    case 'low-off': ls.set('low:' + today, false); renderView(); break;
+    case 'low-move': openPanel('lowmove', { plan: null }); break;
+    case 'lm-pick': if (pn && pn.kind === 'lowmove' && pn.plan) { pn.plan[id] = v === 'skip' ? 'skip' : +v; renderPanel(true); } break;
+    case 'lm-ok': applyLowMove(); break;
+    case 'plan-today': planDay = today; if (nowOpen) closeNow(); go('plan'); break;
+    case 'm-go': { closePanel(); if (v === 'moment') { openPanel('moment'); break; } if (['plan', 'tools', 'qs'].includes(v) && nowOpen) closeNow(); if (v === 'plan') openCalm('plan'); else if (v === 'tools') openCalm('tools'); else if (v === 'qs') go('qs'); else if (v === 'b:long') startBreath(1, 'long'); else calmGo(v); break; }
+    case 'pref-rm': prefs.rm = !prefs.rm; savePrefs(); applyDisplay(); renderView(); if (pn) renderPanel(true); break;
+    case 'undo-save': undoSave(); break;
+    case 'g-half': { const g = (draft || state).goals.find(x => x.id === id); if (!g) break; const k = gKey(g, new Date()), was = ls.get(k, 0) === 0.5; ls.set(k, was ? 0 : 0.5); renderView(); if (!was) toast('בוצע חלקית'); break; }
+    case 'glog-add': { if (!ed || ed.kind !== 'goal') break; const i = $('#glog-in'), t = (i && i.value || '').replace(/\s+/g, ' ').trim(); if (!t) break; ed.log = [{ id: uid(), d: today, t: t.slice(0, 300) }].concat(ed.log || []); renderEditor(true); { const n = $('#glog-in'); if (n) n.focus({ preventScroll: true }); } break; }
+    case 'glog-del': if (ed && ed.log) { ed.log.splice(+b.dataset.i, 1); renderEditor(true); } break;
+    case 'ged-review': ed.review = ed.review === v ? '' : v; renderEditor(true); break;
+    case 'ed-fix': ed.fix = v; ed.fixSet = true; renderEditor(true); break;
+    case 'ed-ess': ed.ess = !(ed.ess != null ? ed.ess : essDefault(ed.tag, ed.mode)); ed.essSet = true; renderEditor(true); break;
     case 'pxp-unwarn': if (cp && cp.kind === 'px') { cp.warn = false; renderCalm(); } break;
     case 'al-week': closeAlert(); pxGoSummary(); break;
     case 'calm-open': openCalm('tools'); break;
@@ -3362,7 +3913,7 @@ function onClick(e) {
     case 'snd-set': if (!v) sndStop(); else if (!snd || snd.id !== v) sndStart(v); renderCalm(); if (tab === 'calm' && !isTyping()) renderView(); break;
     case 'snd-stop': sndStop(); if (tab === 'calm') renderView(); if (cp) renderCalm(); break;
     case 'snd-timer': prefs.sndMin = +v; savePrefs(); if (snd) { snd.endAt = +v ? Date.now() + v * 60000 : 0; if (snd.fading) { snd.fading = false; try { const g = snd.master.gain, t = ac.currentTime; g.cancelScheduledValues(t); g.setValueAtTime(Math.max(0.0001, g.value), t); g.linearRampToValueAtTime(sndLevel(), t + 1); } catch (e) {} } } renderView(); renderSndBar(); break;
-    case 'tts': prefs.tts = !prefs.tts; savePrefs(); if (cp && cp.kind === 'img' && !cp.done) imgShow(); else renderCalm(); break;
+    case 'tts': prefs.tts = !prefs.tts; savePrefs(); if (cp && cp.kind === 'img' && !cp.done) imgShow(); else renderCalm(); if (pn) renderPanel(true); break;
     case 'cp-stop': stopCalm(); break;
     case 'cp-pause': if (!cp || cp.kind !== 'img') break; cp.paused = !cp.paused; if (cp.paused) { clearTimeout(cp.timer); cp.tok++; cancelSpeech(); renderCalm(); } else imgShow(); break;
     case 'cp-next': if (cp && cp.kind === 'img') imgNext(); break;
@@ -3391,14 +3942,14 @@ function onClick(e) {
     case 'j-backup': (async () => { const dl = await getDownloads(); if (dl) { try { await dl.save({ filename: `journal-${ymd(new Date())}.txt`, data: journalText() }); toast('הקובץ נשמר'); return; } catch (e) { if (e && e.code === 'declined') return; } } jCopy = journalText(); renderView(); toast('שמירה כקובץ לא זמינה כאן. אפשר להעתיק את הטקסט.'); })(); break;
     case 'now-open': openNow(); break;
     case 'now-close': closeNow(); break;
-    case 'now-done': { const k = 'done:' + today, d = ls.get(k, []); if (!d.includes(id)) d.push(id); ls.set(k, d); renderNow(); break; }
+    case 'now-done': { const k = 'done:' + today, d = ls.get(k, []); if (!d.includes(id)) d.push(id); ls.set(k, d); if (nowFocus === id) nowFocus = ''; doneTone(); renderNow(); toast('נשמר. סומן שבוצע'); break; }
     case 'now-cup': addCup(1); renderNow(); break;
     case 'rt-start': startRoutine(id); break;
     case 'rt-next': rtNext(); break;
     case 'rt-warn': if (!rt) break; rt.warn = true; if (!rt.pauseStart) rt.pauseStart = Date.now(); renderRoutine(); break;
     case 'rt-unwarn': if (!rt) break; rt.warn = false; if (rt.pauseStart) { rt.paused += Date.now() - rt.pauseStart; rt.pauseStart = 0; } renderRoutine(); break;
     case 'wk-ok': { ensureDraft(); const a = draft.approved, i = a.indexOf(v); if (i >= 0) a.splice(i, 1); else a.push(v); touch(); renderView(); if (i < 0) toast('סומן כמאושר. לא לשכוח לשמור.'); break; }
-    case 'wk-start': { const w = WORKOUTS.find(x => x.id === v); if (w && (draft || state).approved.includes(w.id)) startRoutineWith({ id: 'wk:' + w.id, title: w.title, steps: w.steps }); break; }
+    case 'wk-start': { const w = WORKOUTS.find(x => x.id === v); if (w && (draft || state).approved.includes(w.id)) startRoutineWith({ id: 'wk:' + w.id, title: w.title, steps: w.steps, tag: w.tag, note: w.note, pos: w.pos }); break; }
     case 'wk-add': { const w = WORKOUTS.find(x => x.id === v); if (w && (draft || state).approved.includes(w.id)) openWorkoutEditor(w); break; }
     case 'wk-custom': openEditor(null); ed.tag = 'טיפול'; ed.lead = 5; ed.steps = [{ t: '', d: '', s: 0, r: 1 }]; renderEditor(); { const t = $('#ed-title'); if (t) t.focus({ preventScroll: true }); } break;
     case 'rt-prev': if (rt && rt.i > 0) goStep(rt.i - 1); break;
@@ -3408,8 +3959,8 @@ function onClick(e) {
     case 'step-add': { ed.steps.push({ t: '', d: '', s: 0, r: 1 }); renderEditor(true); const n = $('#step-' + (ed.steps.length - 1)); if (n) n.focus({ preventScroll: false }); break; }
     case 'step-del': ed.steps.splice(+b.dataset.i, 1); renderEditor(true); break;
     case 'step-up': { const i = +b.dataset.i; if (i > 0) { const x = ed.steps[i]; ed.steps[i] = ed.steps[i - 1]; ed.steps[i - 1] = x; } renderEditor(true); break; }
-    case 'pref-fs': prefs.fs = ['l', 'xl'].includes(v) ? v : ''; savePrefs(); applyDisplay(); renderView(); break;
-    case 'pref-hc': prefs.hc = !prefs.hc; savePrefs(); applyDisplay(); renderView(); break;
+    case 'pref-fs': prefs.fs = ['l', 'xl'].includes(v) ? v : ''; savePrefs(); applyDisplay(); renderView(); if (pn) renderPanel(true); break;
+    case 'pref-hc': prefs.hc = !prefs.hc; savePrefs(); applyDisplay(); renderView(); if (pn) renderPanel(true); break;
     case 'pref-autonow': prefs.autoNow = !prefs.autoNow; savePrefs(); renderView(); break;
     case 'push-go': go('settings'); setTimeout(() => { const el = document.getElementById('sec-push'); if (el) el.scrollIntoView({ block: 'start' }); }, 60); break;
     case 'push-on': enablePush(); break;
@@ -3431,6 +3982,7 @@ function onClick(e) {
 function onInput(e) {
   const t = e.target;
   if (t.id === 'qa-in') { qaLive(t.value); return; }
+  if (t.dataset.mvt && pn && pn.kind === 'move') { const v = t.value.slice(0, 5); if (isT(v)) { pn.pick = 'at'; pn.at = v; if (e.type === 'change') renderPanel(true); } return; }
   if (ed && t.dataset.step != null) { const st = ed.steps[+t.dataset.step]; if (st) st.t = t.value; return; }
   if (ed && t.dataset.stepd != null) { const st = ed.steps[+t.dataset.stepd]; if (st) st.d = t.value; return; }
   if (ed && t.dataset.stepsec != null) { const st = ed.steps[+t.dataset.stepsec]; if (st) { const nv = +t.value || 0; if (nv !== st.s) { st.s = nv; if (!nv) st.r = 1; if (e.type === 'change') renderEditor(true); } } return; }
@@ -3441,7 +3993,7 @@ function onInput(e) {
     else if (f === 'note') { ed.note = t.value; autosize(t); }
     else if (f === 'jtext') { ed.text = t.value; autosize(t); if (ed.err) ed.err = ''; }
     else if (f === 'imptext') { ed.imptext = t.value; if (ed.err) ed.err = ''; }
-    else if (f === 'good' || f === 'hard' || f === 'tmrw') { ed[f] = t.value; autosize(t); if (ed.err) ed.err = ''; }
+    else if (f === 'good' || f === 'hard' || f === 'tmrw' || f === 'why' || f === 'prep') { ed[f] = t.value; autosize(t); if (ed.err) ed.err = ''; }
     else if (f === 'duration' || f === 'every') ed[f] = +t.value || 0;
     else if (f === 'time' || f === 'from' || f === 'to') { const v = t.value.slice(0, 5); if (isT(v)) ed[f] = v; }
     else ed[f] = t.value;
@@ -3472,14 +4024,14 @@ function onInput(e) {
 }
 function onKey(e) {
   if (e.key !== 'Escape') return;
-  if (current) closeAlert(); else if (qa) closeQa(); else if (br) stopBreath(); else if (cp) stopCalm(); else if (rt) stopRoutine(); else if (ed) { ed = null; renderEditor(); } else if (nowOpen) closeNow();
+  if (current) closeAlert(); else if (pn) closePanel(); else if (qa) closeQa(); else if (br) stopBreath(); else if (cp) stopCalm(); else if (rt) stopRoutine(); else if (ed) { ed = null; renderEditor(); } else if (nowOpen) closeNow();
 }
 function pruneOld() {
   try {
     const cut = ymd(new Date(Date.now() - 14 * 864e5)), cutLong = ymd(new Date(Date.now() - 70 * 864e5)), del = [];
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i) || '';
-      let m = /^lz:(?:done|water|fired|good|eve|nagoff):(\d{4}-\d\d-\d\d)$/.exec(k);
+      let m = /^lz:(?:done|water|fired|good|eve|nagoff|move|skip|start|low):(\d{4}-\d\d-\d\d)$/.exec(k);
       if (m && m[1] < cut) { del.push(k); continue; }
       m = /^lz:px:(\d{4}-\d\d-\d\d)$/.exec(k);
       if (m && m[1] < ymd(new Date(Date.now() - 120 * 864e5))) { del.push(k); continue; }
@@ -3520,6 +4072,8 @@ function pushData() {
     hasProgram: !!(s.program && s.program.ex.length),
     done: { [today]: ls.get('done:' + today, []) },
     nagoff: { [today]: ls.get('nagoff:' + today, []) },
+    moves: { [today]: ls.get('move:' + today, {}) || {} },
+    skips: { [today]: ls.get('skip:' + today, []) || [] },
     snooze: ls.get('snooze', []).map(x => ({ at: x.at, e: { key: x.e.key, kind: x.e.kind, at: x.e.at, slot: x.e.slot, nag: x.e.nag || 0, item: slimItem(x.e.item) } }))
   };
 }
@@ -3532,7 +4086,7 @@ function queueSync() {
 }
 { // anything that changes which reminders are due goes to the server too
   const set0 = ls.set;
-  ls.set = (k, v) => { set0(k, v); if (/^(done|nagoff):|^(snooze|localState|prefs)$/.test(k)) queueSync(); };
+  ls.set = (k, v) => { set0(k, v); if (/^(done|nagoff|move|skip):|^(snooze|localState|prefs)$/.test(k)) queueSync(); };
 }
 
 async function currentSub() {
@@ -3613,7 +4167,7 @@ function pushBlock() {
 /* ---------- boot ---------- */
 const root = document.getElementById('app');
 try { document.documentElement.setAttribute('lang', 'he'); document.documentElement.setAttribute('dir', 'rtl'); } catch (e) {}
-root.innerHTML = '<main id="view"></main><div id="savebar" class="savebar" role="region" aria-label="שינויים שלא נשמרו" hidden></div><nav id="tabs" class="tabs" aria-label="ניווט"></nav><div id="layer-now"></div><div id="layer-editor"></div><div id="layer-alert"></div><div id="layer-breath"></div><div id="layer-routine"></div><div id="layer-calm"></div><div id="layer-qa"></div><button id="fab" class="fab" data-act="qa-open" aria-label="הוספה מהירה ללו״ז" hidden></button><div id="sndbar" class="sndbar" role="region" aria-label="צליל רקע" hidden></div><div id="toast" class="toast" role="status" aria-live="polite" hidden></div>';
+root.innerHTML = '<main id="view"></main><div id="savebar" class="savebar" role="region" aria-label="שינויים שלא נשמרו" hidden></div><nav id="tabs" class="tabs" aria-label="ניווט"></nav><div id="layer-now"></div><div id="layer-editor"></div><div id="layer-alert"></div><div id="layer-breath"></div><div id="layer-routine"></div><div id="layer-calm"></div><div id="layer-panel"></div><div id="layer-qa"></div><button id="fab" class="fab" data-act="qa-open" aria-label="הוספה מהירה ללו״ז" hidden></button><div id="sndbar" class="sndbar" role="region" aria-label="צליל רקע" hidden></div><div id="savechip" class="savechip" role="status" aria-live="polite" hidden></div><div id="toast" class="toast" role="status" aria-live="polite" hidden></div>';
 root.addEventListener('click', onClick);
 root.addEventListener('input', onInput);
 root.addEventListener('change', onInput);

@@ -62,8 +62,11 @@ function cheerPick(data, day) {
 export function dueEvents(data, day) {
   const out = [];
   const doneL = (data.done && data.done[day.ymd]) || [], off = (data.nagoff && data.nagoff[day.ymd]) || [];
-  for (const it of data.items || []) {
-    if (!activeOn(it, day)) continue;
+  // "Postpone" in the app: a new time for today only, or "not today"
+  const moves = (data.moves && data.moves[day.ymd]) || {}, skips = (data.skips && data.skips[day.ymd]) || [];
+  for (const it0 of data.items || []) {
+    if (!activeOn(it0, day) || skips.includes(it0.id)) continue;
+    const it = it0.mode === 'time' && /^\d\d:\d\d$/.test(moves[it0.id] || '') ? Object.assign({}, it0, { time: moves[it0.id] }) : it0;
     if (it.nag && doneL.includes(it.id)) continue;
     for (const m of slotsOf(it)) out.push({ key: `i:${it.id}@${m}`, at: it.mode === 'time' ? m - (it.lead || 0) : m, kind: 'item', item: it, slot: m });
     if (it.mode === 'time' && it.nag && !off.includes(it.id)) {
