@@ -1,38 +1,39 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#6A5AE0"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icon-180.png"><link rel="icon" href="/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="לו״ז יומי"><meta name="apple-mobile-web-app-status-bar-style" content="default"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#F3F1EE" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icon-180.png"><link rel="icon" href="/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="לו״ז יומי"><meta name="apple-mobile-web-app-status-bar-style" content="default"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>לו״ז יומי</title>
 <style id="app-css">
 :root{
-  /* Layout: a Notion-style page. One reading column of blocks, property rows, database lists; tabs pinned to the bottom */
-  --bg:#F5F4FB;--fg:#26243A;--fg-2:#67647D;--fg-3:#9E9BB2;--line:#E7E5F1;--hover:#EFEDF8;--sheet:#FFFFFF;--bar:#FFFFFF;--card:#FFFFFF;
-  --blue:#6A5AE0;--blue-ink:#5442C9;--on-blue:#FFFFFF;--danger:#C2453D;--ok:#1E8A71;--scrim:rgba(30,26,60,.42);--knob:#FFFFFF;--shadow:rgba(52,44,110,.16);--sh-s:rgba(52,44,110,.07);
-  --hero-a:#6A5AE0;--hero-b:#9A8CF5;
-  --tag-fg:#26243A;
+  /* Look: graphite and orange. Warm off-white pages, a charcoal header, one strong orange for the next action */
+  --bg:#F3F1EE;--fg:#18191B;--fg-2:#56595F;--fg-3:#8D9096;--line:#E3DFD9;--hover:#EBE7E1;--sheet:#FFFFFF;--bar:#FFFFFF;--card:#FFFFFF;
+  --blue:#D2470F;--blue-ink:#B23C0B;--on-blue:#FFFFFF;--danger:#C2362E;--ok:#16825F;--scrim:rgba(20,21,23,.45);--knob:#FFFFFF;--shadow:rgba(24,25,27,.18);--sh-s:rgba(24,25,27,.07);
+  --hero-a:#16181B;--hero-b:#33373E;--hero-line:transparent;--fab-bg:linear-gradient(140deg,#16181B,#33373E);--fab-fg:#FFFFFF;
+  --tag-fg:#18191B;
   --t-grey:#EEEDF3;--t-brown:#F3E8DF;--t-orange:#FFE7D6;--t-yellow:#FFF1C9;--t-green:#DDF3EA;--t-blue:#DDEBFF;--t-purple:#E8E3FF;--t-pink:#FFE1EC;--t-red:#FFE0DC;
-  --c-grey:#F0EFF7;--c-blue:#EDEAFF;--c-yellow:#FFF5E3;--c-green:#E6F6F0;
-  --peach:#FFEDE5;--calm:#E6F6F0;--partial:#F0B44C;
-  --tv-bg:#EDEAFF;--tv:#6A5AE0;--tm-bg:#DFF5EC;--tm:#1E8A71;--tc-bg:#FFE8E1;--tc:#D9603F;--ts-bg:#E1EEFF;--ts:#3D73C9;--ta-bg:#FFF2D6;--ta:#B7801B;--tg-bg:#EEEDF3;--tg:#67647D;
-  --font:"Fredoka","Fredoka Variable",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --c-grey:#EFECE8;--c-blue:#FFEFE6;--c-yellow:#FFF4DF;--c-green:#E3F3EC;
+  --peach:#FFEFE6;--calm:#E3F3EC;--partial:#F0B44C;
+  --tv-bg:#FFE6D8;--tv:#C2410C;--tm-bg:#DCF2E9;--tm:#127A57;--tc-bg:#F2E7DB;--tc:#8A5528;--ts-bg:#E1EAF4;--ts:#2D5F8F;--ta-bg:#FFF0D2;--ta:#A86E00;--tg-bg:#EBE8E3;--tg:#56595F;
+  --font:"IBM Plex Sans Hebrew",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --font-h:"Karantina","IBM Plex Sans Hebrew",system-ui,sans-serif;
   --nav-h:4.1rem;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#14131C;--fg:#ECEAF6;--fg-2:#A9A6BE;--fg-3:#75728A;--line:#2D2B3C;--hover:#262536;--sheet:#1E1D2A;--bar:#1B1A26;--card:#1E1D2A;
-  --blue:#6A5BE2;--blue-ink:#B4AAFF;--on-blue:#FFFFFF;--danger:#F08A80;--ok:#3DBB98;--scrim:rgba(0,0,0,.6);--knob:#F0EEF8;--shadow:rgba(0,0,0,.5);--sh-s:rgba(0,0,0,.28);
-  --hero-a:#4C3FBF;--hero-b:#7666E6;
-  --tag-fg:#ECEAF6;
+  --bg:#111214;--fg:#F0F0EF;--fg-2:#A7AAAF;--fg-3:#72757B;--line:#2A2C30;--hover:#202226;--sheet:#1A1B1E;--bar:#161719;--card:#1A1B1E;
+  --blue:#FF6B26;--blue-ink:#FF8C52;--on-blue:#17181A;--danger:#F0857C;--ok:#3DBB8E;--scrim:rgba(0,0,0,.6);--knob:#F0F0EF;--shadow:rgba(0,0,0,.5);--sh-s:rgba(0,0,0,.3);
+  --hero-a:#1B1D21;--hero-b:#2C2F35;--hero-line:#30333A;--fab-bg:#FF6B26;--fab-fg:#17181A;
+  --tag-fg:#F0F0EF;
   --t-grey:#2E2D3B;--t-brown:#3E332C;--t-orange:#4A3426;--t-yellow:#463C22;--t-green:#203F36;--t-blue:#22334F;--t-purple:#332C55;--t-pink:#46283A;--t-red:#4A2A28;
-  --c-grey:#22212F;--c-blue:#25223F;--c-yellow:#2E2819;--c-green:#1B2C27;
-  --peach:#2C2228;--calm:#1B2C27;--partial:#B58A3C;
-  --tv-bg:#2E2950;--tv:#B4AAFF;--tm-bg:#1C3530;--tm:#6FD6B4;--tc-bg:#3D2722;--tc:#FF9F85;--ts-bg:#1F2F48;--ts:#8DB8FF;--ta-bg:#3A3020;--ta:#F2C266;--tg-bg:#2A2937;--tg:#A9A6BE;
+  --c-grey:#1F2023;--c-blue:#2A1C15;--c-yellow:#2B2617;--c-green:#15261F;
+  --peach:#231A16;--calm:#15261F;--partial:#C9933A;
+  --tv-bg:#3A2216;--tv:#FF8C52;--tm-bg:#15302A;--tm:#5FD3AA;--tc-bg:#33281D;--tc:#E3B27C;--ts-bg:#172839;--ts:#7DB6F0;--ta-bg:#352F19;--ta:#F2C94C;--tg-bg:#24262A;--tg:#A7AAAF;
   color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#14131C;--fg:#ECEAF6;--fg-2:#A9A6BE;--fg-3:#75728A;--line:#2D2B3C;--hover:#262536;--sheet:#1E1D2A;--bar:#1B1A26;--card:#1E1D2A;
-  --blue:#6A5BE2;--blue-ink:#B4AAFF;--on-blue:#FFFFFF;--danger:#F08A80;--ok:#3DBB98;--scrim:rgba(0,0,0,.6);--knob:#F0EEF8;--shadow:rgba(0,0,0,.5);--sh-s:rgba(0,0,0,.28);
-  --hero-a:#4C3FBF;--hero-b:#7666E6;
-  --tag-fg:#ECEAF6;
+  --bg:#111214;--fg:#F0F0EF;--fg-2:#A7AAAF;--fg-3:#72757B;--line:#2A2C30;--hover:#202226;--sheet:#1A1B1E;--bar:#161719;--card:#1A1B1E;
+  --blue:#FF6B26;--blue-ink:#FF8C52;--on-blue:#17181A;--danger:#F0857C;--ok:#3DBB8E;--scrim:rgba(0,0,0,.6);--knob:#F0F0EF;--shadow:rgba(0,0,0,.5);--sh-s:rgba(0,0,0,.3);
+  --hero-a:#1B1D21;--hero-b:#2C2F35;--hero-line:#30333A;--fab-bg:#FF6B26;--fab-fg:#17181A;
+  --tag-fg:#F0F0EF;
   --t-grey:#2E2D3B;--t-brown:#3E332C;--t-orange:#4A3426;--t-yellow:#463C22;--t-green:#203F36;--t-blue:#22334F;--t-purple:#332C55;--t-pink:#46283A;--t-red:#4A2A28;
-  --c-grey:#22212F;--c-blue:#25223F;--c-yellow:#2E2819;--c-green:#1B2C27;
-  --peach:#2C2228;--calm:#1B2C27;--partial:#B58A3C;
-  --tv-bg:#2E2950;--tv:#B4AAFF;--tm-bg:#1C3530;--tm:#6FD6B4;--tc-bg:#3D2722;--tc:#FF9F85;--ts-bg:#1F2F48;--ts:#8DB8FF;--ta-bg:#3A3020;--ta:#F2C266;--tg-bg:#2A2937;--tg:#A9A6BE;
+  --c-grey:#1F2023;--c-blue:#2A1C15;--c-yellow:#2B2617;--c-green:#15261F;
+  --peach:#231A16;--calm:#15261F;--partial:#C9933A;
+  --tv-bg:#3A2216;--tv:#FF8C52;--tm-bg:#15302A;--tm:#5FD3AA;--tc-bg:#33281D;--tc:#E3B27C;--ts-bg:#172839;--ts:#7DB6F0;--ta-bg:#352F19;--ta:#F2C94C;--tg-bg:#24262A;--tg:#A7AAAF;
   color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -251,9 +252,9 @@ details.toggle[open] summary::before{content:"▾"}
 
 html.fs-l{font-size:112.5%}
 html.fs-xl{font-size:125%}
-html.hc{--fg:#14131C;--fg-2:#3A3850;--fg-3:#57556B;--line:#A9A6BE;--blue-ink:#3A2BA8}
-@media (prefers-color-scheme:dark){html.hc:not([data-theme="light"]){--fg:#FFFFFF;--fg-2:#D6D5D1;--fg-3:#B0AFAA;--line:#5C5C5C;--blue-ink:#D2CBFF}}
-html.hc[data-theme="dark"]{--fg:#FFFFFF;--fg-2:#D6D5D1;--fg-3:#B0AFAA;--line:#5C5C5C;--blue-ink:#D2CBFF}
+html.hc{--fg:#0E0F10;--fg-2:#33363B;--fg-3:#55585D;--line:#A9A5A0;--blue:#B23C0B;--blue-ink:#8F300A}
+@media (prefers-color-scheme:dark){html.hc:not([data-theme="light"]){--fg:#FFFFFF;--fg-2:#DADBDD;--fg-3:#B4B6B9;--line:#5C5E62;--blue:#FF8C52;--blue-ink:#FFB08A}}
+html.hc[data-theme="dark"]{--fg:#FFFFFF;--fg-2:#DADBDD;--fg-3:#B4B6B9;--line:#5C5E62;--blue:#FF8C52;--blue-ink:#FFB08A}
 
 .now-btn{align-self:flex-start}
 .rt-mini{color:var(--blue-ink)}
@@ -448,7 +449,7 @@ html.fs-xl .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
 .ti{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:var(--tib);color:var(--tic);flex:none}
 .ti svg{width:27px;height:27px}
 .tile.violet{--tib:var(--tv-bg);--tic:var(--tv)}.tile.mint{--tib:var(--tm-bg);--tic:var(--tm)}.tile.coral{--tib:var(--tc-bg);--tic:var(--tc)}.tile.sky{--tib:var(--ts-bg);--tic:var(--ts)}.tile.amber{--tib:var(--ta-bg);--tic:var(--ta)}.tile.grey{--tib:var(--tg-bg);--tic:var(--tg)}
-.tb{position:absolute;top:8px;inset-inline-start:8px;min-width:22px;padding:1px 7px;border-radius:99px;background:var(--blue);color:#fff;font-size:.74rem;font-weight:600;line-height:1.35rem}
+.tb{position:absolute;top:8px;inset-inline-start:8px;min-width:22px;padding:1px 7px;border-radius:99px;background:var(--blue);color:var(--on-blue);font-size:.74rem;font-weight:600;line-height:1.35rem}
 .fab{position:fixed;z-index:22;inset-inline-end:max(16px,calc(50% - 22rem + 16px));bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 18px);width:58px;height:58px;border-radius:50%;border:0;background:linear-gradient(140deg,var(--hero-a),var(--hero-b));color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px var(--shadow);transition:bottom .2s ease}
 .fab svg{width:28px;height:28px}
 html.has-save .fab{bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 86px)}
@@ -458,7 +459,7 @@ html.has-save .fab{bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 
 .wd-n{font-size:1.08rem;font-weight:600;color:var(--fg);line-height:1.4;display:grid;place-items:center;min-height:1.5rem}
 .wd-n svg{width:18px;height:18px}
 .wd-dots{display:flex;gap:2px;height:5px}.wd-dots i{width:4px;height:4px;border-radius:50%;background:var(--blue);opacity:.6}
-.wd[aria-selected="true"]{background:var(--blue);color:#fff}.wd[aria-selected="true"] .wd-n{color:#fff}.wd[aria-selected="true"] .wd-dots i{background:#fff;opacity:.9}
+.wd[aria-selected="true"]{background:var(--blue);color:var(--on-blue)}.wd[aria-selected="true"] .wd-n{color:var(--on-blue)}.wd[aria-selected="true"] .wd-dots i{background:var(--on-blue);opacity:.9}
 .day-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:.9rem}
 .day-h .h2{margin:0}
 .dayprog{display:flex;flex-direction:column;gap:2px;font-size:.95rem;color:var(--fg-2)}
@@ -661,6 +662,30 @@ html.fs-xl .home-row{grid-template-columns:1fr}
 html.rm *,html.rm *::before,html.rm *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 html.rm .orb.in,html.rm .orb.out{transform:scale(.8)!important}
 html.rm .tile:active{transform:none}
+/* ---------- look: graphite and orange, sporty headlines ---------- */
+.hero{border:1px solid var(--hero-line)}
+.hero .hr-ic{background:var(--blue);color:var(--on-blue)}
+.hr-m{text-wrap:balance}
+.fab{background:var(--fab-bg);color:var(--fab-fg)}
+.btn.blue{font-weight:600}
+.f-acts .btn:first-child{font-weight:700;letter-spacing:.01em}
+.hello,.f-title,.page-title,.h2,.rt-step,.now-title,.now-clock,.rest-big,.gr-num,.wins-sum b,.stat b,.alert h2:not(.al-cheer),.ring-c b,.step-val{font-family:var(--font-h);font-weight:700;letter-spacing:.01em}
+.hello{font-size:clamp(2.5rem,11.5vw,3.1rem);line-height:1}
+.f-title{font-size:2.35rem;line-height:1.02}
+.page-title{font-size:3rem;line-height:1.02}
+.h2{font-size:1.9rem;line-height:1.05}
+.rt-step{font-size:clamp(2.4rem,10.5vw,3.1rem);line-height:1.05}
+.rt-step.long{font-size:clamp(1.9rem,8.5vw,2.4rem)}
+.now-title{font-size:2.4rem;line-height:1.02}
+.now-clock{font-size:clamp(5rem,26vw,7.5rem);letter-spacing:.02em}
+.alert h2:not(.al-cheer){font-size:2.2rem;line-height:1.05}
+.ring-c b{font-size:2.2rem;line-height:1}
+.rt-ring .ring-c b{font-size:3rem}
+.gr-num{font-size:5.5rem}
+.wins-sum b{font-size:2.9rem}
+.stat b{font-size:2.6rem}
+.rest-big{font-size:clamp(4rem,20vw,5.5rem)}
+.step-val{font-size:1.8rem}
 /* messages sit above the bottom bar, clear of the buttons at the top; over full screens they go back to the top */
 .toast{top:auto;bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 88px)}
 html.locked .toast{top:calc(env(safe-area-inset-top,0px) + 12px);bottom:auto}
@@ -675,14 +700,14 @@ html.locked .toast{top:calc(env(safe-area-inset-top,0px) + 12px);bottom:auto}
   .spin{animation-duration:3s}
 }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&display=swap">
 <div id="app" dir="rtl" lang="he"></div>
 <script type="application/json" id="app-state">{"v":3,"updatedAt":1791507732006,"title":"לו״ז יומי","name":"יהונתן","waterGoal":0,"breathMin":1,"showWater":true,"showBreath":true,"cheers":{"on":true,"time":"08:30","lines":["כושר נפשי זאת היכולת לפגוש את עצמך, גם כשהחיים לא מסתדרים כמו שרצית; זה להרגיש רגש, בלי שהוא ינהל אותך; זה להכיר את עצמך מספיק, כדי להבין מה קורה לך.","אם העבר מספיק חי בשביל להטריד אותי היום בהווה, זה אומר שהעבר יכול להשתנות גם בהווה.","חלק מהעניין לחיות את הגרעין שלנו בקודש הקודשים, הוא לעבור תהליכי עומק בחיים שלנו עם המקומות שאיננו סולחים לעצמנו.","אשמה לא מקדמת אותי בכל תהליך התשובה ותהליך ההתקרבות.","מה שמעיב על הרפואה שלי בחיים, זו הפנטזיה של איך הייתי אמור להיות.","אני מבקש לא להאמין לסיפור שאני אבוד, אלא להאמין לסיפור שאני בכיוון ולחזק את עצמי. לחזק את עצמי שאני אוצר. שיש תקנה לנשמה שכמותי.","החיים יותר חזקים מהאג׳נדות.","אני מניח לעצמי ונותן לעצמי לעבור את המעברים שהנפש שלי מבקשת לעבור.","ההווה זה הזמן הכי חזק שיש.","כשאני מצליח לעצור את ההצגה הזו שאני מאמין לה, ואני מגלה שאני לא חלק ממנה, אז אני בגאולה.","לקבל את המקום בו אני מונח זה מה שנקרא להמתיק את הדין בשורשו.","שמחה היא דבר שמגיע מהדברים הקטנים, המובנים מאליהם. זה שיש לי מקרר ויש לי אוכל במקרר, ויש לי מים מהברז, או שיש עליי שמש טובה, ושיש צל נעים, ויש מתיקות כזאתי באוויר.","בין אם השנה אני הולך לשנות את חיי, בין אם אני הולך להישאר במקום בו אני נמצא, אני מחפש איך היום אני בן חורין בתוך החיים שלי עצמי.","אם אני כאן, הכל כאן.","עם כל מה שעברת, גם אם עברו עליך דברים קשים או כואבים, דע לך שאתה עובר מסע נבנה. אם תוכל לקחת את זה למקום הנכון, תוכל להפוך אותו למסע נבנה. כל מה שעברת יהיה לטובתך, יתגייס לטובתך.","הקול בראש שלך לא תמיד אומר את האמת. לפעמים הוא פשוט חוזר על מה ששמע לפני שנים.","המטרה פשוטה. להיות טובים יותר ממה שהייתם אתמול. בכל יום מחדש.","כדי להיות מאושרים עליכם לשחרר שני דברים: הפחד מעתיד רע והזיכרון של עבר כואב.","אין אדם שאין לו מצריים משלו, מדברים שעליו לחצות וימים שעליו לבקוע לשניים, ואין אדם שלא גר בתוכו משה שיכול הוא להוציאו לחופשי.","גם אריה פצוע הוא עדיין… אריה.","אתה מייצר את ההרגלים שלך, הם יוצרים את העתיד שלך.","אולי עכשיו זה נראה לך בגדר חלום, אבל חכה קצת. בסוף זה ישתלם.","השלמה אין פירושה ויתור על הרצון, אלא ויתור על הקצב המוטעה שבו ביקשנו שהדברים יקרו.","מכשולים הם הדברים שאנחנו רואים כשאנחנו מסיטים את העיניים מהמטרות שלנו.","בנקודה שבה אתה חושב שנגמר האור, שם הוא מתחיל מחדש.","בדרך לכל הצלחה יש מדרגות, והן שם כדי לחזק את השרירים שלך, כדי שעד שתגיע למעלה, יהיו לך כלים להחזיק ולהכיל את ההצלחה הזאת.","אני לא דואג. יש השם בעולם והוא יודע בדיוק מה הכי עבורי. מה שנכון לי הוא יתברך מקריב לי, ומה שלא מתאים ונכון לו הוא מרחיק ממני, ואני מקבל באהבה ובשמחה. הטוב בעיני השם יתברך קורה לי, ואין יותר טוב לי מכך.","תאמין שאתה יכול ואתה יכול. אמונה היא אחת מממיסי הבעיות החזקים ביותר. כשאתה מאמין שאפשר להתגבר על קושי, אתה כבר יותר מחצי הדרך לניצחון עליו.","שינוי הפרשנות שלך לעבר שלך הוא לעתים קרובות טוב כמו שינוי העבר שלך.","לפעמים אתה לא צריך להיות יותר, אתה פשוט צריך לזכור כמה אתה כבר.","הכוח שלך גדל ברגעים שאתה חושב שאתה לא יכול להמשיך, אבל אתה ממשיך בכל זאת.","לעולם אל תוותרו על עצמכם!","הדרך המהירה ביותר להגיע למצב חדש ומשופר היא לעשות שלום עם המצב הנוכחי שלך.","האויב הכי גדול שלך, אלה המחשבות השליליות שלך.","לפעמים בחיים אתה צריך פשוט להרים את עצמך ולהמשיך הלאה.","תסתכלו קדימה עם תקווה, ולא אחורה עם חרטה.","המחשבה שלנו על הסיטואציה היא זאת שתקבע איך נרגיש, ואיך שאנחנו מרגישים משפיע על איך שנבחר להתנהג."],"by":["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]},"items":[],"goals":[],"approved":["pressure"],"contentAt":1791529266755}</script>
 <script id="app-js">
 (() => {
 'use strict';
 const TITLE = 'לו״ז יומי';
-const FONT_LINK = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap">';
+const FONT_LINK = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&display=swap">';
 const RESET_FALLBACK = ':root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}';
 
 /* ---------- storage (falls back to memory when the browser blocks it) ---------- */
