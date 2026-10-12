@@ -1,6 +1,6 @@
 // Keeps the app working offline and shows the reminders the server pushes,
 // including when the phone is locked.
-const CACHE = 'luz-v1';
+const CACHE = 'luz-v2';
 const SHELL = ['/', '/manifest.webmanifest', '/icon-180.png', '/icon-192.png', '/icon-512.png'];
 
 self.addEventListener('install', e => {
@@ -13,7 +13,8 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const req = e.request, url = new URL(req.url);
-  if (req.method !== 'GET' || url.pathname.startsWith('/api/')) return;
+  // Sounds stream straight from the server (the browser asks for byte ranges, which a cache copy can't answer)
+  if (req.method !== 'GET' || url.pathname.startsWith('/api/') || url.pathname.startsWith('/sounds/')) return;
   if (req.mode === 'navigate') {
     // The page itself: the newest version when online, the saved one when not.
     e.respondWith(fetch(req).then(res => {

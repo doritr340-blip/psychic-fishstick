@@ -4,7 +4,7 @@
   "name": "psychic-fishstick",
   "main": "worker.js",
   "compatibility_date": "2025-09-01",
-  "assets": { "directory": "./luz-yomi/public", "binding": "ASSETS" },
+  "assets": { "directory": "./luz-yomi/public", "binding": "ASSETS", "run_worker_first": ["/sounds/*"] },
   "durable_objects": {
     "bindings": [
       { "name": "DEVICE", "class_name": "Device" },

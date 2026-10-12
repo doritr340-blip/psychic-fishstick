@@ -17,6 +17,7 @@ export default {
     const m = /^\/api\/d\/([^/]+)\/([a-z]+)$/.exec(url.pathname);
     if (!m) {
       if (url.pathname.startsWith('/api/')) return json({ error: 'not_found' }, 404);
+      if (url.pathname.startsWith('/sounds/')) return soundFile(request, env, url);
       return env.ASSETS.fetch(request);
     }
     if (!ID_RE.test(m[1])) return json({ error: 'bad_device' }, 400);
@@ -24,6 +25,22 @@ export default {
     return stub.fetch(new Request(`https://device/${m[2]}`, { method: request.method, headers: { 'X-Origin': url.origin, 'Content-Type': 'application/json' }, body: request.method === 'POST' ? request.body : undefined }));
   }
 };
+
+/** Calm sounds with byte ranges: Safari on the iPhone only plays audio from a server that answers Range requests. */
+async function soundFile(request, env, url) {
+  const res = await env.ASSETS.fetch(new Request(url.origin + url.pathname));
+  if (!res.ok) return res;
+  const buf = await res.arrayBuffer(), size = buf.byteLength, head = request.method === 'HEAD';
+  const h = { 'Content-Type': res.headers.get('Content-Type') || 'audio/mpeg', 'Accept-Ranges': 'bytes', 'Cache-Control': 'public, max-age=604800' };
+  const etag = res.headers.get('ETag'); if (etag) h.ETag = etag;
+  const r = /^bytes=(\d*)-(\d*)$/.exec(request.headers.get('Range') || '');
+  if (!r || (r[1] === '' && r[2] === '')) return new Response(head ? null : buf, { headers: { ...h, 'Content-Length': String(size) } });
+  let start, end;
+  if (r[1] === '') { start = Math.max(0, size - +r[2]); end = size - 1; }
+  else { start = +r[1]; end = r[2] === '' ? size - 1 : Math.min(+r[2], size - 1); }
+  if (start >= size || start > end) return new Response(null, { status: 416, headers: { ...h, 'Content-Range': `bytes */${size}` } });
+  return new Response(head ? null : buf.slice(start, end + 1), { status: 206, headers: { ...h, 'Content-Range': `bytes ${start}-${end}/${size}`, 'Content-Length': String(end - start + 1) } });
+}
 
 export class Device extends DurableObject {
   async fetch(request) {

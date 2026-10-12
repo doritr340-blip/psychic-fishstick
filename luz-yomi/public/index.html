@@ -1076,7 +1076,7 @@ const PLAN_STEPS = [
   ['reason', '❤️', 'מה הכי חשוב לי', 'אנשים, דברים וחלומות שנותנים לי כוח.']
 ];
 const PLAN_EMPTY = Object.fromEntries(PLAN_STEPS.map(p => [p[0], '']));
-const SOUNDS = [['rain', '🌧️', 'גשם'], ['waves', '🌊', 'גלים'], ['soft', '🌫️', 'רחש רך']];
+const SOUNDS = [['rain', '🌧️', 'גשם'], ['waves', '🌊', 'גלים בים'], ['river', '🏞️', 'נחל זורם'], ['birds', '🐦', 'ציפורים בבוקר'], ['wind', '🌳', 'רוח בעצים'], ['fire', '🔥', 'מדורה'], ['night', '🦗', 'לילה של קיץ'], ['soft', '🌫️', 'רחש רך']];
 const BEATS = [['bb-sleep', '🌙', 'שינה', 'דלתא · 2 הרץ', 2], ['bb-deep', '🍃', 'הרפיה עמוקה', 'תטא · 6 הרץ', 6], ['bb-calm', '🌤️', 'רוגע ערני', 'אלפא · 10 הרץ', 10], ['bb-focus', '🎯', 'ריכוז', 'בטא · 16 הרץ', 16]];
 const SND_NAME = Object.fromEntries(SOUNDS.map(([id, e, n]) => [id, n]).concat(BEATS.map(b => [b[0], 'תדר ' + b[2]])));
 const SND_EMOJI = Object.fromEntries(SOUNDS.map(([id, e]) => [id, e]).concat(BEATS.map(b => [b[0], b[1]])));
@@ -1344,7 +1344,7 @@ const savePrefs = () => ls.set('prefs', prefs);
 /* ---------- ui state ---------- */
 const TABS = ['today', 'plan', 'workouts', 'goals', 'calm', 'settings', 'cheers', 'good', 'library', 'qs', 'wins'];
 let jView = ['journal', 'plan'].includes(ls.get('jview', 'tools')) ? ls.get('jview', 'tools') : 'tools';
-let jShow = 30, jCopy = null, calmState = '', cp = null, snd = null, noiseB = null, heVoice = null, pxCtl = null, sampleP = null, scrollTo = '';
+let jShow = 30, jCopy = null, calmState = '', cp = null, snd = null, heVoice = null, pxCtl = null, sampleP = null, scrollTo = '';
 const wkOpen = new Set();
 let tab = ls.get('tab', 'today') === 'journal' ? 'calm' : TABS.includes(ls.get('tab', 'today')) ? ls.get('tab', 'today') : 'today';
 let qa = null, justDone = '';
@@ -1526,7 +1526,7 @@ function unlockAudio() {
   try {
     const C = window.AudioContext || window.webkitAudioContext; if (!C) return;
     if (!ac) ac = new C();
-    if (ac.state === 'suspended') ac.resume();
+    if (ac.state !== 'running') ac.resume();
     if (!audioReady) { audioReady = true; setTimeout(() => { if (tab === 'today' && !isTyping()) renderView(); }, 250); }
   } catch (e) {}
 }
@@ -2033,11 +2033,11 @@ function toolsHtml() {
     <p class="sub sm">אחרי פגיעה בחוט השדרה קשה יותר לנשום עמוק, ולכן אין כאן עצירות ארוכות. אם מופיעה סחרחורת, חוזרים לנשימה רגילה. מי שקיבל הנחיות נשימה מהצוות, ממשיך לפיהן.</p>`;
   o += `<div class="sec-h" id="sec-img"><h2 class="h2">דמיון מודרך</h2></div>
     <ul class="tool-list">${IMAGERY.map(im => toolRow('i:' + im.id, { emoji: im.emoji, name: im.name, sub: `${im.for} · כ-${imgMin(im)} דק׳` })).join('')}</ul>
-    <p class="sub sm">המשפטים מתחלפים על המסך לאט.${heVoice ? ' אפשר גם להפעיל הקראה בקול, ואז לעצום עיניים.' : ''}</p>`;
+    <p class="sub sm">המשפטים מתחלפים על המסך לאט, וקוראים אותם בקצב שלך. אפשר להוסיף צליל רקע.</p>`;
   o += `<div class="sec-h" id="sec-ground"><h2 class="h2">חוזרים לכאן ועכשיו</h2></div>
     <ul class="tool-list">${toolRow('g', { emoji: '🖐️', name: 'קרקוע בחמשת החושים', sub: 'חמישה דברים שרואים, ארבעה שמרגישים, שלושה צלילים, שני ריחות וטעם אחד' })}</ul>`;
   o += `<div class="sec-h" id="sec-snd"><h2 class="h2">צלילים ותדרים</h2></div>
-    <p class="sub sm">צלילים שקטים לרקע, למנוחה או להירדם. אפשר להשאיר אותם גם בזמן נשימה או דמיון מודרך.</p>
+    <p class="sub sm">הקלטות של גשם, ים, נחל ועוד, לרקע, למנוחה או להירדם. אפשר להשאיר אותן גם בזמן נשימה או דמיון מודרך.</p>
     <div class="snd-grid">${SOUNDS.map(([id, e, n]) => `<button class="snd" data-act="snd" data-v="${id}" aria-pressed="${!!(snd && snd.id === id)}"><span aria-hidden="true">${e}</span>${n}</button>`).join('')}</div>
     ${(state.library || []).some(x => x.cat === 'calm' || x.cat === 'sleep') ? '<button class="link" data-act="go" data-v="library" style="align-self:flex-start">פלייליסטים להירגע ולהירדם, מהספרייה שלי</button>' : ''}
     <p class="lbl">תדרים</p>
@@ -2046,16 +2046,16 @@ function toolsHtml() {
     <p class="sub sm">מה ידוע: מטא־אנליזה של 22 מחקרים מצאה השפעה בינונית על חרדה, ריכוז ותחושת כאב. סקירה של 14 מחקרים מצאה שרק בחלק מהם פעילות המוח באמת הסתנכרנה עם התדר. המטרות כאן לפי גלי המוח שמוכרים מכל מצב: דלתא בשינה עמוקה, תטא בנמנום, אלפא במנוחה ערה ובטא בריכוז. זו לא הבטחה. אם זה נעים, אפשר להשתמש. אם לא, צלילי הרקע עושים עבודה טובה.</p>
     <div class="props">
       <div class="prop"><span class="prop-l">${IC.clock}טיימר</span><div class="prop-v">${seg('snd-timer', SND_TIMERS, +prefs.sndMin)}</div></div>
-      <div class="prop"><label class="prop-l" for="snd-vol">${IC.volume}עוצמה</label><div class="prop-v"><input type="range" id="snd-vol" min="5" max="100" step="5" value="${+prefs.vol || 60}" data-vol="1"></div></div>
+      ${isIos() ? `<div class="prop"><span class="prop-l">${IC.volume}עוצמה</span><div class="prop-v"><p class="sub sm">בכפתורי הצד של הטלפון.</p></div></div>` : `<div class="prop"><label class="prop-l" for="snd-vol">${IC.volume}עוצמה</label><div class="prop-v"><input type="range" id="snd-vol" min="5" max="100" step="5" value="${+prefs.vol || 60}" data-vol="1"></div></div>`}
     </div>
-    ${snd ? `<div class="prop-inline"><span>${SND_EMOJI[snd.id]} ${SND_NAME[snd.id]} · ${snd.endAt ? 'ייכבה ב-' + fromMin(nowMinOf(new Date(snd.endAt))) : 'מתנגן עד שעוצרים'}</span><button class="btn" data-act="snd-stop">עצירה</button></div>` : ''}
-    <p class="sub sm">הצלילים מתנגנים כל עוד העמוד פתוח. באייפון, אם לא שומעים כלום, כדאי לבדוק שמצב השקט כבוי.</p>`;
+    ${snd ? `<div class="prop-inline"><span>${SND_EMOJI[snd.id]} ${SND_NAME[snd.id]} · ${snd.loading ? 'נטען…' : snd.endAt ? 'ייכבה ב-' + fromMin(nowMinOf(new Date(snd.endAt))) : 'מתנגן עד שעוצרים'}</span><button class="btn" data-act="snd-stop">עצירה</button></div>` : ''}
+    <p class="sub sm">בפעם הראשונה כל צליל נטען מהאינטרנט, ולכן הוא מתחיל אחרי שנייה או שתיים. הצלילים מתנגנים גם כשהטלפון על שקט.</p>`;
   o += `<div class="help-box"><h2 class="h3">רוצה לדבר עם מישהו?</h2><p>הכי קרוב: לחצן הקריאה ליד המיטה, או טלפון למישהו קרוב.</p><button class="link" data-act="jv" data-v="plan">התוכנית שלי לרגעים קשים</button></div>`;
   o += `<details class="toggle" data-wk="__csrc"${wkOpen.has('__csrc') ? ' open' : ''}><summary>על מה זה מבוסס</summary><div class="toggle-body src-body">
     <p class="sub sm"><b>נשימות:</b> ב<a href="${CALM_SRC.stanford}" target="_blank" rel="noopener">ניסוי מבוקר של סטנפורד</a> 108 משתתפים תרגלו חמש דקות ביום במשך חודש. כל תרגילי הנשימה שיפרו את מצב הרוח והורידו חרדה, והאנחה המחזורית הובילה בשיפור מצב הרוח. <a href="${CALM_SRC.slow}" target="_blank" rel="noopener">סקירה של 15 מחקרים</a> מצאה שנשימה איטית, פחות מעשר נשימות בדקה, קשורה לתחושת רוגע ונוחות.</p>
     <p class="sub sm"><b>דמיון מודרך:</b> <a href="${CALM_SRC.imagery}" target="_blank" rel="noopener">סקירה של 9 ניסויים</a> במטופלים מאושפזים מצאה ירידה בחרדה ברוב הניסויים, אבל המחקרים קטנים. התרגיל "מקום בטוח" כתוב בהשראת <a href="${CALM_SRC.maccabi}" target="_blank" rel="noopener">ההנחיה של מכבי</a>.</p>
     <p class="sub sm"><b>קרקוע:</b> לפי <a href="${CALM_SRC.nhs}" target="_blank" rel="noopener">NHS inform</a>, תרגילי קרקוע כמו <bdi>5-4-3-2-1</bdi> יכולים לעזור כשחרדה ולחץ מציפים.</p>
-    <p class="sub sm"><b>צלילי רקע:</b> נועדו לנעימות בלבד, בלי הבטחות לריפוי.</p>
+    <p class="sub sm"><b>צלילי רקע:</b> הקלטות אמיתיות מתוך <a href="https://github.com/remvze/moodist" target="_blank" rel="noopener">Moodist</a>, פרויקט קוד פתוח, ברישיון CC0 או ברישיון התוכן של Pixabay. הרחש הרך והתדרים נוצרו כאן. הצלילים נועדו לנעימות בלבד, בלי הבטחות לריפוי.</p>
     <p class="sub sm"><b>תדרים:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/30073406/" target="_blank" rel="noopener">מטא־אנליזה של 22 מחקרים על ביטים בינאורליים</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/37205669/" target="_blank" rel="noopener">סקירה של 14 מחקרים על הסתנכרנות המוח</a>. לתדרים כמו 528 הרץ אין בסיס מחקרי, ולכן הם לא כאן.</p>
     <p class="sub sm">הכלים כאן לא מחליפים טיפול.</p>
   </div></details>`;
@@ -2082,79 +2082,63 @@ const localDownloads = {
 };
 async function getDownloads() { try { const c = window.claude; if (c && typeof c.use === 'function') return await c.use('downloads'); } catch (e) {} return localDownloads; }
 
-/* ---------- background sounds ---------- */
-const sndLevel = () => Math.max(0.05, Math.min(1, (+prefs.vol || 60) / 100)) * 0.9;
-function sndBuf() {
-  if (noiseB && noiseB.sampleRate === ac.sampleRate) return noiseB;
-  const sr = ac.sampleRate, n = sr * 6, b = ac.createBuffer(1, n, sr), d = b.getChannelData(0);
-  for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
-  noiseB = b; return b;
+/* ---------- background sounds: real recordings played as audio files, so they also play when the phone is on silent ---------- */
+const sndLevel = () => Math.max(0.05, Math.min(1, (+prefs.vol || 60) / 100));
+function fadeTo(el, to, ms, done) {
+  clearInterval(el._fade);
+  if (isIos() || !(ms > 0)) { try { el.volume = to; } catch (e) {} if (done) done(); return; } // the iPhone ignores volume set from code
+  const from = el.volume, t0 = Date.now();
+  el._fade = setInterval(() => { const k = Math.min(1, (Date.now() - t0) / ms); try { el.volume = Math.max(0, Math.min(1, from + (to - from) * k)); } catch (e) {} if (k >= 1) { clearInterval(el._fade); if (done) done(); } }, 50);
 }
-function filt(type, f, q) { const x = ac.createBiquadFilter(); x.type = type; x.frequency.value = f; x.Q.value = q; return x; }
+function refreshSnd() { renderSndBar(); if (tab === 'calm' && !isTyping()) renderView(); if (cp) renderCalm(); }
+function mediaMeta(id) {
+  try {
+    if (!('mediaSession' in navigator)) return;
+    const ms = navigator.mediaSession;
+    if (!id) { ms.metadata = null; ms.playbackState = 'none'; return; }
+    if (window.MediaMetadata) ms.metadata = new MediaMetadata({ title: SND_NAME[id], artist: 'לו״ז יומי', artwork: [{ src: '/icon-512.png', sizes: '512x512', type: 'image/png' }] });
+    ms.playbackState = 'playing';
+    const stop = () => { sndStop(); refreshSnd(); };
+    ms.setActionHandler('pause', stop); ms.setActionHandler('stop', stop);
+  } catch (e) {}
+}
 function sndStart(id) {
   if (!SND_NAME[id]) return;
-  unlockAudio();
-  if (!ac) { toast('אין אפשרות להשמיע צליל כאן'); return; }
   sndStop(true);
-  try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
-  try { if (ac.state === 'suspended') ac.resume(); } catch (e) {}
-  const t = ac.currentTime, master = ac.createGain(), nodes = [];
-  master.gain.setValueAtTime(0.0001, t); master.gain.linearRampToValueAtTime(sndLevel(), t + 2.5);
-  master.connect(ac.destination);
-  const chain = (fs, gain) => {
-    const src = ac.createBufferSource(), g = ac.createGain();
-    src.buffer = sndBuf(); src.loop = true; g.gain.value = gain;
-    let prev = src; for (const f of fs) { prev.connect(f); prev = f; }
-    prev.connect(g); g.connect(master); src.start(); nodes.push(src); return g;
-  };
-  let waveG = null, waveF = null;
-  if (id === 'soft') chain([filt('lowpass', 420, 0.5), filt('lowpass', 420, 0.5)], 2.2);
-  else if (id === 'rain') { chain([filt('highpass', 700, 0.4), filt('lowpass', 7000, 0.4)], 0.5); chain([filt('lowpass', 260, 0.5)], 0.9); }
-  else if (id.startsWith('bb-')) {
-    const bb = BEATS.find(x => x[0] === id), mg = ac.createChannelMerger(2);
-    [[200, 0], [200 + bb[4], 1]].forEach(([f, ch]) => { const o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine'; o.frequency.value = f; g.gain.value = 0.14; o.connect(g); g.connect(mg, 0, ch); o.start(); nodes.push(o); });
-    mg.connect(master);
-    chain([filt('lowpass', 380, 0.5), filt('lowpass', 380, 0.5)], 0.9);
-  }
-  else { chain([filt('lowpass', 220, 0.5)], 0.6); waveF = filt('lowpass', 400, 0.6); waveG = chain([waveF], 0.08); }
-  snd = { id, master, nodes, waveG, waveF, nextWave: t + 0.3, endAt: +prefs.sndMin ? Date.now() + prefs.sndMin * 60000 : 0, fading: false, iv: 0 };
-  snd.iv = setInterval(sndTick, 500); sndTick();
+  const a = new Audio(), s = { id, el: a, endAt: +prefs.sndMin ? Date.now() + prefs.sndMin * 60000 : 0, fading: false, iv: 0, loading: true, stopping: false };
+  a.preload = 'auto'; a.loop = true; a.setAttribute('playsinline', '');
+  try { a.volume = isIos() ? 1 : 0; } catch (e) {}
+  a.src = '/sounds/' + id + '.mp3';
+  snd = s;
+  a.addEventListener('playing', () => { if (snd !== s) return; if (s.loading) { s.loading = false; refreshSnd(); } if (!s.fading) fadeTo(a, sndLevel(), 1500); });
+  a.addEventListener('timeupdate', () => { if (snd === s && s.endAt && Date.now() >= s.endAt) { sndStop(); refreshSnd(); } });
+  a.addEventListener('pause', () => { if (snd === s && !s.stopping) { sndStop(true); refreshSnd(); } });
+  a.addEventListener('error', () => { if (snd !== s) return; sndStop(true); refreshSnd(); toast(navigator.onLine === false ? 'אין אינטרנט כרגע, ולכן הצליל לא נטען' : 'הצליל לא נטען. אפשר לנסות שוב.'); });
+  const p = a.play();
+  if (p && p.catch) p.catch(err => { if (snd !== s) return; sndStop(true); refreshSnd(); if (!(err && err.name === 'AbortError')) toast('הצליל לא התחיל. נגיעה נוספת בכפתור תפעיל אותו.'); });
+  mediaMeta(id);
+  s.iv = setInterval(sndTick, 500);
   renderSndBar();
 }
 function sndTick() {
-  if (!snd || !ac) return;
-  const t = ac.currentTime;
-  if (snd.waveG) while (snd.nextWave < t + 3) {
-    const at = Math.max(snd.nextWave, t), per = 7 + Math.random() * 4, rise = per * 0.42, peak = 0.55 + Math.random() * 0.4;
-    snd.waveG.gain.setTargetAtTime(peak, at, rise / 3); snd.waveG.gain.setTargetAtTime(0.06, at + rise, (per - rise) / 3);
-    snd.waveF.frequency.setTargetAtTime(1300, at, rise / 3); snd.waveF.frequency.setTargetAtTime(380, at + rise, (per - rise) / 3);
-    snd.nextWave = at + per;
-  }
-  if (snd.endAt) {
-    const left = snd.endAt - Date.now();
-    if (left <= 25000 && !snd.fading) {
-      snd.fading = true;
-      try { const g = snd.master.gain; g.cancelScheduledValues(t); g.setValueAtTime(Math.max(0.0001, g.value), t); g.linearRampToValueAtTime(0.0001, t + Math.max(1, left / 1000)); } catch (e) {}
-    }
-    if (left <= 0) { sndStop(); if (tab === 'calm' && !isTyping()) renderView(); if (cp) renderCalm(); }
-  }
+  const s = snd; if (!s || !s.endAt) return;
+  const left = s.endAt - Date.now();
+  if (left <= 20000 && !s.fading) { s.fading = true; fadeTo(s.el, 0, Math.max(1000, left)); }
+  if (left <= 0) { sndStop(); refreshSnd(); }
 }
 function sndStop(quick) {
   if (!snd) return;
-  const s = snd; snd = null; clearInterval(s.iv);
-  try {
-    const t = ac.currentTime, g = s.master.gain;
-    g.cancelScheduledValues(t); g.setValueAtTime(Math.max(0.0001, g.value), t); g.linearRampToValueAtTime(0.0001, t + (quick ? 0.15 : 1.2));
-    setTimeout(() => { s.nodes.forEach(n => { try { n.stop(); } catch (e) {} }); try { s.master.disconnect(); } catch (e) {} }, quick ? 250 : 1400);
-  } catch (e) {}
-  if (!quick) { try { if (navigator.audioSession) navigator.audioSession.type = 'auto'; } catch (e) {} }
+  const s = snd; snd = null; s.stopping = true; clearInterval(s.iv);
+  const kill = () => { try { s.el.pause(); s.el.removeAttribute('src'); s.el.load(); } catch (e) {} };
+  if (quick) { clearInterval(s.el._fade); kill(); } else fadeTo(s.el, 0, 1000, kill);
+  mediaMeta('');
   renderSndBar();
 }
 function renderSndBar() {
   const b = $('#sndbar'); if (!b) return;
   if (!snd || (tab === 'calm' && jView === 'tools')) { b.hidden = true; b.innerHTML = ''; return; }
   b.hidden = false; b.classList.toggle('up', dirty);
-  b.innerHTML = `<span aria-hidden="true">${SND_EMOJI[snd.id]}</span><span>${SND_NAME[snd.id]}${snd.endAt ? ' · עד ' + fromMin(nowMinOf(new Date(snd.endAt))) : ''}</span><button class="btn quiet sq" data-act="snd-stop" aria-label="עצירת הצליל">${IC.x}</button>`;
+  b.innerHTML = `<span aria-hidden="true">${SND_EMOJI[snd.id]}</span><span>${SND_NAME[snd.id]}${snd.loading ? ' · נטען…' : snd.endAt ? ' · עד ' + fromMin(nowMinOf(new Date(snd.endAt))) : ''}</span><button class="btn quiet sq" data-act="snd-stop" aria-label="עצירת הצליל">${IC.x}</button>`;
 }
 
 /* ---------- read aloud ---------- */
@@ -2189,7 +2173,6 @@ function imgShow() {
   const line = cp.im.lines[cp.i], tok = cp.tok;
   let moved = false;
   const go = () => { if (moved || !cp || cp.tok !== tok || cp.paused) return; moved = true; imgNext(); };
-  if (line && prefs.tts && heVoice && speak(line, () => setTimeout(go, 2200))) { cp.timer = setTimeout(go, (lineSecs(line) + 10) * 1000); return; }
   cp.timer = setTimeout(go, lineSecs(line) * 1000);
 }
 function imgNext() { if (!cp || cp.kind !== 'img') return; cp.i++; imgShow(); }
@@ -2224,7 +2207,7 @@ function renderCalm() {
         <p id="cp-h" class="cp-line${line ? '' : ' pause'}${anim ? ' anim' : ''}" aria-live="polite">${line ? esc(line) : '· · ·'}</p>
         <div class="rt-acts">
           <div class="rt-row three"><button class="btn" data-act="cp-prev"${cp.i ? '' : ' disabled'}>הקודם</button><button class="btn" data-act="cp-pause">${cp.paused ? 'המשך' : 'השהיה'}</button><button class="btn" data-act="cp-next">הבא</button></div>
-          <div class="cp-opts">${heVoice ? `<div class="prop-inline"><span class="sub sm">הקראה בקול</span>${switchBtn('data-act="tts"', prefs.tts, 'הקראה בקול')}</div>` : ''}${sndSeg()}</div>
+          <div class="cp-opts">${sndSeg()}</div>
         </div>`;
     }
   } else {
@@ -3937,8 +3920,8 @@ function onClick(e) {
     case 'snd': if (snd && snd.id === v) sndStop(); else sndStart(v); renderView(); break;
     case 'snd-set': if (!v) sndStop(); else if (!snd || snd.id !== v) sndStart(v); renderCalm(); if (tab === 'calm' && !isTyping()) renderView(); break;
     case 'snd-stop': sndStop(); if (tab === 'calm') renderView(); if (cp) renderCalm(); break;
-    case 'snd-timer': prefs.sndMin = +v; savePrefs(); if (snd) { snd.endAt = +v ? Date.now() + v * 60000 : 0; if (snd.fading) { snd.fading = false; try { const g = snd.master.gain, t = ac.currentTime; g.cancelScheduledValues(t); g.setValueAtTime(Math.max(0.0001, g.value), t); g.linearRampToValueAtTime(sndLevel(), t + 1); } catch (e) {} } } renderView(); renderSndBar(); break;
-    case 'tts': prefs.tts = !prefs.tts; savePrefs(); if (cp && cp.kind === 'img' && !cp.done) imgShow(); else renderCalm(); if (pn) renderPanel(true); break;
+    case 'snd-timer': prefs.sndMin = +v; savePrefs(); if (snd) { snd.endAt = +v ? Date.now() + v * 60000 : 0; if (snd.fading) { snd.fading = false; fadeTo(snd.el, sndLevel(), 800); } } renderView(); renderSndBar(); break;
+    case 'tts': prefs.tts = !prefs.tts; savePrefs(); if (cp) renderCalm(); if (pn) renderPanel(true); break;
     case 'cp-stop': stopCalm(); break;
     case 'cp-pause': if (!cp || cp.kind !== 'img') break; cp.paused = !cp.paused; if (cp.paused) { clearTimeout(cp.timer); cp.tok++; cancelSpeech(); renderCalm(); } else imgShow(); break;
     case 'cp-next': if (cp && cp.kind === 'img') imgNext(); break;
@@ -4035,7 +4018,7 @@ function onInput(e) {
   if (t.dataset.plan != null) { const P = planLoad(); P[t.dataset.plan] = t.value.slice(0, 3000); ls.set('plan', P); autosize(t); return; }
   if (t.dataset.good != null) { const G = goodList(); G[+t.dataset.good] = t.value.replace(/\n+/g, ' ').slice(0, 200); ls.set('good', G); autosize(t); return; }
   if (t.dataset.by != null) { ensureDraft(); draft.cheers.by[+t.dataset.by] = t.value.slice(0, 40); touch(); return; }
-  if (t.dataset.vol) { prefs.vol = Math.max(5, Math.min(100, +t.value || 60)); savePrefs(); if (snd && !snd.fading && ac) { try { snd.master.gain.cancelScheduledValues(ac.currentTime); snd.master.gain.setTargetAtTime(sndLevel(), ac.currentTime, 0.1); } catch (e) {} } return; }
+  if (t.dataset.vol) { prefs.vol = Math.max(5, Math.min(100, +t.value || 60)); savePrefs(); if (snd && !snd.fading && !snd.loading) fadeTo(snd.el, sndLevel(), 150); return; }
   if (t.dataset.line != null) {
     ensureDraft(); draft.cheers.lines[+t.dataset.line] = t.value.replace(/\n+/g, ' '); autosize(t); touch(); return;
   }
@@ -4199,6 +4182,7 @@ root.addEventListener('change', onInput);
 root.addEventListener('submit', e => { const f = e.target, k = f && f.dataset && f.dataset.form; if (!k) return; e.preventDefault(); if (k === 'qa') qaAdd(); else if (k === 'qs') qsAdd(); else if (k === 'wins') winsAddInput(); });
 root.addEventListener('toggle', e => { const d = e.target; if (!d.matches || !d.matches('details.toggle')) return; if (d.dataset.wk) { if (d.open) wkOpen.add(d.dataset.wk); else wkOpen.delete(d.dataset.wk); } else howOpen = d.open; }, true);
 document.addEventListener('pointerdown', unlockAudio, true);
+document.addEventListener('click', unlockAudio, true);
 document.addEventListener('keydown', onKey);
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { tick(); applyWake(); if (snd && ac) { try { ac.resume(); } catch (e) {} } } });
 applyDisplay();
