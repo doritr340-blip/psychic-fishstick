@@ -15,5 +15,7 @@
     { "tag": "v1", "new_sqlite_classes": ["Device"] },
     { "tag": "v2", "new_sqlite_classes": ["AlertsHub"] }
   ],
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  // Keep variables set in the Cloudflare dashboard (like ADMIN_PASSWORD) across deploys.
+  "keep_vars": true
 }
