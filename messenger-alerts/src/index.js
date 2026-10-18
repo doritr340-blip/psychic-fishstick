@@ -1,13 +1,15 @@
 // Messenger → WhatsApp alerts. Everything lives under /m:
 //   /m/webhook   Meta calls this for new Messenger messages (and WhatsApp delivery statuses)
-//   /m/admin     the management page (password = the ADMIN_PASSWORD secret)
+//   /m/admin     the management page (its password is chosen on the first visit,
+//                or comes from an ADMIN_PASSWORD secret if one is set)
 //   /m/api/...   what the management page calls
 //   /m/privacy   the privacy policy Meta asks for
 // One Durable Object ("hub") keeps the settings, the connected pages and a short log.
 
 import { DurableObject } from 'cloudflare:workers';
 import { graph, messageSnippet, normalizePhone, validSignature, GraphError, TEMPLATE_NAME } from './meta.js';
-import { ADMIN_HTML, PRIVACY_HTML } from './pages.js';
+import { PRIVACY_HTML } from './pages.js';
+import { ADMIN_HTML } from './admin.js';
 
 const REPEAT_WINDOW = 10 * 60e3; // one alert per conversation per 10 minutes
 const LOG_MAX = 80;
@@ -15,6 +17,12 @@ const MAX_BODY = 256 * 1024;
 
 const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
 const html = s => new Response(s, { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Frame-Options': 'DENY' } });
+
+async function passwordHash(password, salt) {
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt, iterations: 100000 }, key, 256);
+  return btoa(String.fromCharCode(...new Uint8Array(bits)));
+}
 
 async function sameSecret(a, b) {
   if (!a || !b) return false;
@@ -44,11 +52,14 @@ export async function handleAlerts(request, env) {
 
   const m = /^\/m\/api\/([a-z-]+)$/.exec(path);
   if (m) {
-    if (!env.ADMIN_PASSWORD) return json({ error: 'no_admin_password' }, 503);
-    if (!(await sameSecret(request.headers.get('X-Admin-Password') || '', env.ADMIN_PASSWORD))) return json({ error: 'unauthorized' }, 401);
+    const open = m[1] === 'auth-status' || m[1] === 'setup', given = request.headers.get('X-Admin-Password') || '';
+    if (!open && env.ADMIN_PASSWORD && !(await sameSecret(given, env.ADMIN_PASSWORD))) return json({ error: 'unauthorized' }, 401);
     const body = request.method === 'POST' ? await request.text() : undefined;
     if (body && body.length > MAX_BODY) return json({ error: 'too_large' }, 413);
-    return hub().fetch(new Request('https://hub/api/' + m[1], { method: request.method, headers: { 'Content-Type': 'application/json', 'X-Origin': url.origin }, body }));
+    // Without an ADMIN_PASSWORD secret, the hub checks the password chosen on the first visit.
+    const headers = { 'Content-Type': 'application/json', 'X-Origin': url.origin, 'X-Env-Password': env.ADMIN_PASSWORD ? '1' : '' };
+    if (!open && !env.ADMIN_PASSWORD) headers['X-Admin-Password'] = given;
+    return hub().fetch(new Request('https://hub/api/' + m[1], { method: request.method, headers, body }));
   }
   return json({ error: 'not_found' }, 404);
 }
@@ -89,6 +100,7 @@ export class AlertsHub extends DurableObject {
   async verify(q) {
     const c = await this.cfg();
     if (q.get('hub.mode') === 'subscribe' && q.get('hub.verify_token') === c.verifyToken) {
+      await this.ctx.storage.put('cfg', { ...c, webhookVerifiedAt: Date.now() });
       await this.log('info', 'Meta אישרה את כתובת ה־Webhook');
       return new Response(q.get('hub.challenge') || '', { headers: { 'Content-Type': 'text/plain' } });
     }
@@ -104,6 +116,7 @@ export class AlertsHub extends DurableObject {
     let body; try { body = JSON.parse(new TextDecoder().decode(raw)); } catch (e) { return new Response('bad json', { status: 400 }); }
 
     if (body.object === 'page') {
+      await this.ctx.storage.put('lastPageEvent', Date.now());
       for (const entry of body.entry || []) for (const ev of entry.messaging || []) await this.onMessage(String(entry.id), ev, c);
     } else if (body.object === 'whatsapp_business_account') {
       for (const entry of body.entry || []) for (const ch of entry.changes || []) {
@@ -144,12 +157,30 @@ export class AlertsHub extends DurableObject {
     const S = this.ctx.storage, c = await this.cfg();
     const body = request.method === 'POST' ? await request.json().catch(() => ({})) : {};
     const origin = request.headers.get('X-Origin') || '';
+    const envPassword = request.headers.get('X-Env-Password') === '1', auth = await S.get('auth');
+
+    if (action === 'auth-status') return json({ needsSetup: !envPassword && !auth });
+    if (action === 'setup') {
+      if (envPassword || auth) return json({ error: 'already_set' }, 409);
+      const pw = String(body.password || '');
+      if (pw.length < 8) return json({ error: 'short_password' }, 400);
+      const salt = crypto.getRandomValues(new Uint8Array(16));
+      await S.put('auth', { salt: btoa(String.fromCharCode(...salt)), hash: await passwordHash(pw, salt) });
+      await this.log('info', 'נבחרה סיסמה לעמוד הניהול');
+      return json({ ok: true });
+    }
+    if (!envPassword) {
+      if (!auth) return json({ error: 'needs_setup' }, 401);
+      const salt = Uint8Array.from(atob(auth.salt), ch => ch.charCodeAt(0));
+      if (!(await sameSecret(await passwordHash(request.headers.get('X-Admin-Password') || '', salt), auth.hash))) return json({ error: 'unauthorized' }, 401);
+    }
 
     if (action === 'state') {
       const pages = await this.pages();
       return json({
         webhookUrl: origin + '/m/webhook', privacyUrl: origin + '/m/privacy', verifyToken: c.verifyToken,
         cfg: { appId: c.appId || '', waPhoneId: c.waPhoneId || '', wabaId: c.wabaId || '', hasAppSecret: !!c.appSecret, hasWaToken: !!c.waToken },
+        progress: { webhookVerifiedAt: c.webhookVerifiedAt || 0, lastPageEvent: (await S.get('lastPageEvent')) || 0, template: (await S.get('tplStatus')) || '' },
         pages: Object.entries(pages).map(([id, p]) => ({ id, name: p.name, numbers: p.numbers, on: p.on, count: p.count || 0, lastAlert: p.lastAlert || 0 })),
         available: ((await S.get('available')) || []).filter(x => !pages[x.id]).map(x => ({ id: x.id, name: x.name })),
         log: (await S.get('log')) || []
@@ -221,6 +252,7 @@ export class AlertsHub extends DurableObject {
       if (!c.waToken || !c.wabaId) return json({ error: 'wa_not_configured' }, 400);
       let t = await this.api.templateStatus(c.wabaId, c.waToken);
       if (!t && body.create) { await this.api.createTemplate(c.wabaId, c.waToken); t = await this.api.templateStatus(c.wabaId, c.waToken); await this.log('info', `התבנית ${TEMPLATE_NAME} נשלחה לאישור של Meta`); }
+      await S.put('tplStatus', t ? t.status : '');
       return json({ ok: true, template: t });
     }
 

@@ -23,10 +23,12 @@
 
 ## הקמה
 
-### שלב 0: סיסמה לעמוד הניהול (ב־Cloudflare)
-1. בפרויקט `psychic-fishstick` נכנסים ל־**Settings**, ואז **Variables and Secrets**.
-2. לוחצים **Add**, בוחרים סוג **Secret**, ובשם כותבים `ADMIN_PASSWORD`.
-3. בשדה הערך כותבים סיסמה חזקה, ולוחצים **Deploy**.
+### שלב 0: סיסמה לעמוד הניהול
+בפעם הראשונה שנכנסים ל־`/m/admin`, העמוד מבקש לבחור סיסמה, ושומר אותה בשרת. אין צורך להגדיר שום דבר ב־Cloudflare.
+
+אם רוצים, אפשר במקום זה להגדיר ב־Cloudflare סוד בשם `ADMIN_PASSWORD`, והוא יקבע את הסיסמה.
+
+מכאן והלאה, עמוד הניהול עצמו מוביל שלב אחר שלב, עם ההוראות על המסך.
 
 ### שלב 1: אפליקציה ב־Meta for Developers
 1. נכנסים ל־[developers.facebook.com/apps](https://developers.facebook.com/apps) ויוצרים אפליקציה חדשה מסוג Business.
