@@ -1,9 +1,9 @@
-// Messenger → WhatsApp alerts. Everything lives under /m:
-//   /m/webhook   Meta calls this for new Messenger messages (and WhatsApp delivery statuses)
-//   /m/admin     the management page (its password is chosen on the first visit,
-//                or comes from an ADMIN_PASSWORD secret if one is set)
-//   /m/api/...   what the management page calls
-//   /m/privacy   the privacy policy Meta asks for
+// Messenger → WhatsApp alerts, as its own Worker:
+//   /          the management page (its password is chosen on the first visit,
+//              or comes from an ADMIN_PASSWORD secret if one is set)
+//   /webhook   Meta calls this for new Messenger messages (and WhatsApp delivery statuses)
+//   /api/...   what the management page calls
+//   /privacy   the privacy policy Meta asks for
 // One Durable Object ("hub") keeps the settings, the connected pages and a short log.
 
 import { DurableObject } from 'cloudflare:workers';
@@ -33,14 +33,16 @@ async function sameSecret(a, b) {
   return d === 0;
 }
 
-export async function handleAlerts(request, env) {
-  const url = new URL(request.url), path = url.pathname.replace(/\/+$/, '') || '/m';
+export default { fetch: (request, env) => handleAlerts(request, env) };
+
+async function handleAlerts(request, env) {
+  const url = new URL(request.url), path = url.pathname.replace(/\/+$/, '') || '/';
   const hub = () => env.ALERTS.get(env.ALERTS.idFromName('hub'));
 
-  if (path === '/m' || path === '/m/admin') return html(ADMIN_HTML);
-  if (path === '/m/privacy') return html(PRIVACY_HTML);
+  if (path === '/' || path === '/admin') return html(ADMIN_HTML);
+  if (path === '/privacy') return html(PRIVACY_HTML);
 
-  if (path === '/m/webhook') {
+  if (path === '/webhook') {
     if (request.method === 'GET') return hub().fetch(new Request('https://hub/verify' + url.search));
     if (request.method === 'POST') {
       const body = await request.arrayBuffer();
@@ -50,7 +52,7 @@ export async function handleAlerts(request, env) {
     return new Response('method', { status: 405 });
   }
 
-  const m = /^\/m\/api\/([a-z-]+)$/.exec(path);
+  const m = /^\/api\/([a-z-]+)$/.exec(path);
   if (m) {
     const open = m[1] === 'auth-status' || m[1] === 'setup', given = request.headers.get('X-Admin-Password') || '';
     if (!open && env.ADMIN_PASSWORD && !(await sameSecret(given, env.ADMIN_PASSWORD))) return json({ error: 'unauthorized' }, 401);
@@ -178,7 +180,7 @@ export class AlertsHub extends DurableObject {
     if (action === 'state') {
       const pages = await this.pages();
       return json({
-        webhookUrl: origin + '/m/webhook', privacyUrl: origin + '/m/privacy', verifyToken: c.verifyToken,
+        webhookUrl: origin + '/webhook', privacyUrl: origin + '/privacy', verifyToken: c.verifyToken,
         cfg: { appId: c.appId || '', waPhoneId: c.waPhoneId || '', wabaId: c.wabaId || '', hasAppSecret: !!c.appSecret, hasWaToken: !!c.waToken },
         progress: { webhookVerifiedAt: c.webhookVerifiedAt || 0, lastPageEvent: (await S.get('lastPageEvent')) || 0, template: (await S.get('tplStatus')) || '' },
         pages: Object.entries(pages).map(([id, p]) => ({ id, name: p.name, numbers: p.numbers, on: p.on, count: p.count || 0, lastAlert: p.lastAlert || 0 })),

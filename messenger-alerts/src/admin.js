@@ -93,7 +93,7 @@ export const ADMIN_HTML = `<!doctype html><html lang="he" dir="rtl"><head><meta 
   let S = null, forced = '';
   const ERR = { unauthorized: 'הסיסמה שגויה', no_numbers: 'צריך לפחות מספר וואטסאפ תקין אחד', unknown_page: 'הדף לא נמצא. כדאי לטעון את הדפים מחדש', missing_token: 'צריך להדביק טוקן', wa_not_configured: 'קודם ממלאים את פרטי הוואטסאפ', short_password: 'הסיסמה קצרה מדי. צריך לפחות 8 תווים', already_set: 'כבר נבחרה סיסמה. אפשר להיכנס איתה', needs_setup: 'צריך לבחור סיסמה' };
   async function api(action, body) {
-    const r = await fetch('/m/api/' + action, { method: body ? 'POST' : 'GET', headers: { 'X-Admin-Password': pw, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+    const r = await fetch('/api/' + action, { method: body ? 'POST' : 'GET', headers: { 'X-Admin-Password': pw, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
     const d = await r.json().catch(() => ({}));
     if (!r.ok) { const e = new Error(ERR[d.error] || d.message || 'משהו השתבש'); e.code = d.error; throw e; }
     return d;
