@@ -44,18 +44,18 @@ a{color:var(--accent-ink)}
 export const PRIVACY_HTML = `<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>מדיניות פרטיות</title><style>${STYLE}</style></head><body><main>
 <h1>מדיניות פרטיות</h1>
 <section class="card">
-<p>השירות שולח לבעלי עסקים התראה בוואטסאפ כשנכנסת הודעה חדשה לדף הפייסבוק העסקי שלהם במסנג׳ר.</p>
+<p>השירות מציג לבעלי עסקים התראה בטלפון כשנכנסת הודעה חדשה לדף הפייסבוק העסקי שלהם במסנג׳ר.</p>
 <h2>איזה מידע עובר בשירות</h2>
-<p>כשמישהו שולח הודעה לדף, השירות מקבל ממטא את תוכן ההודעה, את מזהה השולח בדף ואת שמו. המידע הזה נשלח בהתראה אחת למספרי הוואטסאפ שבעל העסק הגדיר, ולא משמש לשום מטרה אחרת.</p>
+<p>השירות קורא את תיבת ההודעות של הדף בהרשאת מנהלת הדף, ומעביר להתראה את שם הפונה ואת תחילת ההודעה. המידע הזה מוצג רק במכשירים שבעל העסק חיבר בעצמו.</p>
 <h2>מה נשמר</h2>
-<p>השירות לא שומר את תוכן ההודעות. נשמרים רק: שם הדף, מספרי הוואטסאפ לקבלת התראות, מזהה השיחה ושעת ההתראה האחרונה (כדי לא לשלוח כמה התראות על אותה שיחה), ויומן טכני קצר של 80 הרשומות האחרונות.</p>
+<p>נשמרים שם הדף, הרשאת הגישה לתיבת ההודעות, פרטי המכשירים שחוברו להתראות, 30 הפניות האחרונות (שם הפונה, תחילת ההודעה והשעה) ויומן טכני קצר. תוכן מלא של שיחות לא נשמר.</p>
 <h2>שיתוף עם צד שלישי</h2>
-<p>המידע לא נמכר ולא מועבר לאף גורם, מלבד מטא (פייסבוק ו־WhatsApp), שדרכה ההתראות נשלחות.</p>
+<p>המידע לא נמכר ולא מועבר לאף גורם. ההתראות נשלחות דרך שירותי ההתראות של אפל וגוגל, שמקבלים אותן מוצפנות.</p>
 <h2>מחיקת מידע</h2>
-<p>ניתוק הדף מהשירות מוחק את הגדרותיו. לבקשה למחיקת מידע אפשר לפנות לבעלת השירות דרך הדף העסקי שממנו התקבלה ההתראה.</p>
+<p>כיבוי ההתראות במכשיר מוחק את פרטי המכשיר. ניתוק הדף מהשירות מוחק את כל הנתונים שלו. לבקשות נוספות אפשר לפנות למנהלת הדף.</p>
 </section>
 <section class="card ltr" lang="en" dir="ltr">
 <h2>Privacy Policy (English)</h2>
-<p>This service sends business owners a WhatsApp alert when a new Messenger message reaches their Facebook Page. It receives the message text, the sender's page-scoped ID and name from Meta, and forwards them once to the WhatsApp numbers the business configured. Message contents are not stored. The service keeps only the page name, the alert phone numbers, the time of the last alert per conversation (to avoid duplicate alerts) and a short technical log of the last 80 entries. Data is not sold or shared with anyone except Meta, through which alerts are delivered. Disconnecting a page deletes its settings.</p>
+<p>This service shows business owners a phone notification when a new Messenger message reaches their Facebook Page. With the Page admin's permission it reads the Page inbox and forwards the sender's name and the start of the message to the devices the business owner connected. It stores the Page name, the inbox access token, the connected devices, the last 30 inquiries and a short technical log; full conversations are not stored. Data is not sold or shared; notifications travel encrypted through Apple's and Google's push services. Turning notifications off removes the device; disconnecting the Page deletes all of its data.</p>
 </section>
 </main></body></html>`;

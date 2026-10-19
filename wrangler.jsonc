@@ -1,16 +1,22 @@
-// The לו״ז יומי app, deployed from the repository root (the app itself lives in luz-yomi/).
-// The Messenger alerts are a separate Worker with their own config in messenger-alerts/.
+// The Worker Cloudflare deploys from this repository: worker.js routes /m/* to the
+// Messenger alerts (messenger-alerts/) and everything else to the לו״ז יומי app (luz-yomi/).
 {
   "name": "psychic-fishstick",
-  "main": "luz-yomi/src/worker.js",
+  "main": "worker.js",
   "compatibility_date": "2025-09-01",
   "assets": { "directory": "./luz-yomi/public", "binding": "ASSETS", "run_worker_first": ["/sounds/*"] },
-  "durable_objects": { "bindings": [{ "name": "DEVICE", "class_name": "Device" }] },
+  "durable_objects": {
+    "bindings": [
+      { "name": "DEVICE", "class_name": "Device" },
+      { "name": "ALERTS", "class_name": "AlertsHub" }
+    ]
+  },
   "migrations": [
     { "tag": "v1", "new_sqlite_classes": ["Device"] },
     { "tag": "v2", "new_sqlite_classes": ["AlertsHub"] },
-    // The alerts moved to their own Worker (messenger-alerts/), so this one drops the class.
-    { "tag": "v3", "deleted_classes": ["AlertsHub"] }
+    { "tag": "v3", "deleted_classes": ["AlertsHub"] },
+    // The alerts are back in this Worker, rebuilt around reading the Page inbox.
+    { "tag": "v4", "new_sqlite_classes": ["AlertsHub"] }
   ],
   "observability": { "enabled": true },
   // Keep variables set in the Cloudflare dashboard (like ADMIN_PASSWORD) across deploys.
